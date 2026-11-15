@@ -57,7 +57,7 @@ Used directly in the app: **CubeSat 101** (component values, terms, events) and 
 
 Note on dates: Earth imagery replays the most recent 12 months of real MODIS data; the mission calendar (launch windows, light time) uses programme dates from November 2025.
 
-## Use of AI (synthetic intelligence, SI)
+## Use of SI (Super Intelligence tools)
 
 - **Code:** written with SI coding agents (Anthropic Claude Code) under the team's direction and review. The game concept, rules and design were defined by the team (`GAME_DESIGN.md`).
 - **Audio:** mission-control voice lines and sound effects were generated with **ElevenLabs** (voice "Russell Clark", eleven_v4; SFX v2) and processed with ffmpeg. Every mp3 carries an SI acknowledgement in its metadata.

@@ -17,7 +17,7 @@ const manifest = JSON.parse(readFileSync(join(srcDir, 'manifest.json'), 'utf8'))
 const only = process.argv.slice(2)
 const tmp = mkdtempSync(join(tmpdir(), 'audio_build-'))
 
-/** Disclosure tags written into every output mp3 (Space Apps rules: AI-generated media must be marked). */
+/** Disclosure tags written into every output mp3 (Space Apps rules: SI-generated media must be marked). */
 const META = ['-metadata', 'comment=SI-generated with ElevenLabs (Mission Architect, NASA Space Apps 2026)', '-metadata', 'artist=ElevenLabs (SI)']
 
 function ff(args) {

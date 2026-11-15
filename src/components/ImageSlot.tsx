@@ -48,7 +48,7 @@ export interface ImageSlotProps {
   className?: string
   /** CSS object-position of the picture (default centred), e.g. '50% 0%' to keep the top of a cover visible */
   position?: string
-  /** show the visible "SI-generated" chip (true = top right) once the picture is loaded; use for every AI-made picture */
+  /** show the visible "SI-generated" chip (true = top right) once the picture is loaded; use for every SI-made picture */
   aiMark?: boolean | AiMarkCorner
 }
 
