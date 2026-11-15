@@ -4,6 +4,7 @@ import { SFX, type SfxId } from '../audio/audioManifest'
 import { ActionBar, Button, Icon, Modal, PageHeader, Tabs, cx } from '../components'
 import { MISSIONS } from '../data'
 import { fmtGB, getTimeline, phaseOf, type SimState } from '../engine'
+import { demoStartsFast } from '../store/demo'
 import { useGameStore } from '../store/gameStore'
 import { DecisionPanel } from './sim/DecisionPanel'
 import { MissionLog } from './sim/MissionLog'
@@ -41,11 +42,12 @@ function SimulationScreen({ sim }: { sim: SimState }) {
   const report = useGameStore((s) => s.report)
   const simAdvance = useGameStore((s) => s.simAdvance)
   const simDecide = useGameStore((s) => s.simDecide)
+  const team = useGameStore((s) => s.team)
   const simSkipToEnd = useGameStore((s) => s.simSkipToEnd)
   const showReport = useGameStore((s) => s.showReport)
 
   const [paused, setPaused] = useState(false)
-  const [speed, setSpeed] = useState<Speed>('1x')
+  const [speed, setSpeed] = useState<Speed>(() => (demoStartsFast() ? '4x' : '1x'))
   const [confirmSkip, setConfirmSkip] = useState(false)
   // countdown only for a fresh launch (re-entering a running sim continues directly)
   const [countdown, setCountdown] = useState(() =>
@@ -209,7 +211,7 @@ function SimulationScreen({ sim }: { sim: SimState }) {
           {countdown >= 0 && <CountdownOverlay value={countdown} onSkip={skipCountdown} />}
           {deciding && !finished && (
             <div className="absolute inset-x-5 bottom-5 z-10 flex justify-center">
-              <DecisionPanel pending={sim.pending!} onDecide={simDecide} />
+              <DecisionPanel pending={sim.pending!} onDecide={simDecide} team={team} />
             </div>
           )}
           {finished && <EndOverlay sim={sim} report={report} onReport={showReport} />}

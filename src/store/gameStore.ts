@@ -8,13 +8,15 @@ import type { Design, Mission, MissionId, SlotKey } from '../data/types';
 import { emptyDesign, evaluateDesign } from '../engine/budget';
 import type { DesignEvaluation } from '../engine/budget';
 import { newSeed } from '../engine/rng';
+import { canEditKey, createTeam, DESIGN_KEY_OWNER, OVERRIDE_TOKENS } from '../engine/team';
+import type { TeamState } from '../engine/team';
 import { buildReport } from '../engine/scoring';
 import type { MissionReport } from '../engine/scoring';
 import { advance, createSim, decide, isFinished, runToEnd } from '../engine/simulate';
 import type { DecisionPolicy, SimState } from '../engine/simulate';
 import {
-  isMissionUnlocked, loadDraft, loadProgress, loadSaves, MAX_SAVES, recordResult, saveDraft, saveProgress,
-  unlockAllFromUrl, writeSaves,
+  isMissionUnlocked, loadDraft, loadProgress, loadSaves, loadTeam, MAX_SAVES, recordResult, saveDraft, saveProgress,
+  saveTeam, unlockAllFromUrl, writeSaves,
 } from './persistence';
 import type { Progress, SavedDesign } from './persistence';
 
@@ -29,7 +31,9 @@ export interface LaunchResult {
 }
 
 export interface GameState {
-  mode: 'solo';
+  mode: 'solo' | 'team';
+  /** Hot-seat team session (GAME_DESIGN 9); null in solo mode. */
+  team: TeamState | null;
   screen: Screen;
   missionId: MissionId;
   design: Design;
@@ -45,6 +49,18 @@ export interface GameState {
   saves: SavedDesign[];
   unlockAll: boolean;
   lastAutosaveAt: number | null;
+
+  // team mode
+  /** Start (or restart) a team session with 2-4 players; names may be empty. */
+  startTeam: (names: string[]) => void;
+  endTeam: () => void;
+  /** Hand the console to the next player. */
+  passConsole: () => void;
+  setActivePlayer: (index: number) => void;
+  /** Mission Manager spends an Override token; false when none are left. */
+  spendOverride: () => boolean;
+  /** Team mode: may the player at the console change this part of the design? Always true in solo mode. */
+  canEdit: (key: keyof Design) => boolean;
 
   // navigation
   goTo: (screen: Screen) => void;
@@ -94,10 +110,12 @@ function mission(id: MissionId): Mission {
 
 export const useGameStore = create<GameState>()((set, get) => {
   const initialProgress = loadProgress();
+  const initialTeam = loadTeam();
 
-  /** Apply a design change with undo history. */
-  const edit = (fn: (d: Design, m: Mission) => Design | null) => {
+  /** Apply a design change with undo history. `key` = the part being changed (team-mode ownership check). */
+  const edit = (fn: (d: Design, m: Mission) => Design | null, key?: keyof Design) => {
     const st = get();
+    if (key && !canEditKey(st.team, key)) return;
     const next = fn(structuredClone(st.design), mission(st.missionId));
     if (!next) return;
     set({ design: next, past: [...st.past, st.design].slice(-HISTORY_LIMIT), future: [] });
@@ -106,7 +124,7 @@ export const useGameStore = create<GameState>()((set, get) => {
   const finishIfDone = (sim: SimState) => {
     if (!isFinished(sim)) return {};
     const st = get();
-    const report = buildReport(sim, mission(sim.missionId), st.mode === 'solo' ? 'solo' : 'team');
+    const report = buildReport(sim, mission(sim.missionId), st.team ? 'team' : 'solo', st.team);
     const before = st.progress;
     const progress = recordResult(before, report);
     saveProgress(progress);
@@ -121,7 +139,8 @@ export const useGameStore = create<GameState>()((set, get) => {
   };
 
   return {
-    mode: 'solo',
+    mode: initialTeam ? 'team' : 'solo',
+    team: initialTeam,
     screen: 'menu',
     missionId: 'earth',
     design: emptyDesign(mission('earth')),
@@ -136,6 +155,29 @@ export const useGameStore = create<GameState>()((set, get) => {
     unlockAll: unlockAllFromUrl(),
     lastAutosaveAt: null,
 
+    startTeam: (names) => {
+      const team = createTeam(names.length >= 2 ? names : ['', '']);
+      set({ team, mode: 'team' });
+    },
+    endTeam: () => set({ team: null, mode: 'solo' }),
+    passConsole: () => {
+      const t = get().team;
+      if (!t) return;
+      set({ team: { ...t, active: (t.active + 1) % t.players.length } });
+    },
+    setActivePlayer: (index) => {
+      const t = get().team;
+      if (!t || index < 0 || index >= t.players.length || index === t.active) return;
+      set({ team: { ...t, active: index } });
+    },
+    spendOverride: () => {
+      const t = get().team;
+      if (!t || t.overridesUsed >= OVERRIDE_TOKENS) return false;
+      set({ team: { ...t, overridesUsed: t.overridesUsed + 1 } });
+      return true;
+    },
+    canEdit: (key) => canEditKey(get().team, key),
+
     goTo: (screen) => set({ screen }),
     selectMission: (id) => {
       if (!get().isUnlocked(id)) return;
@@ -144,7 +186,8 @@ export const useGameStore = create<GameState>()((set, get) => {
     },
     startDesign: () => {
       const id = get().missionId;
-      set({ design: emptyDesign(mission(id)), past: [], future: [], sim: null, report: null, seed: newSeed(), screen: 'builder' });
+      const t = get().team;
+      set({ design: emptyDesign(mission(id)), past: [], future: [], sim: null, report: null, seed: newSeed(), screen: 'builder', ...(t ? { team: { ...t, overridesUsed: 0, active: 0 } } : {}) });
     },
     hasDraft: () => !!loadDraft(),
     continueDraft: () => {
@@ -162,24 +205,24 @@ export const useGameStore = create<GameState>()((set, get) => {
         d.instruments = [...d.instruments, id];
       }
       return d;
-    }),
+    }, 'instruments'),
     setComponent: (key, id) => edit((d) => {
       if (d[key] === id) return null;
       d[key] = id;
       return d;
-    }),
+    }, key),
     toggleComponent: (key, id) => edit((d) => {
       d[key] = d[key] === id ? null : id;
       return d;
-    }),
-    setBurnWire: (on) => edit((d) => (d.burnWire === on ? null : { ...d, burnWire: on })),
+    }, key),
+    setBurnWire: (on) => edit((d) => (d.burnWire === on ? null : { ...d, burnWire: on }), 'burnWire'),
     setOrbit: (id) => edit((d, m) => {
       const o = m.orbits.find((x) => x.id === id);
       if (!o || !o.available || d.orbit === id) return null;
       d.orbit = id;
       return d;
-    }),
-    setLauncher: (id) => edit((d) => (d.launcher === id ? null : { ...d, launcher: id })),
+    }, 'orbit'),
+    setLauncher: (id) => edit((d) => (d.launcher === id ? null : { ...d, launcher: id }), 'launcher'),
     toggleStation: (id) => edit((d, m) => {
       if (d.stations.includes(id)) d.stations = d.stations.filter((x) => x !== id);
       else {
@@ -187,8 +230,8 @@ export const useGameStore = create<GameState>()((set, get) => {
         d.stations = [...d.stations, id];
       }
       return d;
-    }),
-    setTest: (id) => edit((d) => (d.test === id ? null : { ...d, test: id })),
+    }, 'stations'),
+    setTest: (id) => edit((d) => (d.test === id ? null : { ...d, test: id }), 'test'),
     undo: () => {
       const st = get();
       if (!st.past.length) return;
@@ -199,7 +242,15 @@ export const useGameStore = create<GameState>()((set, get) => {
       if (!st.future.length) return;
       set({ design: st.future[0], future: st.future.slice(1), past: [...st.past, st.design] });
     },
-    resetDesign: () => edit((_d, m) => emptyDesign(m)),
+    resetDesign: () => edit((d, m) => {
+      const fresh = emptyDesign(m);
+      const t = get().team;
+      if (!t) return fresh;
+      // team mode: a player only resets the parts they own
+      const out: Record<string, unknown> = { ...d };
+      for (const k of Object.keys(DESIGN_KEY_OWNER) as (keyof Design)[]) if (canEditKey(t, k)) out[k] = fresh[k];
+      return JSON.stringify(out) === JSON.stringify(d) ? null : (out as unknown as Design);
+    }),
 
     launch: (opts = {}) => {
       const st = get();
@@ -232,7 +283,10 @@ export const useGameStore = create<GameState>()((set, get) => {
     showReport: () => {
       if (get().report) set({ screen: 'report' });
     },
-    redesign: () => set({ seed: newSeed(), sim: null, screen: 'builder' }),
+    redesign: () => {
+      const t = get().team;
+      set({ seed: newSeed(), sim: null, screen: 'builder', ...(t ? { team: { ...t, overridesUsed: 0, active: 0 } } : {}) });
+    },
 
     saveCurrentDesign: (name) => {
       const st = get();
@@ -270,9 +324,14 @@ export const useGameStore = create<GameState>()((set, get) => {
 useGameStore.subscribe((state, prev) => {
   if (state.design === prev.design && state.missionId === prev.missionId) return;
   if (state.screen === 'menu') return;
-  if (saveDraft({ missionId: state.missionId, design: state.design, savedAt: Date.now() })) {
+  if (saveDraft({ missionId: state.missionId, design: state.design, savedAt: Date.now(), team: state.team })) {
     useGameStore.setState({ lastAutosaveAt: Date.now() });
   }
+});
+
+// Persist the team session (ma_team) whenever it changes.
+useGameStore.subscribe((state, prev) => {
+  if (state.team !== prev.team) saveTeam(state.team);
 });
 
 // ---------------------------------------------------------------------------

@@ -1,5 +1,6 @@
-import { Icon, Panel, Term } from '../../components'
-import type { MissionReport, ScoreCategoryId } from '../../engine'
+import { cx, Icon, Panel, Term } from '../../components'
+import type { MissionReport, ScoreCategoryId, TeamReport } from '../../engine'
+import { playerRoleLabel } from '../../engine'
 
 const BAR: Record<ScoreCategoryId, string> = {
   science: 'bg-mint',
@@ -13,6 +14,40 @@ function rating(total: number): { title: string; hint: string } {
   if (total >= 65) return { title: 'Strong mission', hint: 'Room to improve.' }
   if (total >= 40) return { title: 'Promising', hint: 'Keep iterating.' }
   return { title: 'Back to the drawing board', hint: 'Read the lessons and try again.' }
+}
+
+/** Team mode: per-role goal checklist (replaces the assessment block). */
+function TeamGoals({ team }: { team: TeamReport }) {
+  return (
+    <div className="mt-auto border-t border-hairline pt-2.5">
+      <div className="flex items-baseline justify-between text-sm text-text-dim">
+        <span>Team goals</span>
+        {team.teamwork.overrides > 0 && (
+          <span>
+            {team.teamwork.overrides} override{team.teamwork.overrides > 1 ? 's' : ''} used
+          </span>
+        )}
+      </div>
+      <ul className="mt-1 flex flex-col gap-0.5">
+        {team.players.map((p, i) => {
+          const checks = p.roles.flatMap((r) => team.goals[r].checks)
+          const missed = checks.filter((c) => !c.ok)
+          return (
+            <li key={i} className="flex items-center gap-2 text-sm leading-snug" title={checks.map((c) => `${c.label} ${c.value}`).join(' · ')}>
+              <Icon name={p.met ? 'check' : 'cross'} size={16} className={cx('shrink-0', p.met ? 'text-mint' : 'text-text-faint')} />
+              <span className="min-w-0 truncate text-text">
+                {playerRoleLabel(p, true)}
+                {p.name && <span className="text-text-dim"> · {p.name}</span>}
+              </span>
+              <span className={cx('ml-auto max-w-[58%] shrink-0 truncate text-xs', p.met ? 'text-text-dim' : 'text-amber')}>
+                {p.met ? 'Goal met' : missed.map((c) => `${c.label} ${c.value}`).join(', ')}
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
 }
 
 /** Four category bars, the overrun penalty and the overall assessment. */
@@ -70,7 +105,9 @@ export function ScorePanel({ report }: { report: MissionReport }) {
         </div>
       )}
 
-      {penalty > 0 ? (
+      {report.team ? (
+        <TeamGoals team={report.team} />
+      ) : penalty > 0 ? (
         // compact one-row assessment so the overrun card never pushes it out of the panel at 1672x941
         <div className="mt-auto flex items-baseline gap-2 border-t border-hairline pt-2.5">
           <span className="text-sm text-text-dim">Assessment</span>

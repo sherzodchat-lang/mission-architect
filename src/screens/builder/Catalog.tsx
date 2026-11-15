@@ -20,11 +20,14 @@ interface CatalogProps {
   design: Design
   tab: CategoryId
   onTab: (id: CategoryId) => void
+  /** Team mode: hint for a tab the player at the console does not control ("Systems Engineer controls Power"). */
+  lockHint?: (id: CategoryId) => string | null
 }
 
 /** Left column (03 "Components"): search, segmented tabs with a More menu, component cards, selection footer. */
-export function Catalog({ mission, design, tab, onTab }: CatalogProps) {
+export function Catalog({ mission, design, tab, onTab, lockHint }: CatalogProps) {
   const cat = mission.categories.find((c) => c.id === tab) ?? mission.categories[0]
+  const locked = lockHint ? lockHint(cat.id) : null
   const [query, setQuery] = useState('')
   const q = query.trim().toLowerCase()
   const listRef = useRef<HTMLDivElement>(null)
@@ -69,12 +72,19 @@ export function Catalog({ mission, design, tab, onTab }: CatalogProps) {
             </button>
           )}
         </label>
-        <CategoryTabs mission={mission} design={design} active={cat.id} muted={!!q} onTab={(id) => (setQuery(''), onTab(id))} />
+        <CategoryTabs mission={mission} design={design} active={cat.id} muted={!!q} onTab={(id) => (setQuery(''), onTab(id))} lockHint={lockHint} />
+        {locked && !q && (
+          <p className="mt-2.5 flex items-center gap-2 rounded-[10px] border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-text-dim" role="note">
+            <Icon name="lock" size={16} className="shrink-0" />
+            {locked}. View only.
+          </p>
+        )}
       </header>
 
       <div
         ref={listRef}
-        className="catalog-scroll mt-3 min-h-0 flex-1 overflow-y-auto px-[18px] pb-2"
+        className={cx('catalog-scroll mt-3 min-h-0 flex-1 overflow-y-auto px-[18px] pb-2', locked && !q && '[&_article]:pointer-events-none [&_article]:opacity-60')}
+        aria-disabled={(locked && !q) || undefined}
         role="tabpanel"
         aria-label={q ? 'Search results' : cat.label}
       >
@@ -95,7 +105,9 @@ export function Catalog({ mission, design, tab, onTab }: CatalogProps) {
         ))}
       </div>
 
-      <CatalogFooter mission={mission} design={design} cat={cat} />
+      <div className={cx(locked && !q && 'pointer-events-none opacity-60')}>
+        <CatalogFooter mission={mission} design={design} cat={cat} />
+      </div>
       <style>{`.catalog-scroll{scrollbar-width:thin;scrollbar-color:rgb(255 255 255/.16) transparent}`}</style>
     </section>
   )
@@ -113,12 +125,14 @@ function CategoryTabs({
   active,
   muted,
   onTab,
+  lockHint,
 }: {
   mission: Mission
   design: Design
   active: CategoryId
   muted: boolean
   onTab: (id: CategoryId) => void
+  lockHint?: (id: CategoryId) => string | null
 }) {
   const visible = mission.categories.slice(0, VISIBLE_TABS)
   const more = mission.categories.slice(VISIBLE_TABS)
@@ -158,7 +172,8 @@ function CategoryTabs({
       className="mt-3 flex items-center gap-0.5 rounded-control border border-white/10 bg-white/[0.04] p-1 shadow-[inset_0_1px_2px_rgb(0_0_0/0.18)]"
     >
       {visible.map((c) => (
-        <button key={c.id} type="button" role="tab" aria-selected={c.id === active} onClick={() => pick(c.id)} className={seg(c.id === active)}>
+        <button key={c.id} type="button" role="tab" aria-selected={c.id === active} onClick={() => pick(c.id)} className={seg(c.id === active)} title={lockHint?.(c.id) ?? undefined}>
+          {lockHint?.(c.id) && <Icon name="lock" size={13} className="shrink-0 opacity-70" />}
           {tabLabel(c)}
         </button>
       ))}
@@ -191,7 +206,10 @@ function CategoryTabs({
                       c.id === active ? 'bg-white/[0.08] text-text' : 'text-text hover:bg-white/[0.06]',
                     )}
                   >
-                    {c.label}
+                    <span className="flex items-center gap-1.5">
+                      {lockHint?.(c.id) && <Icon name="lock" size={13} className="shrink-0 opacity-70" />}
+                      {c.label}
+                    </span>
                     {fill === 'full' ? (
                       <Icon name="check" size={16} className="text-mint" />
                     ) : (

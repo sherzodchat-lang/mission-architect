@@ -35,7 +35,7 @@ export function AnalogPhoto({
       ) : status === 'loading' ? (
         <div className="bg-grid absolute inset-0 animate-pulse-soft" aria-hidden="true" />
       ) : (
-        <ImageSlot id={`collection_${analog.mission}`} aspect="analog" className="absolute inset-0 !h-full !rounded-none !border-0" />
+        <ImageSlot id={`collection_${analog.mission}`} aspect="analog" className="absolute inset-0 !h-full !rounded-none !border-0" aiMark="tl" />
       )}
       {children}
       {credit === 'corner' && status === 'ready' && image && (

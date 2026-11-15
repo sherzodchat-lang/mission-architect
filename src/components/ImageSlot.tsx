@@ -12,6 +12,34 @@ export const IMAGE_ASPECT = {
   analog: '16 / 9',
 } as const
 
+export type AiMarkCorner = 'tl' | 'tr' | 'bl' | 'br'
+
+const CORNER: Record<AiMarkCorner, string> = {
+  tl: 'top-3 left-3',
+  tr: 'top-2 right-2',
+  bl: 'bottom-2 left-2',
+  br: 'bottom-2 right-2',
+}
+
+/**
+ * Visible "SI-generated" chip (Space Apps rule: synthetic-intelligence images carry a visible watermark).
+ * Absolutely positioned: place it inside any `relative` picture frame. Never use it on real NASA photos.
+ */
+export function AiMark({ corner = 'tr', className }: { corner?: AiMarkCorner; className?: string }) {
+  return (
+    <span
+      className={cx(
+        'pointer-events-none absolute z-10 inline-flex h-[18px] items-center rounded-full border border-white/20 bg-[#06141b]/65 px-2 text-[12px] leading-none font-normal tracking-wide whitespace-nowrap text-white/75 backdrop-blur-sm select-none',
+        CORNER[corner],
+        className,
+      )}
+      aria-hidden="true"
+    >
+      SI-generated
+    </span>
+  )
+}
+
 export interface ImageSlotProps {
   /** CSS aspect-ratio, e.g. "16 / 7", or a number (w/h), or a key of IMAGE_ASPECT */
   aspect?: string | number
@@ -20,6 +48,8 @@ export interface ImageSlotProps {
   className?: string
   /** CSS object-position of the picture (default centred), e.g. '50% 0%' to keep the top of a cover visible */
   position?: string
+  /** show the visible "SI-generated" chip (true = top right) once the picture is loaded; use for every AI-made picture */
+  aiMark?: boolean | AiMarkCorner
 }
 
 const resolved = new Map<string, string | null>()
@@ -28,7 +58,7 @@ const resolved = new Map<string, string | null>()
  * Picture slot in a glass frame: faint grid, hairline, no icon or text when empty. Never generate artwork for it.
  * Probes public/images/cards/index.json first so missing images are not even requested.
  */
-export function ImageSlot({ aspect = '16 / 9', id, className, position }: ImageSlotProps) {
+export function ImageSlot({ aspect = '16 / 9', id, className, position, aiMark }: ImageSlotProps) {
   const [src, setSrc] = useState<string | null>(id ? (resolved.get(id) ?? null) : null)
 
   useEffect(() => {
@@ -66,6 +96,7 @@ export function ImageSlot({ aspect = '16 / 9', id, className, position }: ImageS
       aria-hidden="true"
     >
       {src && <img src={src} alt="" className="absolute inset-0 h-full w-full object-cover" style={position ? { objectPosition: position } : undefined} draggable={false} />}
+      {src && aiMark && <AiMark corner={aiMark === true ? 'tr' : aiMark} />}
     </div>
   )
 }

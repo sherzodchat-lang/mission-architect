@@ -9,6 +9,8 @@ import type { CoreNumbers, ResolvedDesign } from './budget';
 import { fmtGB, fmtGBmo, fmtMoney, fmtPct } from './format';
 import type { DecisionRecord, SimState } from './simulate';
 import { reserveM } from './simulate';
+import { roleGoals, playerGoalsMet, teamworkScore } from './team';
+import type { TeamReport, TeamState, TeamworkResult } from './team';
 
 // ---------------------------------------------------------------------------
 // Margin function and categories
@@ -67,7 +69,7 @@ export interface ScoreInputs {
   generatedGB: number;
 }
 
-export function computeScore(mission: Mission, x: ScoreInputs, mode: 'solo' | 'team' = 'solo'): ScoreBreakdown {
+export function computeScore(mission: Mission, x: ScoreInputs, mode: 'solo' | 'team' = 'solo', teamwork?: TeamworkResult): ScoreBreakdown {
   const L = mission.limits;
   const s1 = 30 * Math.min(1, x.science / mission.scienceTarget);
   const parts: EfficiencyPart[] = [
@@ -80,7 +82,8 @@ export function computeScore(mission: Mission, x: ScoreInputs, mode: 'solo' | 't
   // Same summation order as balance_check.py: 5f + 7f + 7f + 6f
   const s2 = parts[0].points + parts[1].points + parts[2].points + parts[3].points;
   const s3 = 25 * (0.6 * x.health / 100 + 0.4 * x.stepsOperated / L.steps);
-  const s4 = 20 * (x.generatedGB ? x.returnedGB / x.generatedGB : 0);
+  const ops = 20 * (x.generatedGB ? x.returnedGB / x.generatedGB : 0);
+  const s4 = mode === 'team' && teamwork ? teamwork.points : ops;
   const penalty = mission.overScorePenalty * x.overMonths;
   const total = s1 + s2 + s3 + s4 - penalty;
   return {
@@ -89,7 +92,7 @@ export function computeScore(mission: Mission, x: ScoreInputs, mode: 'solo' | 't
       { id: 'efficiency', label: 'Resource efficiency', points: s2, max: 25, detail: parts.map((p) => `${p.label} ${fmtPct(p.margin)} spare`).join(' · ') },
       { id: 'reliability', label: 'Reliability', points: s3, max: 25, detail: `Health ${Math.round(x.health)}% · ${x.stepsOperated} of ${L.steps} steps operated` },
       { id: 'operations', label: mode === 'team' ? 'Teamwork' : 'Operations', points: s4, max: 20,
-        detail: `${fmtGB(x.returnedGB)} of ${fmtGB(x.generatedGB)} generated data returned` },
+        detail: mode === 'team' && teamwork ? teamwork.detail : `${fmtGB(x.returnedGB)} of ${fmtGB(x.generatedGB)} generated data returned` },
     ],
     efficiencyParts: parts,
     penalty,
@@ -721,6 +724,8 @@ export interface MissionReport {
     endReason: SimState['endReason'];
   };
   cards: ReportCard[];
+  /** Team mode only: per-role goals, players and the Teamwork breakdown. */
+  team?: TeamReport;
   /** Best real-mission match (same as `analogMatch.top.analog`; its id goes into the collection). */
   analog: Analog;
   /** Top match + 2 runners-up with % similarity, shared traits and differences. */
@@ -752,16 +757,27 @@ export function reportVoice(outcome: Outcome, survived: boolean): VoiceId {
   return outcome === 'partial' ? 'v17_partial' : 'v18b_low_data';
 }
 
-export function buildReport(s: SimState, mission: Mission, mode: 'solo' | 'team' = 'solo'): MissionReport {
+export function buildReport(
+  s: SimState, mission: Mission, mode: 'solo' | 'team' = 'solo', team?: Pick<TeamState, 'players' | 'overridesUsed'> | null,
+): MissionReport {
   const r = resolveDesign(s.design, mission);
   const core = computeCore(s.design, mission, { extraMonths: s.launchSlip ? 1 : 0 });
   const finalCostM = s.preflightCostM + s.spentInFlightM;
   const survived = s.status !== 'lost';
+  let teamReport: TeamReport | undefined;
+  if (mode === 'team' && team && team.players.length) {
+    const goals = roleGoals(core, mission, { costM: finalCostM, devMonths: s.devMonths });
+    teamReport = {
+      players: team.players.map((p) => ({ ...p, roles: [...p.roles], met: playerGoalsMet(p, goals) })),
+      goals,
+      teamwork: teamworkScore(team, goals),
+    };
+  }
   const score = computeScore(mission, {
     science: s.science, massKg: core.mass, supplyW: core.supplyW, demandW: core.demandW, costM: finalCostM,
     devMonths: s.devMonths, overMonths: s.overMonths, health: s.health, stepsOperated: s.stepsOperated,
     returnedGB: s.returnedGB, generatedGB: s.generatedGB,
-  }, mode);
+  }, teamReport ? 'team' : 'solo', teamReport?.teamwork);
   const outcome = computeOutcome(mission, s.returnedGB, survived);
   const stars = computeStars(score.total, outcome);
   const flown = s.status === 'lost' || s.endReason === 'lost' ? 'lost' : outcome;
@@ -781,5 +797,6 @@ export function buildReport(s: SimState, mission: Mission, mode: 'solo' | 'team'
     analogMatch,
     voice: reportVoice(outcome, survived),
     sfx: outcome === 'failure' ? 'report_fail' : 'report_success',
+    ...(teamReport ? { team: teamReport } : {}),
   };
 }

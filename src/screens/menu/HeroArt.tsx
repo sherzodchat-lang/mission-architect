@@ -1,4 +1,4 @@
-import { Icon } from '../../components'
+import { AiMark, Icon } from '../../components'
 import { publicUrl } from '../../lib/publicUrl'
 
 export interface OrbitInfo {
@@ -56,6 +56,9 @@ export function OverviewBackdrop({ orbit }: { orbit: OrbitInfo }) {
           </div>
         </div>
       </div>
+
+      {/* visible SI watermark, glued to the screen corner so the layout never crops it */}
+      <AiMark corner="tr" className="!top-5 !right-7" />
 
       {/* readability scrims: left for the hero copy, bottom for the cards */}
       <div

@@ -3,12 +3,15 @@ import { audio } from '../audio/audioManager'
 import { ActionBar, Button, PageHeader, Tooltip } from '../components'
 import type { CategoryId } from '../data'
 import type { DesignEvaluation, IssueCode } from '../engine'
+import { CATEGORY_OWNER, playerOf, ROLE_NAME } from '../engine'
 import { prewarmThumbnails } from '../spacecraft3d'
 import { selectCanRedo, selectCanUndo, useDesignEvaluation, useGameStore, useMission } from '../store/gameStore'
 import { Catalog } from './builder/Catalog'
 import { Constraints } from './builder/Constraints'
 import { Hints } from './builder/Hints'
 import { Viewport } from './builder/Viewport'
+import { ReviewBoard } from './team/ReviewBoard'
+import { TeamBar } from './team/TeamBar'
 
 /** Screen 03: Spacecraft design (mockup Mission_Architect_Glassmorphism_6_Screens/03_Spacecraft_Design.png). */
 export default function Builder() {
@@ -24,6 +27,8 @@ export default function Builder() {
   const canUndo = useGameStore(selectCanUndo)
   const canRedo = useGameStore(selectCanRedo)
   const saved = useSavedLabel()
+  const team = useGameStore((s) => s.team)
+  const [review, setReview] = useState(false)
 
   const [tab, setTab] = useState<CategoryId>(() => {
     try {
@@ -37,6 +42,31 @@ export default function Builder() {
     return mission.categories[0].id
   })
   const [exploded, setExploded] = useState(true)
+
+  // team mode: when the console changes hands, open the first tab the new player controls
+  const activeRoles = team ? team.players[team.active]?.roles.join(',') : ''
+  useEffect(() => {
+    if (!team) return
+    const roles = team.players[team.active]?.roles ?? []
+    const own = mission.categories.find((c) => roles.includes(CATEGORY_OWNER[c.id]))
+    if (own) setTab(own.id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeRoles, mission])
+
+  const lockHint = team
+    ? (id: CategoryId) => {
+        const owner = CATEGORY_OWNER[id]
+        if (team.players[team.active]?.roles.includes(owner)) return null
+        const p = playerOf(team, owner)
+        const label = mission.categories.find((c) => c.id === id)?.label ?? id
+        return `${ROLE_NAME[owner]}${p.name ? ` (${p.name})` : ''} controls ${label}`
+      }
+    : undefined
+
+  const continueToOrbit = () => {
+    audio.playSfx('ui_step')
+    goTo('orbit')
+  }
 
   useEffect(() => {
     prewarmThumbnails(mission.id)
@@ -66,7 +96,8 @@ export default function Builder() {
       <PageHeader
         breadcrumb={[mission.name, 'Spacecraft builder']}
         title="Spacecraft design"
-        subtitle="Configure the payload. Resolve the constraints."
+        subtitle={team ? undefined : 'Configure the payload. Resolve the constraints.'}
+        below={team ? <TeamBar /> : undefined}
         step={[2, 5]}
         actions={
           <>
@@ -93,7 +124,7 @@ export default function Builder() {
       />
 
       <div className="grid min-h-0 flex-1 gap-[13px] px-4" style={{ gridTemplateColumns: '410px minmax(0,1fr) 408px' }}>
-        <Catalog mission={mission} design={design} tab={tab} onTab={setTab} />
+        <Catalog mission={mission} design={design} tab={tab} onTab={setTab} lockHint={lockHint} />
         <Viewport mission={mission} design={design} tab={tab} exploded={exploded} onExploded={setExploded} onOpenTab={setTab} />
         <Constraints mission={mission} design={design} evaluation={evaluation} onOpenTab={setTab} />
       </div>
@@ -118,18 +149,27 @@ export default function Builder() {
               <Button
                 iconRight="arrowRight"
                 disabled={!evaluation.designReady}
-                onClick={() => {
-                  audio.playSfx('ui_step')
-                  goTo('orbit')
-                }}
+                onClick={() => (team ? (audio.playSfx('ui_click'), setReview(true)) : continueToOrbit())}
                 silent
               >
-                Continue to orbit
+                {team ? 'Review & continue' : 'Continue to orbit'}
               </Button>
             </Tooltip>
           }
         />
       </div>
+
+      {team && (
+        <ReviewBoard
+          open={review}
+          stage="design"
+          onClose={() => setReview(false)}
+          onProceed={() => {
+            setReview(false)
+            continueToOrbit()
+          }}
+        />
+      )}
 
       <Hints hasParts={!isEmpty(design)} complete={missingCount === 0} tab={tab} />
     </div>

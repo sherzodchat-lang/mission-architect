@@ -1,10 +1,32 @@
 # Mission Architect
 
+> **For judges**
+> - **Play (live):** https://sherzodchat-lang.github.io/mission-architect/ (laptop/desktop, at least 1024 px wide)
+> - **Quick path:** open `?demo=1` (or press **Quick demo** on the Overview screen) - a ready Earth design lands on *Orbit & launch*; just press Launch. Add `&unlock=all` to try the Moon and Mars missions.
+> - **Faster flight:** pick **4x** speed and use **Skip to end** during operations to reach the report in seconds.
+> - `GAME_DESIGN.md` is the team's internal design spec (written in Russian); everything judges need is in this README and in the in-app *How it works* and *Built on NASA data* pages.
+
 **Design a space mission, fly it for a year, and learn why it worked — or didn't.**
 A browser game for the NASA Space Apps Challenge 2026 challenge *Space Mission Design Game*.
 
 ▶ **Play:** https://sherzodchat-lang.github.io/mission-architect/ (best on a laptop/desktop, ≥1024 px wide)
 Demo tip: add `?unlock=all` to the URL to open the Lunar and Mars missions without earning stars first.
+
+## Design summary
+
+Mission Architect puts the player in the role of a mission designer: choose a science goal, assemble a spacecraft from real component classes, pick an orbit, a launch vehicle, ground stations and a test campaign, then fly the mission for a simulated year. Six resources (mass, power, budget, data, comms, schedule; plus Delta-v for the Moon and Mars) are tied together by one engine, so every gain costs something elsewhere. Random events (solar flares, deployment anomalies, software glitches, station outages) test the design, and the final report explains in plain language what happened and why, with *next time* advice and the closest real NASA mission. Three missions of rising difficulty share the same engine: Earth observation CubeSat, Lunar orbiter, Mars probe. Numbers are calibrated against NASA data (GMAT orbit runs, the Small Spacecraft State of the Art report, JPL Horizons) and the game is an educational simulation, not an engineering tool.
+
+### Challenge requirements: where in the game
+
+| Challenge requirement | Where it is in the game |
+|---|---|
+| Design choices (spacecraft, instruments, systems) | **Design** screen: payload, power, comms, computer, attitude control, propulsion; 3D spacecraft built from the chosen parts; live resource bars |
+| Launch vehicle and orbit | **Orbit & launch** screen: orbit (LEO / SSO / lunar / Mars orbits), three launch options with mass and price limits, ground stations, test campaign |
+| Resource trade-offs | Six live resources with warnings (mass, power, budget, data, comms, schedule; Delta-v for deep space); every choice has a visible cost elsewhere |
+| Explanations and learning | Glossary tooltips, *How it works*, per-event decisions during operations, **Report** with "what happened and why" and *next time* advice |
+| Use of NASA data | Real NASA imagery returned by your spacecraft (GIBS, Moon Trek, Mars Trek), GMAT orbit numbers, JPL Horizons, SOA 2025 component values, real-mission analogues; see *Built on NASA data* |
+| Collaboration | **Team mode** for 2–4 players on one device: Science Lead, Systems Engineer, Comms & Ground Lead, Mission Manager — each owns parts of the design and has a personal goal; "Pass the console" turns; a review board must approve before launch (Manager has 2 overrides); flight decisions name their owner; the report scores **Teamwork** |
+| Save, replay and compare | Autosaved draft, named saved designs, *redesign and relaunch* loop, stars and unlocks, real-mission comparison in the report |
 
 ## What you do
 

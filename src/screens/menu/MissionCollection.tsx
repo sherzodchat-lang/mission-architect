@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Icon, ImageSlot, StarRating, Tooltip, cx } from '../../components'
+import { AiMark, Icon, ImageSlot, StarRating, Tooltip, cx } from '../../components'
 import type { MissionId } from '../../data'
 import type { Stars } from '../../store/persistence'
 
@@ -84,6 +84,7 @@ function Card({
           <ImageSlot aspect={1} id={art} className="!rounded-none !border-0 !shadow-none" />
         </div>
       </div>
+      <AiMark corner="tr" />
       {/* bottom scrim: the title always sits on calm dark */}
       <div
         className="absolute inset-0"

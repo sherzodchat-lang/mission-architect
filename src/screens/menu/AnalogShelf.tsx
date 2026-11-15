@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ANALOG_COUNT, ANALOG_LIST, ANALOGS } from '../../data'
 import type { Analog, MissionId } from '../../data'
-import { Icon, ImageSlot, cx } from '../../components'
+import { AiMark, Icon, ImageSlot, cx } from '../../components'
 import { AnalogPhoto } from '../../nasa/analogsPhoto'
 
 const GROUPS: { id: MissionId; title: string }[] = [
@@ -98,6 +98,7 @@ export function AnalogShelf({ discovered }: { discovered: string[] }) {
                   ) : (
                     <div className="relative">
                       <ImageSlot aspect="collection" id={`collection_${a.mission}_locked`} className="opacity-70" />
+                      <AiMark corner="bl" className="!top-auto !bottom-1 !left-1" />
                       <span className="absolute inset-0 flex items-center justify-center text-text-dim">
                         <Icon name="lock" size={20} />
                       </span>

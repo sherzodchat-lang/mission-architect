@@ -10,14 +10,41 @@ const click = () => audio.playSfx('ui_click')
 
 /* ------------------------------------------------------------------ layout bits */
 
-function Section({ title, aside, note, children }: { title: ReactNode; aside?: ReactNode; note?: ReactNode; children: ReactNode }) {
+function Section({
+  title,
+  aside,
+  note,
+  locked,
+  children,
+}: {
+  title: ReactNode
+  aside?: ReactNode
+  note?: ReactNode
+  /** Team mode: "Mission Manager controls this" — the section stays visible but cannot be changed. */
+  locked?: string | null
+  children: ReactNode
+}) {
   return (
     <section className="border-t border-hairline pt-4 first:border-t-0 first:pt-0">
       <header className="mb-2.5 flex items-baseline justify-between gap-4">
-        <h2 className="text-base font-medium text-text">{title}</h2>
+        <h2 className="flex items-center gap-2 text-base font-medium text-text">
+          {title}
+          {locked && (
+            <span className="flex items-center gap-1 text-sm font-normal text-text-faint">
+              <Icon name="lock" size={14} />
+              {locked}
+            </span>
+          )}
+        </h2>
         {aside && <div className="text-sm text-text-dim">{aside}</div>}
       </header>
-      {children}
+      {locked ? (
+        <div className="pointer-events-none opacity-60" aria-disabled="true">
+          {children}
+        </div>
+      ) : (
+        children
+      )}
       {note && <div className="mt-2.5 text-sm leading-snug text-text-dim">{note}</div>}
     </section>
   )
@@ -152,6 +179,8 @@ export interface FlightPlanProps {
   onToggleStation: (id: string) => void
   onHoverStation: (id: string | null) => void
   onTest: (id: string) => void
+  /** Team mode: lock hint per section (null = the player at the console controls it). */
+  lockHint?: (section: 'orbit' | 'launcher' | 'stations' | 'test') => string | null
   className?: string
 }
 
@@ -175,7 +204,7 @@ export function FlightPlan(p: FlightPlanProps) {
   return (
     <aside className={cx('glass flex min-h-0 flex-col justify-between gap-4 px-6 py-5', p.className)} aria-label="Flight plan">
       {/* ---------------- Orbit */}
-      <Section title="Orbit">
+      <Section title="Orbit" locked={p.lockHint?.('orbit')}>
         <Tiles label="Orbit">
           {mission.orbits.map((o) => (
             <Tile
@@ -203,6 +232,7 @@ export function FlightPlan(p: FlightPlanProps) {
 
       {/* ---------------- Launch vehicle */}
       <Section
+        locked={p.lockHint?.('launcher')}
         title="Launch vehicle"
         aside={
           craftKg != null && (
@@ -276,6 +306,7 @@ export function FlightPlan(p: FlightPlanProps) {
 
       {/* ---------------- Ground stations */}
       <Section
+        locked={p.lockHint?.('stations')}
         title={<GTerm id="ground_station">Ground stations</GTerm>}
         aside={
           <Tooltip content={mission.stationsNote} placement="left" bubbleClassName="w-80 !max-w-80">
@@ -376,6 +407,7 @@ export function FlightPlan(p: FlightPlanProps) {
 
       {/* ---------------- Testing */}
       <Section
+        locked={p.lockHint?.('test')}
         title="Testing"
         note={
           test && (

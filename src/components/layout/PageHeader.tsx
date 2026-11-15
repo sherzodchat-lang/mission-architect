@@ -6,6 +6,8 @@ export interface PageHeaderProps {
   breadcrumb?: ReactNode[]
   title: ReactNode
   subtitle?: ReactNode
+  /** block under the title in place of / after the subtitle (team bar) */
+  below?: ReactNode
   /** step counter "02 / 05": [current, total] (1-based) */
   step?: [number, number]
   /** actions on the right (Undo / Redo / Save draft, Compare missions, Export report) */
@@ -25,6 +27,7 @@ export function PageHeader({
   breadcrumb,
   title,
   subtitle,
+  below,
   step,
   actions,
   actionsNote,
@@ -55,6 +58,7 @@ export function PageHeader({
         {subtitle != null && (
           <p className={cx('text-text-dim', size === 'hero' ? 'mt-3 text-2xl' : 'mt-1.5 text-lg')}>{subtitle}</p>
         )}
+        {below != null && <div className="mt-2">{below}</div>}
       </div>
       {(step || actions) && (
         <div className="flex shrink-0 flex-col items-end gap-2 pb-1">

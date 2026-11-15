@@ -5,11 +5,13 @@ import { MISSIONS, MISSION_ORDER } from '../data'
 import { DISCLAIMER } from '../data/disclaimer'
 import { evaluateDesign } from '../engine'
 import { experimentsRun, loadDraft } from '../store/persistence'
+import { loadDemo } from '../store/demo'
 import { useGameStore } from '../store/gameStore'
 import { CollectionModal } from './menu/CollectionModal'
 import { ContinueCard } from './menu/ContinueCard'
 import { OverviewBackdrop } from './menu/HeroArt'
 import { MissionCollection } from './menu/MissionCollection'
+import { TeamSetupModal } from './team/TeamSetupModal'
 
 /** The welcome line plays once per browser session, on the first click anywhere on the menu. */
 let welcomed = false
@@ -24,6 +26,9 @@ export default function MainMenu() {
   const unlockAll = useGameStore((s) => s.unlockAll)
   const isUnlocked = useGameStore((s) => s.isUnlocked)
   const [showAll, setShowAll] = useState(false)
+  const team = useGameStore((s) => s.team)
+  const [teamOpen, setTeamOpen] = useState(false)
+  const [hadTeam, setHadTeam] = useState(false)
 
   const draft = useMemo(() => loadDraft(), [])
   const draftMission = draft && MISSIONS[draft.missionId] ? MISSIONS[draft.missionId] : null
@@ -97,8 +102,23 @@ export default function MainMenu() {
             <Button variant="link" size="lg" className="ml-2 text-base" onClick={() => goTo('howto')}>
               How it works
             </Button>
+            <Button variant="ghost" size="md" icon="play" className="text-base" onClick={loadDemo} title="Loads a ready Earth design and opens Orbit & launch">
+              Quick demo
+            </Button>
             <Button variant="link" size="lg" icon="globe" className="text-base" onClick={() => goTo('nasa')}>
               Built on NASA data
+            </Button>
+            <Button
+              variant="link"
+              size="lg"
+              icon="users"
+              className="text-base"
+              onClick={() => {
+                setHadTeam(!!team)
+                setTeamOpen(true)
+              }}
+            >
+              {team ? `Team mode · ${team.players.length} players` : 'Team workspace'}
             </Button>
           </div>
         </div>
@@ -137,6 +157,7 @@ export default function MainMenu() {
         New mission
       </div>
 
+      <TeamSetupModal open={teamOpen} onClose={() => setTeamOpen(false)} onStarted={() => !hadTeam && goTo('missions')} />
       <CollectionModal open={showAll} onClose={() => setShowAll(false)} discovered={progress.analogs} />
     </div>
   )

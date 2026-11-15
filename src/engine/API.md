@@ -291,3 +291,21 @@ sources?: Record<string, string>                           // per-field provenan
 - The raw data lives in `src/data/nasa/components.json` (verbatim NASA quotes with PDF pages) and `src/data/nasa/gmat.json` (NASA GMAT results: period, sunlight fraction, contact minutes per station, LEO decay lifetime, lunar station-keeping Δv).
 - Every calibrated value and its source is listed in `src/data/nasa/calibration.md`.
 - Orbit `contactUnits` come from GMAT. Earth: 1 unit = 30 min of contact per day. Moon and Mars: 1 unit = 8 h of DSN view per day, so `minutesPerDay` in `evaluateDesign().stations` is real GMAT contact time.
+
+---
+
+## Team mode (`team.ts`, GAME_DESIGN 9 / 13.2)
+
+Hot-seat, 2-4 players on one device. Store: `team: TeamState | null` (`mode` = `'team'` when set; persisted in `ma_team` and in the draft),
+actions `startTeam(names)`, `endTeam()`, `passConsole()`, `setActivePlayer(i)`, `spendOverride()`, `canEdit(key)`.
+In team mode every design edit is checked against `DESIGN_KEY_OWNER` (the store ignores edits by a player who does not own that part;
+`resetDesign` only resets the active player's parts).
+
+- `assignRoles(n)` / `createTeam(names)` — 4: one role each; 3: Manager merged into Systems; 2: Science + Comms / Systems + Manager.
+- Ownership: `CATEGORY_OWNER` (builder tabs), `FLIGHT_OWNER` (screen 04: orbit = Science, launcher + test = Manager, stations = Comms), `DESIGN_KEY_OWNER`.
+- `roleGoals(core, mission, { costM?, devMonths? })` — live personal goals with `checks` (Science ≥ 9/45/130 pts per month; Systems power ≥ 10%, mass ≥ 5%, Δv ≥ 5% off Earth; Comms downlink ≥ data and buffer fits; Manager budget left ≥ $0.30M/$1.5M/$3.5M and schedule ≤ limit).
+- `teamworkScore(team, goals)` — `20 × playersMet / players − 3 × overrides` (≥ 0); with 4 players = 5 per goal.
+- `decisionOwner(eventId)` — outage / dsn_busy → Comms, everything else → Systems.
+- `buildReport(sim, mission, 'team', team)` — 4th category becomes `Teamwork`; `report.team` holds players, goals and the Teamwork breakdown.
+
+UI: `src/screens/team/` (`TeamSetupModal`, `TeamBar` + `PassConsoleOverlay`, `ReviewBoard`).

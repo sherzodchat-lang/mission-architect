@@ -9,6 +9,7 @@ import { Modal } from '../Modal'
 import { Toggle } from '../Toggle'
 import { Tooltip } from '../Tooltip'
 import { LogoMark } from './Logo'
+import { TeamSetupModal } from '../../screens/team/TeamSetupModal'
 import { useSections, type Section } from './nav'
 
 /** Shell geometry in design px (measured on the 1672x941 mockups). */
@@ -97,7 +98,11 @@ function useAutosaveLabel(): string | null {
 /** Round icon avatar (never a photo) with a small autosave dot; click opens a popover (Solo mode, Team mode soon). */
 function ProfileButton() {
   const saved = useAutosaveLabel()
+  const team = useGameStore((s) => s.team)
   const [open, setOpen] = useState(false)
+  const [teamSetup, setTeamSetup] = useState(false)
+  const workspace = team ? `Team mode · ${team.players.length} players` : 'Solo workspace'
+  const at = team ? team.players[team.active] : null
   const ref = useRef<HTMLSpanElement>(null)
   useEffect(() => {
     if (!open) return
@@ -119,14 +124,14 @@ function ProfileButton() {
         disabled={open}
         content={
           <span className="flex flex-col">
-            <span>Profile &middot; Solo workspace</span>
+            <span>Profile &middot; {workspace}</span>
             {saved && <span className="text-text-dim">Autosaved {saved}</span>}
           </span>
         }
       >
         <button
           type="button"
-          aria-label="Profile - Solo workspace"
+          aria-label={`Profile - ${workspace}`}
           aria-haspopup="dialog"
           aria-expanded={open}
           onClick={() => {
@@ -141,7 +146,7 @@ function ProfileButton() {
               open ? 'border-mint/60' : 'border-white/20',
             )}
           >
-            <Icon name="user" size={22} />
+            <Icon name={team ? 'users' : 'user'} size={22} />
             {saved && (
               <span
                 className="absolute right-0 bottom-0 h-[10px] w-[10px] rounded-full border-2 border-[#0d1f27] bg-green"
@@ -159,14 +164,29 @@ function ProfileButton() {
         >
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/[0.06] text-text">
-              <Icon name="user" size={20} />
+              <Icon name={team ? 'users' : 'user'} size={20} />
             </span>
             <div className="min-w-0">
-              <div className="text-text">Player</div>
-              <div className="text-sm text-text-dim">Solo workspace</div>
+              <div className="truncate text-text">{at ? at.name || 'Team' : 'Player'}</div>
+              <div className="text-sm text-text-dim">{workspace}</div>
             </div>
           </div>
-          <p className="mt-3 text-sm text-text-dim">Solo mode. Team mode (2-4 players on one device) is coming soon.</p>
+          <p className="mt-3 text-sm text-text-dim">
+            {team ? 'Hot-seat team: pass the console between roles on this device.' : 'Solo mode. Play as a team of 2-4 on one device.'}
+          </p>
+          <Button
+            variant="secondary"
+            size="sm"
+            icon="users"
+            className="mt-3"
+            fullWidth
+            onClick={() => {
+              setOpen(false)
+              setTeamSetup(true)
+            }}
+          >
+            {team ? 'Manage team' : 'Set up team mode'}
+          </Button>
           {saved && (
             <div className="mt-3 flex items-center gap-2 text-sm text-text-dim" role="status">
               <span className="h-2 w-2 rounded-full bg-green" aria-hidden="true" />
@@ -175,6 +195,7 @@ function ProfileButton() {
           )}
         </div>
       )}
+      <TeamSetupModal open={teamSetup} onClose={() => setTeamSetup(false)} />
     </span>
   )
 }

@@ -3,8 +3,10 @@
 
 import type { Design, MissionId } from '../data/types';
 import type { MissionReport } from '../engine/scoring';
+import type { TeamState } from '../engine/team';
+import { assignRoles } from '../engine/team';
 
-export const KEYS = { progress: 'ma_progress', draft: 'ma_draft', saves: 'ma_saves' } as const;
+export const KEYS = { progress: 'ma_progress', draft: 'ma_draft', saves: 'ma_saves', team: 'ma_team' } as const;
 export const MAX_SAVES = 5;
 
 export type Stars = 0 | 1 | 2 | 3;
@@ -23,6 +25,8 @@ export interface Draft {
   missionId: MissionId;
   design: Design;
   savedAt: number;
+  /** Team session the draft was made in (absent = solo). */
+  team?: TeamState | null;
 }
 
 export interface SavedDesign {
@@ -136,3 +140,20 @@ export function isMissionUnlocked(id: MissionId, p: Progress, unlockAll = false)
 }
 
 export const LOCKED_TEXT = 'Earn ★★ on the previous mission to unlock';
+
+/** Team session (ma_team); validated so a broken entry falls back to solo. */
+export function loadTeam(): TeamState | null {
+  const t = read<TeamState>(KEYS.team);
+  if (!t || !Array.isArray(t.players) || t.players.length < 2 || t.players.length > 4) return null;
+  const roles = assignRoles(t.players.length);
+  return {
+    players: t.players.map((p, i) => ({ name: typeof p?.name === 'string' ? p.name.slice(0, 24) : '', roles: roles[i] })),
+    active: Number.isInteger(t.active) && t.active >= 0 && t.active < t.players.length ? t.active : 0,
+    overridesUsed: Number.isInteger(t.overridesUsed) ? Math.max(0, Math.min(2, t.overridesUsed)) : 0,
+  };
+}
+
+export function saveTeam(t: TeamState | null): void {
+  if (t) write(KEYS.team, t);
+  else remove(KEYS.team);
+}

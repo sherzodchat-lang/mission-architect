@@ -1,5 +1,5 @@
 import { publicUrl } from '../../lib/publicUrl'
-import { Button, Icon } from '../../components'
+import { AiMark, Button, Icon } from '../../components'
 import type { Design, Mission } from '../../data'
 
 /** How far the draft is along the 5-step flow: Mission, Design, Orbit, Simulation, Report. */
@@ -39,6 +39,7 @@ export function ContinueCard({
           <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-[#06141b]/70 text-text">
             <Icon name="plus" size={20} />
           </span>
+          <AiMark corner="bl" className="!bottom-1.5 !left-1.5" />
         </div>
         <span className="h-[88px] w-px shrink-0 bg-hairline" aria-hidden="true" />
         <div className="min-w-0 flex-1">
@@ -65,6 +66,7 @@ export function ContinueCard({
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover select-none"
         />
+        <AiMark corner="bl" className="!bottom-1.5 !left-1.5" />
         <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_1px_0_rgb(255_255_255/0.1)]" aria-hidden="true" />
       </div>
       <span className="h-[88px] w-px shrink-0 bg-hairline" aria-hidden="true" />

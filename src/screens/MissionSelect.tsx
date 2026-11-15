@@ -99,6 +99,7 @@ export default function MissionSelect() {
                     id={unlocked ? `mission_${id}` : `mission_${id}_locked`}
                     className="h-full rounded-none border-0 shadow-none"
                     position="50% 4%"
+                    aiMark="tl"
                   />
                 </div>
                 {!unlocked && (

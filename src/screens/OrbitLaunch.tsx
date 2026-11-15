@@ -7,6 +7,10 @@ import { FlightPlan } from './orbit/FlightPlan'
 import { openBuilderTab } from './orbit/helpers'
 import { issueTab } from './builder/util'
 import type { CategoryId } from '../data'
+import { FLIGHT_OWNER, playerOf, ROLE_NAME } from '../engine'
+import type { FlightSection } from '../engine'
+import { ReviewBoard } from './team/ReviewBoard'
+import { TeamBar } from './team/TeamBar'
 
 export default function OrbitLaunch() {
   const mission = useMission()
@@ -22,6 +26,16 @@ export default function OrbitLaunch() {
   const [hoverStation, setHoverStation] = useState<string | null>(null)
   const [riskOpen, setRiskOpen] = useState(false)
   const [issuesOpen, setIssuesOpen] = useState(false)
+  const [review, setReview] = useState(false)
+  const team = useGameStore((s) => s.team)
+  const lockHint = team
+    ? (sec: FlightSection) => {
+        const owner = FLIGHT_OWNER[sec]
+        if (team.players[team.active]?.roles.includes(owner)) return null
+        const p = playerOf(team, owner)
+        return `${ROLE_NAME[owner]}${p.name ? ` (${p.name})` : ''} controls this`
+      }
+    : undefined
 
   const issues = [...ev.issues].sort((a, b) => (a.severity === b.severity ? 0 : a.severity === 'critical' ? -1 : 1))
   const hasCritical = issues.some((i) => i.severity === 'critical')
@@ -49,7 +63,8 @@ export default function OrbitLaunch() {
       <PageHeader
         breadcrumb={[mission.name, 'Orbit & launch']}
         title="Plan the flight."
-        subtitle="Choose an orbit, reserve launch capacity and connect the ground segment."
+        subtitle={team ? undefined : 'Choose an orbit, reserve launch capacity and connect the ground segment.'}
+        below={team ? <TeamBar /> : undefined}
         step={[3, 5]}
         actions={
           issues.length > 0 ? (
@@ -96,6 +111,7 @@ export default function OrbitLaunch() {
           onToggleStation={toggleStation}
           onHoverStation={setHoverStation}
           onTest={setTest}
+          lockHint={lockHint}
         />
       </div>
 
@@ -106,8 +122,8 @@ export default function OrbitLaunch() {
           status={ev.statusLine}
           statusTone={statusTone}
           action={
-            <Button iconRight="arrowRight" disabled={!ev.canLaunch} onClick={() => confirm()}>
-              Confirm launch plan
+            <Button iconRight="arrowRight" disabled={!ev.canLaunch} onClick={() => (team ? setReview(true) : confirm())}>
+              {team ? 'Review & launch' : 'Confirm launch plan'}
             </Button>
           }
         />
@@ -140,6 +156,18 @@ export default function OrbitLaunch() {
           })}
         </div>
       </Modal>
+
+      {team && (
+        <ReviewBoard
+          open={review}
+          stage="launch"
+          onClose={() => setReview(false)}
+          onProceed={() => {
+            setReview(false)
+            confirm()
+          }}
+        />
+      )}
 
       <Modal
         open={riskOpen}
