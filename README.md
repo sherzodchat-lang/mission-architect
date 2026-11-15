@@ -33,13 +33,21 @@ Prices and budgets are game-scaled; science instruments use game-balanced values
 ### Challenge resources used
 Design and Develop Science Missions (mission segments and life cycle) · CubeSat 101 (components, terms, events) · Concept Maturity Levels (redesign-and-relaunch loop) · Mission Design Lab (disciplines and report structure) · NASA GMAT (orbit analysis) · *A Learning Game About Telescopes / Build It Yourself* (real-mission analogue idea).
 
-## Use of AI
+## Use of AI (synthetic intelligence, SI)
 
-- Code was written with AI coding agents (Anthropic Claude Code) under the team's direction and review.
-- Mission-control voice lines and sound effects were generated with **ElevenLabs** (voice "Russell Clark", eleven_v4; SFX v2), then processed with ffmpeg.
-- Mission and collection card artwork was generated with OpenAI Codex image generation (brief in `assets_src/cards_v2/PROMPT.md`).
-- UI concept mockups were AI-generated.
-- No NASA logo or insignia is used. NASA does not endorse this project.
+- **Code:** written with SI coding agents (Anthropic Claude Code) under the team's direction and review. The game concept, rules and design were defined by the team (`GAME_DESIGN.md`).
+- **Audio:** mission-control voice lines and sound effects were generated with **ElevenLabs** (voice "Russell Clark", eleven_v4; SFX v2) and processed with ffmpeg. Every mp3 carries an SI acknowledgement in its metadata.
+- **Images:** mission and collection card artwork was generated with OpenAI image generation via Codex (brief in `assets_src/cards_v2/PROMPT.md`). The Overview background and the "Continue your design" picture were supplied by the team. All of these carry a visible **"SI-generated"** watermark.
+- UI concept mockups were SI-generated (design reference only, not shipped).
+- No NASA logo or insignia is used or generated. **Mission Architect is an educational simulation and is not affiliated with or endorsed by NASA.**
+
+## Licences & credits
+
+- Project code and original content: **Apache License 2.0** (`LICENSE`).
+- NASA imagery and data (GIBS, Moon Trek, Mars Trek, Blue Marble, Black Marble, LROC/LOLA, Viking/MOLA, NASA Image and Video Library) are used under NASA's media usage guidelines; full credits in `public/textures/planets/CREDITS.md` and on the in-app "Built on NASA data" page.
+- Space agency partner data: ESA mission facts for Mars Express and ExoMars Trace Gas Orbiter (esa.int).
+- Mars Viking MDIM 2.1 mosaic via Wikimedia Commons (public domain, NASA/JPL/USGS).
+- Libraries: React, Zustand, three.js, @react-three/fiber, @react-three/drei, Howler.js, Tailwind CSS, Vite, Vitest, TypeScript (MIT / Apache-2.0 / ISC / BSD). Fonts: DM Sans and JetBrains Mono (SIL Open Font License 1.1, Google Fonts).
 
 ## Run locally
 
