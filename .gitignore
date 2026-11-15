@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Mission Architect: large/raw source assets kept locally (build scripts + briefs are committed)
+assets_src/cards_v2/*.png
+assets_src/cards_v1_backup/
+assets_src/audio/raw/
+assets_src/audio/candidates/
+assets_src/*.png
+Mission_Architect_20_Card_Images/
+Mission_Architect/
+tools/gmat/output/
+__pycache__/
+.impeccable/
+.env
+.env.*

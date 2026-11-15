@@ -1,0 +1,228 @@
+{
+ "earth_leo400_geom": {
+  "what": "LEO 400 km / 51.6 deg (ISS-deploy orbit): period, eclipse, contacts",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "raan": 0.0,
+  "days": 365,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "wal",
+   "san",
+   "fai",
+   "sva"
+  ],
+  "maskDeg": 5.0,
+  "forceModel": "JGM-3 8x8, Sun + Moon point masses, SRP"
+ },
+ "earth_sso600_geom": {
+  "what": "SSO 600 km, LTAN 10:30 (RAAN 258.73 deg at epoch), i = 97.79 deg: period, eclipse, contacts",
+  "body": "Earth",
+  "altKm": 600,
+  "inc": 97.7877,
+  "raan": 258.7256,
+  "days": 365,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "wal",
+   "san",
+   "fai",
+   "sva"
+  ],
+  "maskDeg": 5.0,
+  "forceModel": "JGM-3 8x8, Sun + Moon point masses, SRP",
+  "ltan": "10:30"
+ },
+ "earth_leo400_decay_body_nom": {
+  "what": "3U CubeSat 4.0 kg, drag area 0.03 m^2, Cd 2.2, from 400 km until 150 km (Nominal solar flux)",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "massKg": 4.0,
+  "dragAreaM2": 0.03,
+  "cd": 2.2,
+  "atmosphere": "MSISE-90",
+  "flux": "MSFC Schatten predictions, Nominal error, NominalCycle timing",
+  "stopAltKm": 150,
+  "forceModel": "JGM-3 4x4, Sun + Moon, MSISE-90 drag"
+ },
+ "earth_leo400_decay_body_hi": {
+  "what": "3U CubeSat 4.0 kg, drag area 0.03 m^2, Cd 2.2, from 400 km until 150 km (PlusTwoSigma solar flux)",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "massKg": 4.0,
+  "dragAreaM2": 0.03,
+  "cd": 2.2,
+  "atmosphere": "MSISE-90",
+  "flux": "MSFC Schatten predictions, PlusTwoSigma error, NominalCycle timing",
+  "stopAltKm": 150,
+  "forceModel": "JGM-3 4x4, Sun + Moon, MSISE-90 drag"
+ },
+ "earth_leo400_decay_body_lo": {
+  "what": "3U CubeSat 4.0 kg, drag area 0.03 m^2, Cd 2.2, from 400 km until 150 km (MinusTwoSigma solar flux)",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "massKg": 4.0,
+  "dragAreaM2": 0.03,
+  "cd": 2.2,
+  "atmosphere": "MSISE-90",
+  "flux": "MSFC Schatten predictions, MinusTwoSigma error, NominalCycle timing",
+  "stopAltKm": 150,
+  "forceModel": "JGM-3 4x4, Sun + Moon, MSISE-90 drag"
+ },
+ "earth_leo400_decay_wings_nom": {
+  "what": "3U CubeSat 4.0 kg, drag area 0.08 m^2, Cd 2.2, from 400 km until 150 km (Nominal solar flux)",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "massKg": 4.0,
+  "dragAreaM2": 0.08,
+  "cd": 2.2,
+  "atmosphere": "MSISE-90",
+  "flux": "MSFC Schatten predictions, Nominal error, NominalCycle timing",
+  "stopAltKm": 150,
+  "forceModel": "JGM-3 4x4, Sun + Moon, MSISE-90 drag"
+ },
+ "earth_leo400_decay_wings_hi": {
+  "what": "3U CubeSat 4.0 kg, drag area 0.08 m^2, Cd 2.2, from 400 km until 150 km (PlusTwoSigma solar flux)",
+  "body": "Earth",
+  "altKm": 400,
+  "inc": 51.6,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "massKg": 4.0,
+  "dragAreaM2": 0.08,
+  "cd": 2.2,
+  "atmosphere": "MSISE-90",
+  "flux": "MSFC Schatten predictions, PlusTwoSigma error, NominalCycle timing",
+  "stopAltKm": 150,
+  "forceModel": "JGM-3 4x4, Sun + Moon, MSISE-90 drag"
+ },
+ "lunar_llo100_keep": {
+  "what": "LLO 100 km polar: natural eccentricity growth (no maneuvers)",
+  "body": "Moon",
+  "periAltKm": 100,
+  "apoAltKm": 100,
+  "inc": 90,
+  "aop": 0,
+  "days": 90,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "GRGM900C (GRAIL) 60x60, Earth + Sun point masses"
+ },
+ "lunar_llo100_geom": {
+  "what": "LLO 100 km polar: eclipse fraction, DSN contacts",
+  "body": "Moon",
+  "periAltKm": 100,
+  "apoAltKm": 100,
+  "inc": 90,
+  "aop": 0,
+  "days": 365,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "GRGM900C 4x4 (geometry run; orbit plane and shape held), Earth + Sun point masses"
+ },
+ "lunar_frozen_keep": {
+  "what": "Quasi-frozen 30 x 200 km, 86 deg, periapsis over the south pole (LRO-like): stability",
+  "body": "Moon",
+  "periAltKm": 30,
+  "apoAltKm": 200,
+  "inc": 86,
+  "aop": 270,
+  "days": 365,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "GRGM900C (GRAIL) 60x60, Earth + Sun point masses"
+ },
+ "lunar_frozen_geom": {
+  "what": "Quasi-frozen 30 x 200 km: eclipse fraction, DSN contacts",
+  "body": "Moon",
+  "periAltKm": 30,
+  "apoAltKm": 200,
+  "inc": 86,
+  "aop": 270,
+  "days": 365,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "GRGM900C 4x4 (geometry run; orbit plane and shape held), Earth + Sun point masses"
+ },
+ "lunar_nrho_geom": {
+  "what": "L2 southern 9:2 NRHO: eclipse fraction, DSN contacts (2 revolutions, no station keeping)",
+  "body": "Moon",
+  "days": 13.12,
+  "epoch": "01 Jan 2027 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "Moon + Earth + Sun point masses (DE405 ephemeris)",
+  "initialStateEMRot": [
+   13138.329275430071,
+   0.0,
+   -69999.77715634202,
+   0.0,
+   -0.10580592163754499,
+   0.0
+  ]
+ },
+ "mars_capture_geom": {
+  "what": "Elliptical capture orbit 300 x 45,000 km, 75 deg",
+  "body": "Mars",
+  "periAltKm": 300,
+  "apoAltKm": 45000,
+  "inc": 75,
+  "days": 180,
+  "epoch": "01 Jan 2030 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "Mars50c 4x4, Sun point mass"
+ },
+ "mars_low300_geom": {
+  "what": "Low orbit 300 km, 93 deg (MRO-like)",
+  "body": "Mars",
+  "periAltKm": 300,
+  "apoAltKm": 300,
+  "inc": 93,
+  "days": 180,
+  "epoch": "01 Jan 2030 00:00:00.000",
+  "stationIds": [
+   "gold",
+   "madrid",
+   "canb"
+  ],
+  "maskDeg": 10.0,
+  "forceModel": "Mars50c 4x4, Sun point mass"
+ }
+}

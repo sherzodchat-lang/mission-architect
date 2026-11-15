@@ -1,0 +1,24 @@
+{
+  "files": [
+    "collection_asteroid.webp",
+    "collection_asteroid_locked.webp",
+    "collection_earth.webp",
+    "collection_earth_locked.webp",
+    "collection_europa.webp",
+    "collection_europa_locked.webp",
+    "collection_lunar.webp",
+    "collection_lunar_locked.webp",
+    "collection_mars.webp",
+    "collection_mars_locked.webp",
+    "collection_solar.webp",
+    "collection_solar_locked.webp",
+    "collection_venus.webp",
+    "collection_venus_locked.webp",
+    "mission_earth.webp",
+    "mission_earth_locked.webp",
+    "mission_lunar.webp",
+    "mission_lunar_locked.webp",
+    "mission_mars.webp",
+    "mission_mars_locked.webp"
+  ]
+}

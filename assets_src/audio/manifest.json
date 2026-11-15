@@ -1,0 +1,2629 @@
+{
+  "generated": "2026-11-15",
+  "flow_id": "LF592KwwPo5Y5VTDvH4B",
+  "flow_url": "https://elevenlabs.io/app/flows/LF592KwwPo5Y5VTDvH4B",
+  "voice": {
+    "voice_id": "kCEtpp74aX297PiRLcPn",
+    "name": "Russell Clark",
+    "model": "eleven_v4"
+  },
+  "sfx_model": "eleven_text_to_sound_v2",
+  "credits_total": 3142.08,
+  "note": "To swap a take set \"choice\" to \"a\" or \"b\" for an item and run tools/audio_build.sh (optionally with item ids). Raw originals are never modified. v2 items (launch/engine_burn/flare/report_success/report_fail/safe_mode/space_loop) are regenerated with correct duration_seconds: choices \"v2a\"/\"v2b\" are the new takes, \"a\"/\"b\" are the old v1 takes (kept; process_v1/reason_v1 hold the old settings). Items with \"candidate\":true (ui_click_A1..C2, ui_click_current) are for public/sound-lab.html only.",
+  "items": {
+    "v01_welcome": {
+      "kind": "voice",
+      "out": "voice/v01_welcome.mp3",
+      "text": "Mission Control online. Welcome, Architect.",
+      "prompt": "Mission Control online. Welcome, Architect.",
+      "takes": {
+        "a": {
+          "file": "raw/v01_welcome_a.mp3",
+          "session_id": "qZsMOsBm6Fp2SDLm2SS8",
+          "generation_id": "1bhwggvhOrwvJ3Jjq9q3",
+          "duration_reported": 3.28,
+          "credits": 43,
+          "duration_measured": 3.28,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.975,
+            "peak": -8.4,
+            "rms_std": 6.38,
+            "max_rms": -15.6
+          }
+        },
+        "b": {
+          "file": "raw/v01_welcome_b.mp3",
+          "session_id": "EMhfWOOkZ691QURrXvME",
+          "generation_id": "YIXRrTqeqz65eThA5cZy",
+          "duration_reported": 3.36,
+          "credits": 43,
+          "duration_measured": 3.36,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 3.05,
+            "peak": -8.3,
+            "rms_std": 6.42,
+            "max_rms": -15.7
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.38 dB vs 6.42 dB); true peak -8.4 dBFS (no clipping), spoken 2.95 s for 5 words (1.7 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v02_mission_selected": {
+      "kind": "voice",
+      "out": "voice/v02_mission_selected.mp3",
+      "text": "Mission confirmed. Let's design your spacecraft.",
+      "prompt": "Mission confirmed. Let's design your spacecraft.",
+      "takes": {
+        "a": {
+          "file": "raw/v02_mission_selected_a.mp3",
+          "session_id": "vYo39nIke4HxJ2UysP7f",
+          "generation_id": "yP5uB4VLGoAA0xceyrVW",
+          "duration_reported": 3.04,
+          "credits": 48,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.75,
+            "peak": -9.4,
+            "rms_std": 6.33,
+            "max_rms": -18.5
+          }
+        },
+        "b": {
+          "file": "raw/v02_mission_selected_b.mp3",
+          "session_id": "yUZjmZ2Yk7VImGUAv2Sn",
+          "generation_id": "vDmhDi8FWl5lOTdxewOJ",
+          "duration_reported": 3.04,
+          "credits": 48,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.75,
+            "peak": -10.5,
+            "rms_std": 6.36,
+            "max_rms": -18
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.33 dB vs 6.36 dB); true peak -9.4 dBFS (no clipping), spoken 2.73 s for 6 words (2.2 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v03_warning_power": {
+      "kind": "voice",
+      "out": "voice/v03_warning_power.mp3",
+      "text": "Power budget exceeded. Check your solar panels.",
+      "prompt": "Power budget exceeded. Check your solar panels.",
+      "takes": {
+        "a": {
+          "file": "raw/v03_warning_power_a.mp3",
+          "session_id": "yWju3mFxtA2djUFK4xcS",
+          "generation_id": "KsrcRpFHxp4Gm64iiAzC",
+          "duration_reported": 3.12,
+          "credits": 47,
+          "duration_measured": 3.12,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 2.8,
+            "peak": -8.4,
+            "rms_std": 7.28,
+            "max_rms": -18.3
+          }
+        },
+        "b": {
+          "file": "raw/v03_warning_power_b.mp3",
+          "session_id": "JD7rOCvzT1LeeR9CgWxV",
+          "generation_id": "G5FRKWAxl6gQglhfZoUl",
+          "duration_reported": 3.2,
+          "credits": 47,
+          "duration_measured": 3.2,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 2.875,
+            "peak": -8,
+            "rms_std": 6.54,
+            "max_rms": -17.1
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.54 dB vs 7.28 dB); true peak -8.0 dBFS (no clipping), spoken 2.83 s for 7 words (2.5 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v04_warning_mass": {
+      "kind": "voice",
+      "out": "voice/v04_warning_mass.mp3",
+      "text": "Spacecraft is over the mass limit.",
+      "prompt": "Spacecraft is over the mass limit.",
+      "takes": {
+        "a": {
+          "file": "raw/v04_warning_mass_a.mp3",
+          "session_id": "2dfl2jrC4oTS1QpGPkE4",
+          "generation_id": "Na3VZoBZp2zefQsB1fhP",
+          "duration_reported": 2.32,
+          "credits": 34,
+          "duration_measured": 2.32,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 2.05,
+            "peak": -7.2,
+            "rms_std": 6.63,
+            "max_rms": -16.8
+          }
+        },
+        "b": {
+          "file": "raw/v04_warning_mass_b.mp3",
+          "session_id": "HBiUfvqPEoTBzJARdin5",
+          "generation_id": "aySO72vLgoEc21GyJjQE",
+          "duration_reported": 2.32,
+          "credits": 34,
+          "duration_measured": 2.32,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 2.075,
+            "peak": -6.4,
+            "rms_std": 6,
+            "max_rms": -15.9
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.0 dB vs 6.63 dB); true peak -6.4 dBFS (no clipping), spoken 2.00 s for 6 words (3.0 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v05_warning_budget": {
+      "kind": "voice",
+      "out": "voice/v05_warning_budget.mp3",
+      "text": "We're over budget. Something has to go.",
+      "prompt": "We're over budget. Something has to go.",
+      "takes": {
+        "a": {
+          "file": "raw/v05_warning_budget_a.mp3",
+          "session_id": "l3F6Vgr7pgkXSQ3dhobC",
+          "generation_id": "ybH3yVcgxGEoKUWUAE7K",
+          "duration_reported": 3.04,
+          "credits": 39,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.8,
+            "peak": -8.9,
+            "rms_std": 7.52,
+            "max_rms": -19.3
+          }
+        },
+        "b": {
+          "file": "raw/v05_warning_budget_b.mp3",
+          "session_id": "Xs5U01HObjnKzGPfnE7W",
+          "generation_id": "J4j4GzOOf2e7GxzLrSB1",
+          "duration_reported": 2.88,
+          "credits": 39,
+          "duration_measured": 2.88,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.65,
+            "peak": -7.2,
+            "rms_std": 7,
+            "max_rms": -17.7
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 7.0 dB vs 7.52 dB); true peak -7.2 dBFS (no clipping), spoken 2.62 s for 7 words (2.7 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v06_design_ok": {
+      "kind": "voice",
+      "out": "voice/v06_design_ok.mp3",
+      "text": "All systems within limits. Good work.",
+      "prompt": "All systems within limits. Good work.",
+      "takes": {
+        "a": {
+          "file": "raw/v06_design_ok_a.mp3",
+          "session_id": "0SnHfuHhdZYVVYDOdGUI",
+          "generation_id": "XCtSjtNh7iXX4Z6HwQsQ",
+          "duration_reported": 2.56,
+          "credits": 37,
+          "duration_measured": 2.56,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.4,
+            "peak": -10.1,
+            "rms_std": 6.67,
+            "max_rms": -19.2
+          }
+        },
+        "b": {
+          "file": "raw/v06_design_ok_b.mp3",
+          "session_id": "cITS2caaU5GO0i6SzjbE",
+          "generation_id": "nZYv0ytzRsj2L4GPS7tQ",
+          "duration_reported": 2.64,
+          "credits": 37,
+          "duration_measured": 2.64,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 2.475,
+            "peak": -6.8,
+            "rms_std": 6.5,
+            "max_rms": -16
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.5 dB vs 6.67 dB); true peak -6.8 dBFS (no clipping), spoken 2.38 s for 6 words (2.5 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v07_go_for_launch": {
+      "kind": "voice",
+      "out": "voice/v07_go_for_launch.mp3",
+      "text": "Launch plan confirmed. Go for launch.",
+      "prompt": "Launch plan confirmed. Go for launch.",
+      "takes": {
+        "a": {
+          "file": "raw/v07_go_for_launch_a.mp3",
+          "session_id": "9rsIaunXwxs4wJqqnyYt",
+          "generation_id": "ZQ1pbQ6EOHLAnt1IBoR5",
+          "duration_reported": 2.64,
+          "credits": 37,
+          "duration_measured": 2.64,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.425,
+            "peak": -6.8,
+            "rms_std": 6.81,
+            "max_rms": -16.7
+          }
+        },
+        "b": {
+          "file": "raw/v07_go_for_launch_b.mp3",
+          "session_id": "ytgqaIcc5YBg9MlZLHTc",
+          "generation_id": "S4ePZx8p4eF60Ntoes3T",
+          "duration_reported": 2.64,
+          "credits": 37,
+          "duration_measured": 2.64,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.475,
+            "peak": -6.9,
+            "rms_std": 6.19,
+            "max_rms": -16.9
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.19 dB vs 6.81 dB); true peak -6.9 dBFS (no clipping), spoken 2.45 s for 6 words (2.4 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v08_countdown": {
+      "kind": "voice",
+      "out": "voice/v08_countdown.mp3",
+      "text": "Five. Four. Three. Two. One. Liftoff.",
+      "prompt": "Five. Four. Three. Two. One. Liftoff.",
+      "takes": {
+        "a": {
+          "file": "raw/v08_countdown_a.mp3",
+          "session_id": "oMPoLGUgXwOrfmXFOjeG",
+          "generation_id": "CfelPWNwaTqytbns2t5T",
+          "duration_reported": 5.76,
+          "credits": 37,
+          "duration_measured": 5.76,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 5.4,
+            "peak": -6.2,
+            "rms_std": 5.39,
+            "max_rms": -11.4
+          }
+        },
+        "b": {
+          "file": "raw/v08_countdown_b.mp3",
+          "session_id": "bFmxaZZ8J6PO9vWYrh4t",
+          "generation_id": "TPferYGmg2nWpPsGjTvb",
+          "duration_reported": 5.36,
+          "credits": 37,
+          "duration_measured": 5.36,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 5.075,
+            "peak": -3.8,
+            "rms_std": 5.42,
+            "max_rms": -9.3
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 5.39 dB vs 5.42 dB); true peak -6.2 dBFS (no clipping), spoken 5.30 s for 6 words (1.1 w/s)",
+      "flags": [
+        "slow rate expected: spoken countdown with pauses (6 words in 5 s)"
+      ],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v09_deployed": {
+      "kind": "voice",
+      "out": "voice/v09_deployed.mp3",
+      "text": "Separation confirmed. Spacecraft deployed.",
+      "prompt": "Separation confirmed. Spacecraft deployed.",
+      "takes": {
+        "a": {
+          "file": "raw/v09_deployed_a.mp3",
+          "session_id": "QtAx0m8k5R92f6bdYOQD",
+          "generation_id": "mOjGNpCzuBRv03DWWJnY",
+          "duration_reported": 3.12,
+          "credits": 42,
+          "duration_measured": 3.12,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 2.875,
+            "peak": -5.9,
+            "rms_std": 6.58,
+            "max_rms": -16.2
+          }
+        },
+        "b": {
+          "file": "raw/v09_deployed_b.mp3",
+          "session_id": "wImUyDYiK7eJgZvZz4W8",
+          "generation_id": "e38iWg3vU07D2GFErOIQ",
+          "duration_reported": 3.12,
+          "credits": 42,
+          "duration_measured": 3.12,
+          "metrics": {
+            "act_start": 0.125,
+            "act_end": 2.875,
+            "peak": -5.8,
+            "rms_std": 6.58,
+            "max_rms": -15.5
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.58 dB vs 6.58 dB); true peak -5.9 dBFS (no clipping), spoken 2.77 s for 4 words (1.4 w/s)",
+      "flags": [
+        "speech rate 1.4 words/s"
+      ],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v10_first_contact": {
+      "kind": "voice",
+      "out": "voice/v10_first_contact.mp3",
+      "text": "We have signal. First contact acquired.",
+      "prompt": "We have signal. First contact acquired.",
+      "takes": {
+        "a": {
+          "file": "raw/v10_first_contact_a.mp3",
+          "session_id": "s8OJYXUh0B0hN9vJLFpp",
+          "generation_id": "BrPxekvknFpNNqKFN9hF",
+          "duration_reported": 3.04,
+          "credits": 39,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.75,
+            "peak": -5.3,
+            "rms_std": 7.86,
+            "max_rms": -18.1
+          }
+        },
+        "b": {
+          "file": "raw/v10_first_contact_b.mp3",
+          "session_id": "AhH1nHdN3hjvWepF9NZd",
+          "generation_id": "X3V7DIEAtNcqM2yqtgrM",
+          "duration_reported": 2.88,
+          "credits": 39,
+          "duration_measured": 2.88,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.65,
+            "peak": -6,
+            "rms_std": 7.71,
+            "max_rms": -17.8
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 7.71 dB vs 7.86 dB); true peak -6.0 dBFS (no clipping), spoken 2.62 s for 6 words (2.3 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v11_flare": {
+      "kind": "voice",
+      "out": "voice/v11_flare.mp3",
+      "text": "Solar flare detected. Radiation rising. Your call, Architect.",
+      "prompt": "Solar flare detected. Radiation rising. Your call, Architect.",
+      "takes": {
+        "a": {
+          "file": "raw/v11_flare_a.mp3",
+          "session_id": "F1zVvCFA5uWWHxA73h1c",
+          "generation_id": "ceg5DgJPTo81F0iPAev3",
+          "duration_reported": 5.04,
+          "credits": 61,
+          "duration_measured": 5.04,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 4.725,
+            "peak": -5.9,
+            "rms_std": 6.62,
+            "max_rms": -16.2
+          }
+        },
+        "b": {
+          "file": "raw/v11_flare_b.mp3",
+          "session_id": "UFakvhTt4M9nf0K0oceJ",
+          "generation_id": "smwG4WaxFmA0UnXkXuWt",
+          "duration_reported": 5.04,
+          "credits": 61,
+          "duration_measured": 5.04,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 4.725,
+            "peak": -7.2,
+            "rms_std": 6.47,
+            "max_rms": -16.9
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.47 dB vs 6.62 dB); true peak -7.2 dBFS (no clipping), spoken 4.62 s for 8 words (1.7 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v12_outage": {
+      "kind": "voice",
+      "out": "voice/v12_outage.mp3",
+      "text": "Ground station offline. We've lost a downlink window.",
+      "prompt": "Ground station offline. We've lost a downlink window.",
+      "takes": {
+        "a": {
+          "file": "raw/v12_outage_a.mp3",
+          "session_id": "9bn349sRQcRlLmjNtxON",
+          "generation_id": "4EKSMghQFAW1f5ALmvOl",
+          "duration_reported": 3.6,
+          "credits": 53,
+          "duration_measured": 3.6,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 3.425,
+            "peak": -7.2,
+            "rms_std": 6.66,
+            "max_rms": -15.6
+          }
+        },
+        "b": {
+          "file": "raw/v12_outage_b.mp3",
+          "session_id": "snZ4jaHZP9bGdW5lkRO2",
+          "generation_id": "smkBJZrt1483vM88eJKc",
+          "duration_reported": 3.6,
+          "credits": 53,
+          "duration_measured": 3.6,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 3.35,
+            "peak": -6,
+            "rms_std": 6.75,
+            "max_rms": -15.5
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.66 dB vs 6.75 dB); true peak -7.2 dBFS (no clipping), spoken 3.35 s for 8 words (2.4 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v13_anomaly": {
+      "kind": "voice",
+      "out": "voice/v13_anomaly.mp3",
+      "text": "Anomaly detected. Awaiting your command.",
+      "prompt": "Anomaly detected. Awaiting your command.",
+      "takes": {
+        "a": {
+          "file": "raw/v13_anomaly_a.mp3",
+          "session_id": "2lWaqkKdgCAfSMD604Bl",
+          "generation_id": "PO4b3nvv05NqCsQIPPsd",
+          "duration_reported": 3.04,
+          "credits": 40,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 2.725,
+            "peak": -7.3,
+            "rms_std": 5.71,
+            "max_rms": -17.3
+          }
+        },
+        "b": {
+          "file": "raw/v13_anomaly_b.mp3",
+          "session_id": "cS6RX0EDwxPahTFURNt0",
+          "generation_id": "c6ohcrrj7MC43Db15Um4",
+          "duration_reported": 3.04,
+          "credits": 40,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 2.7,
+            "peak": -8.2,
+            "rms_std": 5.73,
+            "max_rms": -17.4
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 5.71 dB vs 5.73 dB); true peak -7.3 dBFS (no clipping), spoken 2.65 s for 5 words (1.9 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v14_safe_mode": {
+      "kind": "voice",
+      "out": "voice/v14_safe_mode.mp3",
+      "text": "Safe mode engaged. Spacecraft is stable.",
+      "prompt": "Safe mode engaged. Spacecraft is stable.",
+      "takes": {
+        "a": {
+          "file": "raw/v14_safe_mode_a.mp3",
+          "session_id": "XeBClaAsDnqXJ2HJvSqg",
+          "generation_id": "foKprWR5ozRoFuk0E8GD",
+          "duration_reported": 3.28,
+          "credits": 40,
+          "duration_measured": 3.28,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 3.125,
+            "peak": -9.2,
+            "rms_std": 6.74,
+            "max_rms": -18.6
+          }
+        },
+        "b": {
+          "file": "raw/v14_safe_mode_b.mp3",
+          "session_id": "cj8MOZXi61FYDuVoSiad",
+          "generation_id": "1o8MceZZKleGMfD23SpZ",
+          "duration_reported": 3.36,
+          "credits": 40,
+          "duration_measured": 3.36,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 3.175,
+            "peak": -6.5,
+            "rms_std": 6.72,
+            "max_rms": -16.8
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.74 dB vs 6.72 dB); true peak -9.2 dBFS (no clipping), spoken 3.02 s for 6 words (2.0 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v15_science": {
+      "kind": "voice",
+      "out": "voice/v15_science.mp3",
+      "text": "Science data received. Nice and clean.",
+      "prompt": "Science data received. Nice and clean.",
+      "takes": {
+        "a": {
+          "file": "raw/v15_science_a.mp3",
+          "session_id": "IWHltL87zIPOfFuKW1lx",
+          "generation_id": "qnWAyEbMIf58GVDAG0uv",
+          "duration_reported": 2.88,
+          "credits": 38,
+          "duration_measured": 2.88,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 2.675,
+            "peak": -6.9,
+            "rms_std": 6.17,
+            "max_rms": -16.8
+          }
+        },
+        "b": {
+          "file": "raw/v15_science_b.mp3",
+          "session_id": "pHGhJpM8BmAoseaUbSjD",
+          "generation_id": "AaYySk71RapGPNsz7nS7",
+          "duration_reported": 2.8,
+          "credits": 38,
+          "duration_measured": 2.8,
+          "metrics": {
+            "act_start": 0.125,
+            "act_end": 2.6,
+            "peak": -5.9,
+            "rms_std": 6.18,
+            "max_rms": -17
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.17 dB vs 6.18 dB); true peak -6.9 dBFS (no clipping), spoken 2.60 s for 6 words (2.3 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v16_success": {
+      "kind": "voice",
+      "out": "voice/v16_success.mp3",
+      "text": "Mission complete. Outstanding work, team.",
+      "prompt": "Mission complete. Outstanding work, team.",
+      "takes": {
+        "a": {
+          "file": "raw/v16_success_a.mp3",
+          "session_id": "rCgJ3BUV116UXfxVbMcM",
+          "generation_id": "P3g6vJoWeyrMdS3XFIIO",
+          "duration_reported": 3.28,
+          "credits": 41,
+          "duration_measured": 3.28,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 3.1,
+            "peak": -10.2,
+            "rms_std": 6.77,
+            "max_rms": -16.4
+          }
+        },
+        "b": {
+          "file": "raw/v16_success_b.mp3",
+          "session_id": "afdCmqT86vn5PL4S8l27",
+          "generation_id": "AGozm4RHUlGghuxc0CH9",
+          "duration_reported": 3.28,
+          "credits": 41,
+          "duration_measured": 3.28,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 3.1,
+            "peak": -8.5,
+            "rms_std": 6.19,
+            "max_rms": -16.2
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.19 dB vs 6.77 dB); true peak -8.5 dBFS (no clipping), spoken 3.08 s for 5 words (1.6 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v17_partial": {
+      "kind": "voice",
+      "out": "voice/v17_partial.mp3",
+      "text": "Mission complete. We learned a lot for next time.",
+      "prompt": "Mission complete. We learned a lot for next time.",
+      "takes": {
+        "a": {
+          "file": "raw/v17_partial_a.mp3",
+          "session_id": "V7sndWeqNE0VVCIUrEnx",
+          "generation_id": "NqMipFGsupCeJflYZ4Tv",
+          "duration_reported": 3.28,
+          "credits": 49,
+          "duration_measured": 3.28,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 3.05,
+            "peak": -7.9,
+            "rms_std": 5.96,
+            "max_rms": -17.8
+          }
+        },
+        "b": {
+          "file": "raw/v17_partial_b.mp3",
+          "session_id": "k0isvKSAjLJrf8FAlnF0",
+          "generation_id": "wRG74rIukHkZEeQIABK9",
+          "duration_reported": 3.2,
+          "credits": 49,
+          "duration_measured": 3.2,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 2.95,
+            "peak": -8.5,
+            "rms_std": 6.11,
+            "max_rms": -17
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 5.96 dB vs 6.11 dB); true peak -7.9 dBFS (no clipping), spoken 3.00 s for 9 words (3.0 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v18_failure": {
+      "kind": "voice",
+      "out": "voice/v18_failure.mp3",
+      "text": "We've lost the spacecraft. Let's review what happened.",
+      "prompt": "We've lost the spacecraft. Let's review what happened.",
+      "takes": {
+        "a": {
+          "file": "raw/v18_failure_a.mp3",
+          "session_id": "w3XFcXiGMXjS0ytnJUaR",
+          "generation_id": "yN2ESjozxbyRp0EEGxIB",
+          "duration_reported": 3.44,
+          "credits": 54,
+          "duration_measured": 3.44,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 3.125,
+            "peak": -7.6,
+            "rms_std": 6.05,
+            "max_rms": -16.4
+          }
+        },
+        "b": {
+          "file": "raw/v18_failure_b.mp3",
+          "session_id": "suX4VJ4gQuwGaSeBLnzv",
+          "generation_id": "zzFt14X0MEzCfKllL0ZV",
+          "duration_reported": 3.36,
+          "credits": 54,
+          "duration_measured": 3.36,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 3.05,
+            "peak": -6.5,
+            "rms_std": 6.22,
+            "max_rms": -15.5
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.05 dB vs 6.22 dB); true peak -7.6 dBFS (no clipping), spoken 3.05 s for 8 words (2.6 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v18b_low_data": {
+      "kind": "voice",
+      "out": "voice/v18b_low_data.mp3",
+      "text": "The spacecraft made it, but we didn't bring home enough science. Let's review the design.",
+      "prompt": "The spacecraft made it, but we didn't bring home enough science. Let's review the design.",
+      "takes": {
+        "a": {
+          "file": "raw/v18b_low_data_a.mp3",
+          "session_id": "aJJ32RSWn2N0TH7PCBbL",
+          "generation_id": "htvd58l9M5g6W474rFBi",
+          "duration_reported": 5.6,
+          "credits": 89,
+          "duration_measured": 5.6,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 5.375,
+            "peak": -8.2,
+            "rms_std": 5.59,
+            "max_rms": -16.4
+          }
+        },
+        "b": {
+          "file": "raw/v18b_low_data_b.mp3",
+          "session_id": "UXDVXZ64ZmS4Ui6KVa9Y",
+          "generation_id": "q3uughq7WjVmJjKQpUMQ",
+          "duration_reported": 5.6,
+          "credits": 89,
+          "duration_measured": 5.6,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 5.3,
+            "peak": -9.7,
+            "rms_std": 5.8,
+            "max_rms": -17.1
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 5.59 dB vs 5.8 dB); true peak -8.2 dBFS (no clipping), spoken 5.30 s for 15 words (2.8 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v19_pass_console": {
+      "kind": "voice",
+      "out": "voice/v19_pass_console.mp3",
+      "text": "Pass the console to the next engineer.",
+      "prompt": "Pass the console to the next engineer.",
+      "takes": {
+        "a": {
+          "file": "raw/v19_pass_console_a.mp3",
+          "session_id": "KoYeMPluIBnWEvjPghhM",
+          "generation_id": "2yVAH243L5hLHNRtIMbr",
+          "duration_reported": 2.32,
+          "credits": 38,
+          "duration_measured": 2.32,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 2.1,
+            "peak": -6.5,
+            "rms_std": 6.97,
+            "max_rms": -18.8
+          }
+        },
+        "b": {
+          "file": "raw/v19_pass_console_b.mp3",
+          "session_id": "0RjVcdlPJGGtHsZipI3t",
+          "generation_id": "kAwRz7qASSqjafrK1zjc",
+          "duration_reported": 2.32,
+          "credits": 38,
+          "duration_measured": 2.32,
+          "metrics": {
+            "act_start": 0.05,
+            "act_end": 2.15,
+            "peak": -5.2,
+            "rms_std": 6.83,
+            "max_rms": -17.5
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 6.83 dB vs 6.97 dB); true peak -5.2 dBFS (no clipping), spoken 2.10 s for 7 words (3.3 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v20_cruise": {
+      "kind": "voice",
+      "out": "voice/v20_cruise.mp3",
+      "text": "Trajectory is clean. Settle in for the cruise.",
+      "prompt": "Trajectory is clean. Settle in for the cruise.",
+      "takes": {
+        "a": {
+          "file": "raw/v20_cruise_a.mp3",
+          "session_id": "ZfCVHYAsE61PuwsjvR5s",
+          "generation_id": "j2SPoI9MtyRbfGqtgABw",
+          "duration_reported": 3.04,
+          "credits": 46,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.075,
+            "act_end": 2.875,
+            "peak": -6,
+            "rms_std": 5.57,
+            "max_rms": -15.6
+          }
+        },
+        "b": {
+          "file": "raw/v20_cruise_b.mp3",
+          "session_id": "e9uIfQEVxjAkX1MnBjmd",
+          "generation_id": "rlXKAQZOP1fj7vHSgJQc",
+          "duration_reported": 3.04,
+          "credits": 46,
+          "duration_measured": 3.04,
+          "metrics": {
+            "act_start": 0.1,
+            "act_end": 2.875,
+            "peak": -5.7,
+            "rms_std": 5.98,
+            "max_rms": -15.6
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 5.57 dB vs 5.98 dB); true peak -6.0 dBFS (no clipping), spoken 2.80 s for 8 words (2.9 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v21_insertion": {
+      "kind": "voice",
+      "out": "voice/v21_insertion.mp3",
+      "text": "Burn complete. We are in orbit.",
+      "prompt": "Burn complete. We are in orbit.",
+      "takes": {
+        "a": {
+          "file": "raw/v21_insertion_a.mp3",
+          "session_id": "yG1I3gyo9dt7cs0IzCDb",
+          "generation_id": "xalCPaKS80lDghEh13Td",
+          "duration_reported": 2.4,
+          "credits": 31,
+          "duration_measured": 2.4,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.15,
+            "peak": -6.3,
+            "rms_std": 6.47,
+            "max_rms": -17.5
+          }
+        },
+        "b": {
+          "file": "raw/v21_insertion_b.mp3",
+          "session_id": "1Vk5eRLvzmm5amvXkkbt",
+          "generation_id": "fvyBKgGxaEbb8iqCbf2b",
+          "duration_reported": 2.4,
+          "credits": 31,
+          "duration_measured": 2.4,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 2.15,
+            "peak": -7.2,
+            "rms_std": 6.74,
+            "max_rms": -16.5
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "steadier loudness (rms_std 6.47 dB vs 6.74 dB); true peak -6.3 dBFS (no clipping), spoken 2.12 s for 6 words (2.8 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v22_signal_delay": {
+      "kind": "voice",
+      "out": "voice/v22_signal_delay.mp3",
+      "text": "Mind the signal delay. The spacecraft is on its own until our command arrives.",
+      "prompt": "Mind the signal delay. The spacecraft is on its own until our command arrives.",
+      "takes": {
+        "a": {
+          "file": "raw/v22_signal_delay_a.mp3",
+          "session_id": "YkW916WxohPlwgqbzt7w",
+          "generation_id": "oG4eNo3X5HuZvSz6BDCJ",
+          "duration_reported": 5.12,
+          "credits": 78,
+          "duration_measured": 5.12,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 4.875,
+            "peak": -6.6,
+            "rms_std": 6.24,
+            "max_rms": -16.4
+          }
+        },
+        "b": {
+          "file": "raw/v22_signal_delay_b.mp3",
+          "session_id": "LUjKhJ9Miope2AJcqwa4",
+          "generation_id": "CqAtGmbyKWLqpOGmIlpX",
+          "duration_reported": 5.28,
+          "credits": 78,
+          "duration_measured": 5.28,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 4.9,
+            "peak": -7.2,
+            "rms_std": 5.87,
+            "max_rms": -16.9
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 5.87 dB vs 6.24 dB); true peak -7.2 dBFS (no clipping), spoken 4.90 s for 14 words (2.9 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "v23_fuel": {
+      "kind": "voice",
+      "out": "voice/v23_fuel.mp3",
+      "text": "Not enough fuel to reach that orbit. Lose mass or add propellant.",
+      "prompt": "Not enough fuel to reach that orbit. Lose mass or add propellant.",
+      "takes": {
+        "a": {
+          "file": "raw/v23_fuel_a.mp3",
+          "session_id": "IE6xI3DpRK7QnmAWjgIl",
+          "generation_id": "dkLGcCfbeM5OunLxOfCN",
+          "duration_reported": 4.4,
+          "credits": 65,
+          "duration_measured": 4.4,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 4.125,
+            "peak": -7.9,
+            "rms_std": 6.11,
+            "max_rms": -18.2
+          }
+        },
+        "b": {
+          "file": "raw/v23_fuel_b.mp3",
+          "session_id": "LY7wgYfw7YwCEytHotRp",
+          "generation_id": "KnLAq15MEf9CUKLYLL6f",
+          "duration_reported": 4.56,
+          "credits": 65,
+          "duration_measured": 4.56,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 4.275,
+            "peak": -5.1,
+            "rms_std": 5.91,
+            "max_rms": -16.7
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "steadier loudness (rms_std 5.91 dB vs 6.11 dB); true peak -5.1 dBFS (no clipping), spoken 4.25 s for 12 words (2.8 w/s)",
+      "flags": [],
+      "process": {
+        "type": "voice",
+        "lufs": -16,
+        "tp": -1.5,
+        "keep_ms": 80,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click": {
+      "kind": "sfx",
+      "out": "sfx/ui_click.mp3",
+      "prompt": "Short soft futuristic UI click, clean digital tick",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_a.mp3",
+          "session_id": "2ZWz2XINotDZuVsYBuS6",
+          "generation_id": "Ebhu9S386FowSoMZgAKa",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.35,
+            "peak": -18.6,
+            "rms_std": 7.76,
+            "max_rms": -22.8
+          }
+        },
+        "b": {
+          "file": "raw/ui_click_b.mp3",
+          "session_id": "t9L4pTta0ELnL0JbicjZ",
+          "generation_id": "VuRJwvpBlY4p1ElR7G7q",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.375,
+            "peak": -22.1,
+            "rms_std": 7.22,
+            "max_rms": -34.3
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "Single clean tick: energy decays monotonically from the first 50 ms frame (take a has extra late ticks at ~1.1-1.3 s); within target length.",
+      "flags": [
+        "source take is only 2.0 s (active 0.375 s) vs 0.5 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "lufs": -20,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.03,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "selected_candidate": "ui_click_B1",
+      "note": "User picked candidate B1 (warm soft thump) on 2026-11-15; public/audio/sfx/ui_click.mp3 is a copy of sfx/candidates/ui_click_B1.mp3. Game volume 0.7."
+    },
+    "ui_add": {
+      "kind": "sfx",
+      "out": "sfx/ui_add.mp3",
+      "prompt": "Mechanical module snapping into a slot, satisfying click-lock, sci-fi",
+      "takes": {
+        "a": {
+          "file": "raw/ui_add_a.mp3",
+          "session_id": "l40Vu2YPngWzjedzFAvb",
+          "generation_id": "EZarZUWH00wskDDEgcLH",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 0.9,
+            "peak": 0.5,
+            "rms_std": 7,
+            "max_rms": -14.6
+          }
+        },
+        "b": {
+          "file": "raw/ui_add_b.mp3",
+          "session_id": "ysa3ZxnlmYCxNWm2hWNl",
+          "generation_id": "06L9l0Kdnng3IJof4T0L",
+          "duration_reported": 0.48,
+          "credits": 16.67,
+          "duration_measured": 0.48,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.275,
+            "peak": -2,
+            "rms_std": 8.87,
+            "max_rms": -19.2
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "Clear transient in the first 25 ms and a two-stage click-lock (snap + settle) that fits \"module snapping into a slot\"; active 0.9 s, trimmed to the 0.7 s target. Take b is only 0.28 s of mush.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.7,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_remove": {
+      "kind": "sfx",
+      "out": "sfx/ui_remove.mp3",
+      "prompt": "Module detaching from a slot, soft pneumatic release",
+      "takes": {
+        "a": {
+          "file": "raw/ui_remove_a.mp3",
+          "session_id": "HlMBRbt4lopOO7z0QoBJ",
+          "generation_id": "9tHtBiN6WNn0yHvwSdmN",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.825,
+            "peak": -21.9,
+            "rms_std": 7.65,
+            "max_rms": -23.4
+          }
+        },
+        "b": {
+          "file": "raw/ui_remove_b.mp3",
+          "session_id": "XhBZa4efp9BzIyPfxbYn",
+          "generation_id": "o9HRgBOWXOh0027UUIu0",
+          "duration_reported": 4,
+          "credits": 16.67,
+          "duration_measured": 4,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.35,
+            "peak": -3.5,
+            "rms_std": 4.88,
+            "max_rms": -8.8
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "Sharp onset at t=0.05 s then fast decay (0.35 s active, inside the 0.6 s target). Take a has no transient (swells to its peak at 0.6 s) and is ~15 dB quieter. b has faint late ticks after 1.0 s which are trimmed away.",
+      "flags": [
+        "source take is only 4.0 s (active 0.35 s) vs 0.6 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.6,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.05,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_warning": {
+      "kind": "sfx",
+      "out": "sfx/ui_warning.mp3",
+      "prompt": "Short two-tone caution beep, spacecraft cockpit, not harsh",
+      "takes": {
+        "a": {
+          "file": "raw/ui_warning_a.mp3",
+          "session_id": "XpRuyETsQADGfbGDIE6W",
+          "generation_id": "tmOAQnchcM8zjOe7YQjU",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.475,
+            "peak": 0.7,
+            "rms_std": 8.96,
+            "max_rms": -8.5
+          }
+        },
+        "b": {
+          "file": "raw/ui_warning_b.mp3",
+          "session_id": "YLwVhWXs4t2SD1JXvPh5",
+          "generation_id": "u9mmWWyrzq3cNb5S0ysc",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.3,
+            "peak": 1.4,
+            "rms_std": 1.62,
+            "max_rms": -8.6
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "Real two-tone pattern (tone, 60 dB gap at 0.25 s, tone) for 0.45 s; take b is a single 0.3 s tone.",
+      "flags": [
+        "source take is only 1.0 s (active 0.475 s) vs 1.0 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 1,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.02,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_critical": {
+      "kind": "sfx",
+      "out": "sfx/ui_critical.mp3",
+      "prompt": "Urgent spacecraft alarm, three fast low beeps",
+      "takes": {
+        "a": {
+          "file": "raw/ui_critical_a.mp3",
+          "session_id": "me91t42nbhCepf9IqVIU",
+          "generation_id": "5iu09rpKKvxXd1X0hVGg",
+          "duration_reported": 0.48,
+          "credits": 16.67,
+          "duration_measured": 0.48,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.475,
+            "peak": -1.1,
+            "rms_std": 1.79,
+            "max_rms": -7.8
+          }
+        },
+        "b": {
+          "file": "raw/ui_critical_b.mp3",
+          "session_id": "D1TpLCFbiKA9xjJLnzoY",
+          "generation_id": "l2SPSBHr1qkIvvTMwTfY",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.675,
+            "peak": -3.7,
+            "rms_std": 4.49,
+            "max_rms": -11.8
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "Pulsed beep pattern (pulses at ~0.0, 0.35-0.5, 0.55-0.7 s) that decays cleanly; take a is one continuous 0.48 s tone that is cut mid-tone at the end of the file.",
+      "flags": [
+        "source take is only 1.0 s (active 0.675 s) vs 1.5 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 1.5,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.02,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_success": {
+      "kind": "sfx",
+      "out": "sfx/ui_success.mp3",
+      "prompt": "Bright positive confirmation chime, futuristic interface",
+      "takes": {
+        "a": {
+          "file": "raw/ui_success_a.mp3",
+          "session_id": "Buqrfi4faLZ63uJvlrBa",
+          "generation_id": "P7KybvbCYwNb6Aa6pCeF",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.925,
+            "peak": -10.2,
+            "rms_std": 7.31,
+            "max_rms": -18.3
+          }
+        },
+        "b": {
+          "file": "raw/ui_success_b.mp3",
+          "session_id": "BKsB02Pum8FWOjLTw5AG",
+          "generation_id": "GyRBVDilmjryC0TcnEK3",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.45,
+            "peak": -16.4,
+            "rms_std": 7.99,
+            "max_rms": -28.1
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "Two-note chime (peaks at 0.1 s and 0.5 s), 0.93 s active - closest to the 1.2 s target; take b is a single 0.45 s decaying note.",
+      "flags": [
+        "source take is only 1.0 s (active 0.925 s) vs 1.2 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 1.2,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.03,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_step": {
+      "kind": "sfx",
+      "out": "sfx/ui_step.mp3",
+      "prompt": "Soft airy whoosh, interface screen transition",
+      "takes": {
+        "a": {
+          "file": "raw/ui_step_a.mp3",
+          "session_id": "535w68IlGbmC90yD7xWA",
+          "generation_id": "MguMuaeKVDJ6X0SqsEbu",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0.025,
+            "act_end": 0.9,
+            "peak": -11.8,
+            "rms_std": 6.21,
+            "max_rms": -23.8
+          }
+        },
+        "b": {
+          "file": "raw/ui_step_b.mp3",
+          "session_id": "EMey1LbuFrg3tJcTiZWc",
+          "generation_id": "l09PPEJeZwYEcYzmYGNv",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.8,
+            "peak": -2.2,
+            "rms_std": 7.72,
+            "max_rms": -10.6
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "Whoosh with a strong 0.2 s peak (-11 dB) and exactly 0.8 s active = target; take a is 12 dB weaker.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.8,
+        "lufs": -20,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "launch": {
+      "kind": "sfx",
+      "out": "sfx/launch.mp3",
+      "prompt": "Rocket launch, deep engine ignition rumble building to a powerful roar, then fading into the distance",
+      "takes": {
+        "a": {
+          "file": "raw/launch_a.mp3",
+          "session_id": "XlSe7nA5NT1ApXEBqHoU",
+          "generation_id": "rwbf0jqHsRRB5XIgxKzC",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.9,
+            "peak": 2.6,
+            "rms_std": 6.23,
+            "max_rms": -2.6
+          }
+        },
+        "b": {
+          "file": "raw/launch_b.mp3",
+          "session_id": "s9OJgiiUPSvVq04GiU2F",
+          "generation_id": "fto0e9CwHLvjxdIBLTwl",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.925,
+            "peak": 1.8,
+            "rms_std": 6.26,
+            "max_rms": -2.7
+          }
+        },
+        "v2a": {
+          "file": "raw/launch_v2_a.mp3",
+          "session_id": "Dj7PjXXXFk0gMbjqqO8O",
+          "generation_id": "hUrEaxapbdGHeOIsFI7N",
+          "duration_reported": 8,
+          "credits": 26.67,
+          "duration_measured": 8.05,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 7.8,
+            "peak": 1.46,
+            "rms_std": 13.34,
+            "max_rms": -6.5
+          }
+        },
+        "v2b": {
+          "file": "raw/launch_v2_b.mp3",
+          "session_id": "be2yCvqaPwUIvgijqCFj",
+          "generation_id": "8g47SHcXIYkn6ZlS7jIZ",
+          "duration_reported": 8,
+          "credits": 26.67,
+          "duration_measured": 8.05,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 7.85,
+            "peak": 2.69,
+            "rms_std": 11.52,
+            "max_rms": -4.71
+          }
+        }
+      },
+      "choice": "v2a",
+      "reason": "Gradual onset (first 50 ms frame -26 dB, climbing to -6.5 dB at 1.45 s) matches \"building to a powerful roar\"; longest, smoothest fade to -57 dB at 7.8 s (b ends -52 dB, is hotter overall); decoded peak +1.5 dBFS vs +2.7 dBFS for b (less limiting needed); native 8.0 s, no stretching or synthetic bed.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 8,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.5,
+        "bitrate": "128k",
+        "channels": 2
+      },
+      "prompt_v1": "Rocket launch, deep engine ignition rumble building to a roar, then fading into the distance",
+      "reason_v1": "Ramping onset (peak at 0.1 s rather than at t=0) fits \"building to a roar\"; both takes are only 1.0 s so the 8 s target is reached with a synthesized low-rumble bed (see process.synth_bed).",
+      "choice_v1": "a",
+      "flags_v1": [
+        "source take is only 1.0 s (active 0.9 s) vs 8.0 s target in GAME_DESIGN 14.4; extended by process"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 8,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.5,
+        "bitrate": "128k",
+        "channels": 2,
+        "synth_bed": {
+          "duration": 8,
+          "attack": 2,
+          "release": 3.8,
+          "lowpass": 180,
+          "gain_db": 5,
+          "crackle_db": -30
+        }
+      },
+      "generation": "v2"
+    },
+    "radio_beep": {
+      "kind": "sfx",
+      "out": "sfx/radio_beep.mp3",
+      "prompt": "Mission control radio beep tone, clean short sine blip",
+      "takes": {
+        "a": {
+          "file": "raw/radio_beep_a.mp3",
+          "session_id": "UHCHPs9hHmfxvniQQC6s",
+          "generation_id": "hjjgMtXzotvhsrBY3Zh8",
+          "duration_reported": 0.48,
+          "credits": 16.67,
+          "duration_measured": 0.48,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.375,
+            "peak": 0,
+            "rms_std": 2.76,
+            "max_rms": -7
+          }
+        },
+        "b": {
+          "file": "raw/radio_beep_b.mp3",
+          "session_id": "WL5zOZvk9b7TrOL501IY",
+          "generation_id": "6vQv5wqgelA1qczT0Fse",
+          "duration_reported": 4,
+          "credits": 16.67,
+          "duration_measured": 4,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 3.975,
+            "peak": 2.7,
+            "rms_std": 3.36,
+            "max_rms": -1.1
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "Clean 0.35 s blip, ends cleanly; take b is a 4 s warbling tone (not a short blip).",
+      "flags": [
+        "source take is only 0.48 s (active 0.375 s) vs 1.0 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process": {
+        "type": "sfx",
+        "target_s": 1,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.02,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "downlink": {
+      "kind": "sfx",
+      "out": "sfx/downlink.mp3",
+      "prompt": "Fast digital telemetry chirps, data transmission burst",
+      "takes": {
+        "a": {
+          "file": "raw/downlink_a.mp3",
+          "session_id": "7fGawioNa8ofhFujmYzy",
+          "generation_id": "IJnOdmtXsxhtCaefpGdu",
+          "duration_reported": 0.48,
+          "credits": 16.67,
+          "duration_measured": 0.48,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.475,
+            "peak": 0.6,
+            "rms_std": 1.41,
+            "max_rms": -10.4
+          }
+        },
+        "b": {
+          "file": "raw/downlink_b.mp3",
+          "session_id": "LbXVGzQi9fySUWgfzJq8",
+          "generation_id": "ECDyMhvRYhdtLZHP80lb",
+          "duration_reported": 4,
+          "credits": 16.67,
+          "duration_measured": 4,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 4,
+            "peak": -1.8,
+            "rms_std": 5.43,
+            "max_rms": -13.5
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "4.0 s of steady chirps that can be trimmed to exactly the 2.0 s target; take a is only 0.48 s.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 2,
+        "lufs": -18,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.12,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "flare": {
+      "kind": "sfx",
+      "out": "sfx/flare.mp3",
+      "prompt": "Electromagnetic interference crackle, swelling radiation static, ominous",
+      "takes": {
+        "a": {
+          "file": "raw/flare_a.mp3",
+          "session_id": "PlKUWZfkCTaoRJe0VphQ",
+          "generation_id": "gErJIqDbNaPpv5r7yOWV",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.95,
+            "peak": -5.6,
+            "rms_std": 4.51,
+            "max_rms": -15.9
+          }
+        },
+        "b": {
+          "file": "raw/flare_b.mp3",
+          "session_id": "K3WSyFXGqv0yFWiCxBX3",
+          "generation_id": "I1cpSzs4fRJ3xSovKMZS",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.975,
+            "peak": -2.1,
+            "rms_std": 6.51,
+            "max_rms": -14.2
+          }
+        },
+        "v2a": {
+          "file": "raw/flare_v2_a.mp3",
+          "session_id": "LJ03MSfxvdG9uNRIgXtY",
+          "generation_id": "Wjm5tc3qNXusEHenNMfP",
+          "duration_reported": 3,
+          "credits": 10,
+          "duration_measured": 3.03,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2.9,
+            "peak": 2.85,
+            "rms_std": 5.94,
+            "max_rms": -16.01
+          }
+        },
+        "v2b": {
+          "file": "raw/flare_v2_b.mp3",
+          "session_id": "kEnRuG0dcdPMUx5UGr0Y",
+          "generation_id": "hIK3c02xeFPJVn1QT3aU",
+          "duration_reported": 3,
+          "credits": 10,
+          "duration_measured": 3.03,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2.95,
+            "peak": -0.13,
+            "rms_std": 6.91,
+            "max_rms": -18.92
+          }
+        }
+      },
+      "choice": "v2b",
+      "reason": "Larger swell (-44 dB to -20 dB, peak at 1.25-1.6 s = \"swelling\" static) vs a (-36 to -21 dB); clean start (first samples 0.0016, a starts with a 0.06 pop); decoded peak -0.1 dBFS (a +2.9 dBFS, source-clipped); native 3.0 s.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 3,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.25,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "prompt_v1": "Electromagnetic interference crackle, swelling radiation static, ominous",
+      "reason_v1": "Level swells towards the end (peak at 0.78 s) = \"swelling radiation static\"; take b peaks at 0.28 s and decays. Both takes are 1.0 s, so it is time-stretched x2.5 (atempo) to 2.5 s.",
+      "choice_v1": "a",
+      "flags_v1": [
+        "source take is only 1.0 s (active 0.95 s) vs 3.0 s target in GAME_DESIGN 14.4; extended by process"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 3,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.25,
+        "bitrate": "112k",
+        "channels": 1,
+        "stretch": 2.5
+      },
+      "generation": "v2"
+    },
+    "safe_mode": {
+      "kind": "sfx",
+      "out": "sfx/safe_mode.mp3",
+      "prompt": "Electronic systems powering down, descending hum",
+      "takes": {
+        "a": {
+          "file": "raw/safe_mode_a.mp3",
+          "session_id": "1NpkocVzcteGhqSlwp1Q",
+          "generation_id": "jvEgkD59Cfss5vvwhKOb",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.975,
+            "peak": -5.3,
+            "rms_std": 4.77,
+            "max_rms": -10.7
+          }
+        },
+        "b": {
+          "file": "raw/safe_mode_b.mp3",
+          "session_id": "shQjix1ho9ZUNIr6BpAf",
+          "generation_id": "DwnMRqQPpZ9OxXeoOfDU",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.975,
+            "peak": 1.5,
+            "rms_std": 7.02,
+            "max_rms": -3.3
+          }
+        },
+        "v2a": {
+          "file": "raw/safe_mode_v2_a.mp3",
+          "session_id": "c73gAM3SSuEitwPqmxq0",
+          "generation_id": "cHnx4rsOCk7ImAuPE8ic",
+          "duration_reported": 1.5,
+          "credits": 5,
+          "duration_measured": 1.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.4,
+            "peak": -1.62,
+            "rms_std": 8.46,
+            "max_rms": -7.46
+          }
+        },
+        "v2b": {
+          "file": "raw/safe_mode_v2_b.mp3",
+          "session_id": "CzXissRUJUvQolI0fxQM",
+          "generation_id": "d834Ioq34xcrDManYdqK",
+          "duration_reported": 1.5,
+          "credits": 5,
+          "duration_measured": 1.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.45,
+            "peak": -1.68,
+            "rms_std": 7.23,
+            "max_rms": -6.7
+          }
+        }
+      },
+      "choice": "v2a",
+      "reason": "Monotonic descending pitch (about 300 Hz down to 15 Hz, zero-crossing estimate) with a smooth tail (-15 dB to -59 dB over the last 0.6 s); b holds pitch flat/jumpy (220, 205, 195, 215, 175, ...) and ends abruptly; native 1.5 s.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 1.5,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.12,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "prompt_v1": "Electronic systems powering down, descending hum",
+      "reason_v1": "Both takes are 1.0 s of descending hum; a is the steadier/quieter and has 8 dB more headroom (no clipping at decode, peak -5 dB vs +1.5 dB for b). Stretched x1.5 to the 1.5 s target.",
+      "choice_v1": "a",
+      "flags_v1": [
+        "source take is only 1.0 s (active 0.975 s) vs 1.5 s target in GAME_DESIGN 14.4; extended by process"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 1.5,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.12,
+        "bitrate": "112k",
+        "channels": 1,
+        "stretch": 1.5
+      },
+      "generation": "v2"
+    },
+    "report_success": {
+      "kind": "sfx",
+      "out": "sfx/report_success.mp3",
+      "prompt": "Short triumphant orchestral-electronic sting, space mission success",
+      "takes": {
+        "a": {
+          "file": "raw/report_success_a.mp3",
+          "session_id": "gBUoa2yvT7GQ2AOUNHEC",
+          "generation_id": "vODn9CZvX00NDjcot8xX",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.425,
+            "peak": 2.8,
+            "rms_std": 8.22,
+            "max_rms": -5.5
+          }
+        },
+        "b": {
+          "file": "raw/report_success_b.mp3",
+          "session_id": "3IW6mMiCQWbfnH4TP6zj",
+          "generation_id": "qc7pXEAOUXQaBMnknkYl",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.35,
+            "peak": 3,
+            "rms_std": 7.8,
+            "max_rms": -6.5
+          }
+        },
+        "v2a": {
+          "file": "raw/report_success_v2_a.mp3",
+          "session_id": "x8FBoF7NPdHRUATvuGvA",
+          "generation_id": "Oh0UArl2adLtxEmPvYBR",
+          "duration_reported": 3,
+          "credits": 10,
+          "duration_measured": 3.03,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2.4,
+            "peak": 2.71,
+            "rms_std": 15.3,
+            "max_rms": -5.86
+          }
+        },
+        "v2b": {
+          "file": "raw/report_success_v2_b.mp3",
+          "session_id": "sltbCuTz3iw67qCZ9pSs",
+          "generation_id": "7nDHMeiCSjLp9df0UGEa",
+          "duration_reported": 3,
+          "credits": 10,
+          "duration_measured": 3.03,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2.25,
+            "peak": -0.08,
+            "rms_std": 14.1,
+            "max_rms": -8.26
+          }
+        }
+      },
+      "choice": "v2a",
+      "reason": "Strongest transient (-5.9 dB at t=0) with a second hit at ~0.2 s, longer audible body (2.40 s active vs 2.25 s for b); both start abruptly (b: 0.2 s ramp from -20 dB) so the 5 ms fade-in does the anti-click; native 3.0 s.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 3,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.2,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "prompt_v1": "Short triumphant orchestral-electronic sting, space mission success",
+      "reason_v1": "Strongest transient at 0.125 s, 1.43 s active (b 1.35 s), more sustained energy; both are 2.0 s files so the 3.0 s target is not reachable without regeneration.",
+      "choice_v1": "a",
+      "flags_v1": [
+        "source take is only 2.0 s (active 1.425 s) vs 3.0 s target in GAME_DESIGN 14.4; kept at natural length"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 3,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.2,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "generation": "v2"
+    },
+    "report_fail": {
+      "kind": "sfx",
+      "out": "sfx/report_fail.mp3",
+      "prompt": "Low somber synth tone slowly fading out, mission failure",
+      "takes": {
+        "a": {
+          "file": "raw/report_fail_a.mp3",
+          "session_id": "uo4i0yM1Nz424QtawibW",
+          "generation_id": "N688aIJv7nPtgIj1lTo3",
+          "duration_reported": 0.48,
+          "credits": 16.67,
+          "duration_measured": 0.48,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.425,
+            "peak": -6.2,
+            "rms_std": 6.39,
+            "max_rms": -15.7
+          }
+        },
+        "b": {
+          "file": "raw/report_fail_b.mp3",
+          "session_id": "P00iLn3yJfSxABYFWshW",
+          "generation_id": "uAgwwPzLDyN2cOvi9Sbc",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.875,
+            "peak": -1.6,
+            "rms_std": 7.63,
+            "max_rms": -5.2
+          }
+        },
+        "v2a": {
+          "file": "raw/report_fail_v2_a.mp3",
+          "session_id": "ZV5eNS7bLC3sOdzrzAmk",
+          "generation_id": "9oQF54VP2PNKsr9QiWaZ",
+          "duration_reported": 2.5,
+          "credits": 8.33,
+          "duration_measured": 2.51,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2.25,
+            "peak": -0.11,
+            "rms_std": 14.27,
+            "max_rms": -5.43
+          }
+        },
+        "v2b": {
+          "file": "raw/report_fail_v2_b.mp3",
+          "session_id": "7OWRANq9K8NqOfNtcOUh",
+          "generation_id": "JcLMNJG4pLDHTyhmXCG5",
+          "duration_reported": 2.5,
+          "credits": 8.33,
+          "duration_measured": 2.51,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.85,
+            "peak": -0.95,
+            "rms_std": 13.7,
+            "max_rms": -10.14
+          }
+        }
+      },
+      "choice": "v2a",
+      "reason": "Longer, more gradual fade-out (\"slowly fading out\"): sustains -9 dB for 1.4 s then declines about 50 dB over 1.2 s, 2.25 s active vs 1.85 s for b whose fade is steeper and ends early; decoded peak -0.1 dBFS; native 2.5 s, no stretching.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 2.5,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.15,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "prompt_v1": "Low somber synth tone fading out, mission failure",
+      "reason_v1": "Slow fade-out shape over 0.9 s (-5 dB to -67 dB) with no abrupt end; take a is only 0.48 s. Stretched x2.5 to the 2.5 s target.",
+      "choice_v1": "b",
+      "flags_v1": [
+        "source take is only 1.0 s (active 0.875 s) vs 2.5 s target in GAME_DESIGN 14.4; extended by process"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 2.5,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.15,
+        "bitrate": "112k",
+        "channels": 1,
+        "stretch": 2.5
+      },
+      "generation": "v2"
+    },
+    "engine_burn": {
+      "kind": "sfx",
+      "out": "sfx/engine_burn.mp3",
+      "prompt": "Spacecraft thruster burn heard from inside the hull, steady low roar with a sharp cutoff at the end",
+      "takes": {
+        "a": {
+          "file": "raw/engine_burn_a.mp3",
+          "session_id": "WkvAl6v2bjagntpfe9lV",
+          "generation_id": "x9Ax8Snyww2APZy0bbrT",
+          "duration_reported": 1,
+          "credits": 16.67,
+          "duration_measured": 1,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.825,
+            "peak": 2.6,
+            "rms_std": 3.51,
+            "max_rms": -8.3
+          }
+        },
+        "b": {
+          "file": "raw/engine_burn_b.mp3",
+          "session_id": "VCiXij9CL8zR3ve3Xziv",
+          "generation_id": "H4TL2pPGLmW3Kl29CVZK",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.55,
+            "peak": 1.7,
+            "rms_std": 5.1,
+            "max_rms": -7
+          }
+        },
+        "v2a": {
+          "file": "raw/engine_burn_v2_a.mp3",
+          "session_id": "7pB4P4PGDLwJiDOjnF2h",
+          "generation_id": "HqdETCvKXmcI7lHLh2t7",
+          "duration_reported": 4,
+          "credits": 13.33,
+          "duration_measured": 4.05,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 3.9,
+            "peak": 1.33,
+            "rms_std": 10.72,
+            "max_rms": -5.86
+          }
+        },
+        "v2b": {
+          "file": "raw/engine_burn_v2_b.mp3",
+          "session_id": "cOde2xBWd7uiVKwWJs3i",
+          "generation_id": "GrxlqHkMWGku1UtnD5Ax",
+          "duration_reported": 4,
+          "credits": 13.33,
+          "duration_measured": 4.05,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 3.9,
+            "peak": 1.25,
+            "rms_std": 8.8,
+            "max_rms": -3.79
+          }
+        }
+      },
+      "choice": "v2b",
+      "reason": "Steadier plateau (rms_std 8.8 dB vs 10.7 dB; level within 3 dB of max for ~2.2 s), cleanest start (first samples 0.0008 vs 0.0027); decoded peak +1.2 vs +1.3 dBFS; native 4.0 s, no extension.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 4,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.03,
+        "bitrate": "128k",
+        "channels": 2
+      },
+      "prompt_v1": "Spacecraft thruster burn in vacuum heard from inside the hull, steady low roar with a sharp cutoff",
+      "reason_v1": "Longest take (2.0 s, 1.55 s active) with a defined cutoff; layered over a synthesized rumble bed to reach the 4 s target.",
+      "choice_v1": "b",
+      "flags_v1": [
+        "source take is only 2.0 s (active 1.55 s) vs 4.0 s target in GAME_DESIGN 14.4; extended by process"
+      ],
+      "process_v1": {
+        "type": "sfx",
+        "target_s": 4,
+        "lufs": -16,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.03,
+        "bitrate": "128k",
+        "channels": 2,
+        "synth_bed": {
+          "duration": 3.9,
+          "attack": 0.25,
+          "release": 0.03,
+          "lowpass": 260,
+          "gain_db": 3,
+          "crackle_db": -34
+        }
+      },
+      "generation": "v2"
+    },
+    "space_loop": {
+      "kind": "ambient",
+      "out": "ambient/space_loop.mp3",
+      "prompt": "Calm deep space ambient drone, soft evolving synth pad, faint distant radio hum, mission control room tone (loop:true)",
+      "takes": {
+        "a": {
+          "file": "raw/space_loop_a.mp3",
+          "session_id": "Fgc6XO4UmM9coLADjBG1",
+          "generation_id": "MBjZzP0zY8i1rGzoNNDx",
+          "duration_reported": 5,
+          "credits": 16.67,
+          "duration_measured": 5,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 5,
+            "peak": -2,
+            "rms_std": 2.64,
+            "max_rms": -9
+          }
+        },
+        "b": {
+          "file": "raw/space_loop_b.mp3",
+          "session_id": "1K8EeVzQANDint3RviXm",
+          "generation_id": "cseLSPwg60BmWX2uJL4F",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 2,
+            "peak": -3.8,
+            "rms_std": 2.16,
+            "max_rms": -9.9
+          }
+        },
+        "v2a": {
+          "file": "raw/space_loop_v2_a.mp3",
+          "session_id": "bsldpY2Cly5w3EyXui0u",
+          "generation_id": "Lsu72qEjTwNcHgvKKJIX",
+          "duration_reported": 30,
+          "credits": 100,
+          "duration_measured": 30.04,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 30,
+            "peak": -3.22,
+            "rms_std": 2.05,
+            "max_rms": -10.89
+          }
+        },
+        "v2b": {
+          "file": "raw/space_loop_v2_b.mp3",
+          "session_id": "m3BSNfClpZeYXiloc8rv",
+          "generation_id": "iJccW3SwxBkHX7B8MEEb",
+          "duration_reported": 30,
+          "credits": 100,
+          "duration_measured": 30.04,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 30,
+            "peak": -8.11,
+            "rms_std": 1.96,
+            "max_rms": -15.87
+          }
+        }
+      },
+      "choice": "v2a",
+      "reason": "Seamless wrap: first/last samples are continuous (0.0033 vs 0.0030; b 0.059 vs 0.091 with a large DC/low-frequency offset), steady level (rms_std 2.05 dB, per-second level -18..-16 dB), max sample step 0.015 (b 0.027); native 30.0 s generated with loop:true, no crossfade.",
+      "flags": [],
+      "process": {
+        "type": "ambient",
+        "target_s": 30,
+        "lufs": -24,
+        "tp": -1.5,
+        "bitrate": "128k",
+        "channels": 2,
+        "native_loop": true
+      },
+      "prompt_v1": "Calm deep space ambient drone, soft synth pad, faint distant radio hum, mission control room tone, seamless loop",
+      "reason_v1": "5.0 s take (b is 2.0 s) with steady level (rms_std 2.6 dB); loop-extended to 30 s with equal-power crossfades. Source is far shorter than the 30 s requested in 14.4.",
+      "choice_v1": "a",
+      "flags_v1": [
+        "source take is only 5 s vs 30 s target; loop-extended with crossfades (repetition period 3.5 s, may be audible)"
+      ],
+      "process_v1": {
+        "type": "ambient",
+        "target_s": 30,
+        "crossfade_s": 1.5,
+        "lufs": -24,
+        "tp": -1.5,
+        "bitrate": "128k",
+        "channels": 2
+      },
+      "generation": "v2"
+    },
+    "ui_click_A1": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_A1.mp3",
+      "prompt": "Soft muted glass tap, subtle premium touchscreen click, very short, quiet, no ringing tail",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_A1.mp3",
+          "session_id": "7vgrhLwbcEFaRn9WLqYo",
+          "generation_id": "maIyBGxP5E7TCbrWsGIP",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.1,
+            "peak": -21.89,
+            "rms_std": 12.16,
+            "max_rms": -39.69
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_A2": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_A2.mp3",
+      "prompt": "Soft muted glass tap, subtle premium touchscreen click, very short, quiet, no ringing tail",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_A2.mp3",
+          "session_id": "A4E6COaIxflQRSe4ugAG",
+          "generation_id": "hWdlbLpWyzzzHfowEf48",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.35,
+            "peak": -6.66,
+            "rms_std": 9.41,
+            "max_rms": -21.85
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_B1": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_B1.mp3",
+      "prompt": "Gentle soft-touch button press, warm rounded low thump, minimal and quiet, modern app interface",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_B1.mp3",
+          "session_id": "oPtKt3k0nBlIe640KNqJ",
+          "generation_id": "0s12WfChRm3r8C32dKOK",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.3,
+            "peak": -13.71,
+            "rms_std": 12.66,
+            "max_rms": -20.29
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_B2": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_B2.mp3",
+      "prompt": "Gentle soft-touch button press, warm rounded low thump, minimal and quiet, modern app interface",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_B2.mp3",
+          "session_id": "jOTT310ZHAzYBs0rqbXR",
+          "generation_id": "aXPViJamXe5BmenTDNkF",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.1,
+            "peak": -4.21,
+            "rms_std": 9.88,
+            "max_rms": -17.11
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_C1": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_C1.mp3",
+      "prompt": "Delicate airy digital tick with a tiny soft reverb, elegant calm spacecraft console button",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_C1.mp3",
+          "session_id": "UMdiumoOfTSxJ7eJPBwX",
+          "generation_id": "yoSGScXqKGwbEAGTI7PQ",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.45,
+            "peak": -32.96,
+            "rms_std": 12.85,
+            "max_rms": -44.75
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_C2": {
+      "kind": "sfx",
+      "candidate": true,
+      "out": "sfx/candidates/ui_click_C2.mp3",
+      "prompt": "Delicate airy digital tick with a tiny soft reverb, elegant calm spacecraft console button",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_C2.mp3",
+          "session_id": "gZixnLfTOXe3gnGoWl4g",
+          "generation_id": "yYlwOCLgeFum6efdCuia",
+          "duration_reported": 0.5,
+          "credits": 1.67,
+          "duration_measured": 0.52,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.45,
+            "peak": -17.6,
+            "rms_std": 0.78,
+            "max_rms": -28.86
+          }
+        }
+      },
+      "choice": "a",
+      "reason": "UI click candidate for listening (public/sound-lab.html); not used by the game until the user picks one.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "min_s": 0.12,
+        "lufs": -22,
+        "tp": -3,
+        "fade_in_s": 0.004,
+        "fade_out_s": 0.04,
+        "bitrate": "112k",
+        "channels": 1
+      }
+    },
+    "ui_click_current": {
+      "kind": "sfx",
+      "out": "sfx/candidates/ui_click_current.mp3",
+      "prompt": "Short soft futuristic UI click, clean digital tick",
+      "takes": {
+        "a": {
+          "file": "raw/ui_click_a.mp3",
+          "session_id": "2ZWz2XINotDZuVsYBuS6",
+          "generation_id": "Ebhu9S386FowSoMZgAKa",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 1.35,
+            "peak": -18.6,
+            "rms_std": 7.76,
+            "max_rms": -22.8
+          }
+        },
+        "b": {
+          "file": "raw/ui_click_b.mp3",
+          "session_id": "t9L4pTta0ELnL0JbicjZ",
+          "generation_id": "VuRJwvpBlY4p1ElR7G7q",
+          "duration_reported": 2,
+          "credits": 16.67,
+          "duration_measured": 2,
+          "metrics": {
+            "act_start": 0,
+            "act_end": 0.375,
+            "peak": -22.1,
+            "rms_std": 7.22,
+            "max_rms": -34.3
+          }
+        }
+      },
+      "choice": "b",
+      "reason": "Copy of the current ui_click (v1 take b) for A/B listening.",
+      "flags": [],
+      "process": {
+        "type": "sfx",
+        "target_s": 0.5,
+        "lufs": -20,
+        "tp": -1.5,
+        "fade_in_s": 0.005,
+        "fade_out_s": 0.03,
+        "bitrate": "112k",
+        "channels": 1
+      },
+      "candidate": true
+    }
+  },
+  "credits_v2": 356.68
+}

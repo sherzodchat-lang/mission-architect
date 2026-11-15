@@ -1,0 +1,919 @@
+{
+ "source": "NASA Technical Reports Server (NTRS) API, https://ntrs.nasa.gov/api/citations",
+ "fetched": "2026-11-14",
+ "script": "node tools/fetch_ntrs.mjs",
+ "analogs": {
+  "harp": [
+   {
+    "id": "20240012542",
+    "title": "Pre-Launch Calibration and Validation of the Airborne Hyper-Angular Rainbow Polarimeter (AirHARP) Instrument",
+    "year": 2024,
+    "authors": [
+     "Brent A McBride",
+     "J Vanderlei Martins",
+     "J Dominik Cieslak"
+    ],
+    "moreAuthors": 6,
+    "type": "Journal article",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20240012542"
+   }
+  ],
+  "hyti": [
+   {
+    "id": "20230006928",
+    "title": "Digital Mid-Wavelength and Long-Wavelength Infrared Focal Planes for SmallSat Applications",
+    "year": 2021,
+    "authors": [
+     "Pagano, Thomas",
+     "Wenger, Tobias",
+     "Hill, Cory"
+    ],
+    "moreAuthors": 8,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20230006928"
+   },
+   {
+    "id": "20220005811",
+    "title": "High operating temperature T2SL digital focal plane arrays for earth remote sensing instruments",
+    "year": 2021,
+    "authors": [
+     "Ghuman, and Parminder",
+     "Babu, Sachidananda",
+     "Flynn, Luke"
+    ],
+    "moreAuthors": 17,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20220005811"
+   }
+  ],
+  "icecube": [
+   {
+    "id": "20210012947",
+    "title": "IceCube: Spaceflight Demonstration of 883-GHz Cloud Radiometer for Future Science",
+    "year": 2019,
+    "authors": [
+     "Dong L Wu",
+     "Jeffrey R Piepmeier",
+     "Jaime Esper"
+    ],
+    "moreAuthors": 5,
+    "type": "Conference paper",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20210012947"
+   },
+   {
+    "id": "20150021071",
+    "title": "IceCube: CubeSat 883-GHz Radiometry for Future Ice Cloud Remote Sensing",
+    "year": 2015,
+    "authors": [
+     "Wu, Dongliang",
+     "Esper, Jaime",
+     "Ehsan, Negar"
+    ],
+    "moreAuthors": 4,
+    "type": "Presentation",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20150021071"
+   }
+  ],
+  "minxss": [
+   {
+    "id": "21677650990236",
+    "title": "MinXSS-2 CubeSat mission overview: Improvements from the successful MinXSS-1 mission",
+    "year": 2026,
+    "authors": [
+     "James Paul Mason",
+     "Thomas N. Woods",
+     "Phillip C. Chamberlin"
+    ],
+    "moreAuthors": 9,
+    "type": "Journal article",
+    "center": null,
+    "url": "https://ntrs.nasa.gov/citations/21677650990236"
+   },
+   {
+    "id": "88351484026550",
+    "title": "Estimations of Elemental Abundances during Solar Flares Observed in Soft X-Rays by the MinXSS-1 CubeSat Mission",
+    "year": 2026,
+    "authors": [
+     "Crisel Suarez",
+     "Christopher S. Moore"
+    ],
+    "moreAuthors": 0,
+    "type": "Journal article",
+    "center": null,
+    "url": "https://ntrs.nasa.gov/citations/88351484026550"
+   }
+  ],
+  "dellingr": [
+   {
+    "id": "20170011566",
+    "title": "Porting the Core Flight System to the Dellingr Cubesat",
+    "year": 2019,
+    "authors": [
+     "Alan Cudmore"
+    ],
+    "moreAuthors": 0,
+    "type": "Presentation",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20170011566"
+   },
+   {
+    "id": "20160010304",
+    "title": "Miniaturized Ion and Neutral Mass Spectrometer for CubeSat Atmospheric Measurements",
+    "year": 2016,
+    "authors": [
+     "Rodriguez, M.",
+     "Paschalidis, N.",
+     "Jones, S."
+    ],
+    "moreAuthors": 4,
+    "type": "Presentation",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20160010304"
+   }
+  ],
+  "asteria": [
+   {
+    "id": "20210006798",
+    "title": "On-Orbit, Subarcsecond Pointing of the 6U ASTERIA CubeSat",
+    "year": 2018,
+    "authors": [
+     "Pong, Christopher M."
+    ],
+    "moreAuthors": 0,
+    "type": "Presentation",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210006798"
+   },
+   {
+    "id": "20210008536",
+    "title": "On-Orbit Performance & Operation of the Attitude & Pointing Control Subsystems on ASTERIA",
+    "year": 2018,
+    "authors": [
+     "Pong, Christopher M."
+    ],
+    "moreAuthors": 0,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210008536"
+   },
+   {
+    "id": "20220001561",
+    "title": "Results from the ASTERIA CubeSat Extended Mission Experiments",
+    "year": 2021,
+    "authors": [
+     "Doran, Patrick",
+     "Kolcio, Ksenia",
+     "Knapp, Mary"
+    ],
+    "moreAuthors": 13,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20220001561"
+   }
+  ],
+  "raincube": [
+   {
+    "id": "20210007697",
+    "title": "RainCube, a Ka-band Precipitation Radar in a 6U CubeSat",
+    "year": 2017,
+    "authors": [
+     "Williams, Austin",
+     "Chahat, Nacer",
+     "Price, Douglas"
+    ],
+    "moreAuthors": 5,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210007697"
+   },
+   {
+    "id": "20210013808",
+    "title": "RainCube, the First Spaceborne Precipitation Radar in a 6U CubeSat",
+    "year": 2019,
+    "authors": [
+     "Chahat, Nacer",
+     "Imken, Travis",
+     "Price, Douglas"
+    ],
+    "moreAuthors": 5,
+    "type": "Presentation",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210013808"
+   }
+  ],
+  "tempestd": [
+   {
+    "id": "20220000908",
+    "title": "Demonstrating the Potential for CubeSat Microwave Radiometers for Weather Observation: TEMPEST-D Performance after 1.5 Years On-Orbit",
+    "year": 2020,
+    "authors": [
+     "Brown, Shannon",
+     "Berg, Wes",
+     "Gaier, Todd"
+    ],
+    "moreAuthors": 4,
+    "type": "Presentation",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20220000908"
+   },
+   {
+    "id": "74524097874203",
+    "title": "A Passive Microwave Retrieval Algorithm with Minimal View-Angle Bias: Application to the TEMPEST-D CubeSat Mission",
+    "year": 2026,
+    "authors": [
+     "Richard M. Schulte",
+     "Christian D. Kummerow",
+     "Wesley Berg"
+    ],
+    "moreAuthors": 5,
+    "type": "Journal article",
+    "center": null,
+    "url": "https://ntrs.nasa.gov/citations/74524097874203"
+   }
+  ],
+  "lro": [
+   {
+    "id": "20180000056",
+    "title": "The Lunar Reconnaissance Orbiter (LRO) Mission Overview",
+    "year": 2009,
+    "authors": [
+     "Odendahl, Stephen K."
+    ],
+    "moreAuthors": 0,
+    "type": "Presentation",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20180000056"
+   },
+   {
+    "id": "20110007093",
+    "title": "Engineering a Successful Mission: Lessons from the Lunar Reconnaissance Orbiter",
+    "year": 2011,
+    "authors": [
+     "Everett, David F."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20110007093"
+   },
+   {
+    "id": "20100014880",
+    "title": "Launch and Commissioning of the Lunar Reconnaissance Orbiter (LRO)",
+    "year": 2010,
+    "authors": [
+     "Shah, Neerav",
+     "Calhoun, Philip",
+     "Garrick, Joseph"
+    ],
+    "moreAuthors": 2,
+    "type": "Preprint",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20100014880"
+   }
+  ],
+  "lunar_prospector": [
+   {
+    "id": "19970017222",
+    "title": "Lunar Prospector Mission Design",
+    "year": 1997,
+    "authors": [
+     "Folta, David",
+     "Beckman, Mark",
+     "Lozier, David"
+    ],
+    "moreAuthors": 1,
+    "type": "Conference paper",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/19970017222"
+   },
+   {
+    "id": "19990064167",
+    "title": "Lunar Prospector Extended Mission",
+    "year": 1999,
+    "authors": [
+     "Folta, David",
+     "Beckman, Mark",
+     "Lozier, David"
+    ],
+    "moreAuthors": 1,
+    "type": "Conference paper",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/19990064167"
+   },
+   {
+    "id": "20060041385",
+    "title": "The Gravity Field of the Moon from the Lunar Prospector Mission",
+    "year": 1998,
+    "authors": [
+     "Konopliv, A. S.",
+     "Kucinskas, A. B.",
+     "Sjogren, W. L."
+    ],
+    "moreAuthors": 3,
+    "type": "Journal article",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20060041385"
+   }
+  ],
+  "lunar_trailblazer": [
+   {
+    "id": "20230007018",
+    "title": "NASA’s Lunar Trailblazer Mission: A Pioneering Small Satellite for Lunar Water and Lunar Geology",
+    "year": 2022,
+    "authors": [
+     "Zareh, Shannon",
+     "Wood, Joshua L.",
+     "Warren, Tristam J."
+    ],
+    "moreAuthors": 40,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20230007018"
+   }
+  ],
+  "capstone": [
+   {
+    "id": "20210010903",
+    "title": "Cislunar Autonomous Positioning System Technology Operations and Navigation Experiment (CAPSTONE)",
+    "year": 2021,
+    "authors": [
+     "Elwood Agasid",
+     "Roger Hunter",
+     "Bradley Cheetham"
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Ames Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20210010903"
+   },
+   {
+    "id": "20240004138",
+    "title": "Cislunar Autonomous Positioning System Technology Operations and Navigation Experiment (CAPSTONE) Pathfinder for Artemis Gateway",
+    "year": 2024,
+    "authors": [
+     "Elwood Agasid",
+     "Roger Hunter",
+     "Bradley Cheetham"
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Ames Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20240004138"
+   }
+  ],
+  "ladee": [
+   {
+    "id": "20160000571",
+    "title": "LADEE Science Results and Implications for Exploration",
+    "year": 2015,
+    "authors": [
+     "Elphic, R. C.",
+     "M. Horanyi",
+     "Colaprete, A."
+    ],
+    "moreAuthors": 15,
+    "type": "Conference paper",
+    "center": "Ames Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20160000571"
+   },
+   {
+    "id": "20160007047",
+    "title": "LADEE Mission Summary Poster",
+    "year": 2016,
+    "authors": [
+     "Crocker, Alan R."
+    ],
+    "moreAuthors": 0,
+    "type": "Presentation",
+    "center": "Ames Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20160007047"
+   },
+   {
+    "id": "20150000695",
+    "title": "Contingency Trajectory Design for a Lunar Orbit Insertion Maneuver Failure by the LADEE Spacecraft",
+    "year": 2014,
+    "authors": [
+     "Genova, A. L."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Ames Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20150000695"
+   }
+  ],
+  "grail": [
+   {
+    "id": "20150008737",
+    "title": "The Gravity Recovery and Interior Laboratory Mission",
+    "year": 2013,
+    "authors": [
+     "Lehman, David H.",
+     "Hoffman, Tom L.",
+     "Havens, Glen G."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20150008737"
+   },
+   {
+    "id": "20130010673",
+    "title": "Operating the Dual-Orbiter GRAIL Mission to Measure the Moon's Gravity",
+    "year": 2012,
+    "authors": [
+     "Beerer, Joseph G.",
+     "Havens, Glen G."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20130010673"
+   }
+  ],
+  "clementine": [
+   {
+    "id": "19950027033",
+    "title": "The Clementine mission: Initial results from lunar mapping",
+    "year": 1994,
+    "authors": [
+     "Spudis, P. D.",
+     "Shoemaker, E.",
+     "Acton, C."
+    ],
+    "moreAuthors": 7,
+    "type": "Conference paper",
+    "center": "Legacy CDMS",
+    "url": "https://ntrs.nasa.gov/citations/19950027033"
+   },
+   {
+    "id": "19980041408",
+    "title": "Lessons Learned from the Clementine Mission",
+    "year": 1997,
+    "authors": [],
+    "moreAuthors": 0,
+    "type": "Contractor report",
+    "center": "Headquarters",
+    "url": "https://ntrs.nasa.gov/citations/19980041408"
+   }
+  ],
+  "mro": [
+   {
+    "id": "20080032390",
+    "title": "An Overview of the Mars Reconnaissance Orbiter (MRO) Science Mission",
+    "year": 2007,
+    "authors": [
+     "Zurek, Richard W.",
+     "Smrekar, Suzanne E."
+    ],
+    "moreAuthors": 0,
+    "type": "Journal article",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20080032390"
+   },
+   {
+    "id": "20070034022",
+    "title": "The Mars Reconnaissance Orbiter Mission: From Launch to the Primary Science Orbit",
+    "year": 2007,
+    "authors": [
+     "Johnston, Martin D.",
+     "Graf, James E.",
+     "Zurek, Richard W."
+    ],
+    "moreAuthors": 3,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20070034022"
+   },
+   {
+    "id": "20070010460",
+    "title": "Mars Reconnaissance Orbiter Operational Aerobraking Phase Assessment",
+    "year": 2007,
+    "authors": [
+     "Prince, Jill L.",
+     "Striepe, Scott A."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Glenn Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20070010460"
+   }
+  ],
+  "maven": [
+   {
+    "id": "20120002014",
+    "title": "MAVEN - Mars Atmosphere and Volatile EvolutioN Mission",
+    "year": 2011,
+    "authors": [
+     "Grebowsky, Joseph M.",
+     "Jakosky, Bruce M."
+    ],
+    "moreAuthors": 0,
+    "type": "Abstract",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20120002014"
+   },
+   {
+    "id": "20180000060",
+    "title": "Mars Atmosphere and Volatile Evolution (MAVEN) Mission Design",
+    "year": 2010,
+    "authors": [
+     "Folta, David C."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20180000060"
+   },
+   {
+    "id": "20160010314",
+    "title": "The Neutral Gas and Ion Mass Spectrometer on the Mars Atmosphere and Volatile Evolution Mission",
+    "year": 2014,
+    "authors": [
+     "Mahaffy, Paul R.",
+     "Benna, Mehdi",
+     "King, Todd"
+    ],
+    "moreAuthors": 11,
+    "type": "Journal article",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20160010314"
+   }
+  ],
+  "odyssey": [
+   {
+    "id": "20030110814",
+    "title": "Mars Odyssey Science: The First Year and Beyond",
+    "year": 2003,
+    "authors": [
+     "Plaut, J. J."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Headquarters",
+    "url": "https://ntrs.nasa.gov/citations/20030110814"
+   },
+   {
+    "id": "20030005808",
+    "title": "The Development and Evaluation of an Operational Aerobraking Strategy for the Mars 2001 Odyssey Orbiter",
+    "year": 2002,
+    "authors": [
+     "Tartabini, Paul V.",
+     "Munk, Michelle M.",
+     "Powell, Richard W."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Langley Research Center",
+    "url": "https://ntrs.nasa.gov/citations/20030005808"
+   }
+  ],
+  "mgs": [
+   {
+    "id": "20210001222",
+    "title": "Mars Global Surveyor Mission",
+    "year": 1995,
+    "authors": [
+     "Cunningham, G.E."
+    ],
+    "moreAuthors": 0,
+    "type": "Report",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210001222"
+   },
+   {
+    "id": "20210002675",
+    "title": "Mars Global Surveyor: Aerobraking Mission Overview",
+    "year": 1998,
+    "authors": [
+     "Willcockson,  W.",
+     "Johnston,  M.",
+     "Esposito,  P."
+    ],
+    "moreAuthors": 2,
+    "type": "Report",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210002675"
+   }
+  ],
+  "marco": [
+   {
+    "id": "20210015981",
+    "title": "MarCO: flight results from the first interplanetary CubeSat mission",
+    "year": 2019,
+    "authors": [
+     "Klesh, Andrew T."
+    ],
+    "moreAuthors": 0,
+    "type": "Preprint",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20210015981"
+   },
+   {
+    "id": "20190025562",
+    "title": "MarCO: Interplanetary Mission Development on a CubeSat Scale",
+    "year": 2016,
+    "authors": [
+     "Schoolcraft, Josh",
+     "Klesh, Andrew",
+     "Werne, Thomas"
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20190025562"
+   }
+  ],
+  "mex": [
+   {
+    "id": "20050161987",
+    "title": "The MARSIS Science Mission",
+    "year": 2005,
+    "authors": [
+     "Plaut, J J.",
+     "Picardi, G."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Headquarters",
+    "url": "https://ntrs.nasa.gov/citations/20050161987"
+   },
+   {
+    "id": "20060042713",
+    "title": "Mars Express science overview",
+    "year": 2005,
+    "authors": [
+     "Thompson, Thomas W."
+    ],
+    "moreAuthors": 0,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20060042713"
+   }
+  ],
+  "tgo": [
+   {
+    "id": "20130000291",
+    "title": "ExoMars/TGO Science Orbit Design",
+    "year": 2012,
+    "authors": [
+     "Long, Stacia",
+     "Lyons, Dan",
+     "Guinn, Joe"
+    ],
+    "moreAuthors": 1,
+    "type": "Conference paper",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20130000291"
+   },
+   {
+    "id": "20210012821",
+    "title": "No detection of methane on Mars from early ExoMars Trace Gas Orbiter observations",
+    "year": 2019,
+    "authors": [
+     "Michael Doyle Smith",
+     "Oleg Korablev",
+     "Ann Carine Vandaele"
+    ],
+    "moreAuthors": 122,
+    "type": "Journal article",
+    "center": "Goddard Space Flight Center",
+    "url": "https://ntrs.nasa.gov/citations/20210012821"
+   }
+  ],
+  "mco": [
+   {
+    "id": "20060043364",
+    "title": "Report on the loss of the Mars Climate Orbiter Mission : JPL special review board",
+    "year": 1999,
+    "authors": [
+     "Brace, Richard",
+     "Casani, John",
+     "Farquhar, Robert"
+    ],
+    "moreAuthors": 8,
+    "type": "Report",
+    "center": "Jet Propulsion Laboratory",
+    "url": "https://ntrs.nasa.gov/citations/20060043364"
+   }
+  ]
+ },
+ "lessons": {
+  "antenna": {
+   "id": "20160001365",
+   "title": "X-Band CubeSat Communication System Demonstration",
+   "year": 2015,
+   "authors": [
+    "Altunc, Serhat",
+    "Kegege, Obadiah ",
+    "Bundick, Steve"
+   ],
+   "moreAuthors": 7,
+   "type": "Conference paper",
+   "center": "Goddard Space Flight Center",
+   "url": "https://ntrs.nasa.gov/citations/20160001365"
+  },
+  "power": {
+   "id": "20170007278",
+   "title": "System Assessment of a High Power 3-U CubeSat",
+   "year": 2016,
+   "authors": [
+    "Shaw, Katie"
+   ],
+   "moreAuthors": 0,
+   "type": "Presentation",
+   "center": "Glenn Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20170007278"
+  },
+  "battery": {
+   "id": "20150020899",
+   "title": "A Battery Certification Testbed for Small Satellite Missions",
+   "year": 2015,
+   "authors": [
+    "Cameron, Zachary",
+    "Kulkarni, Chetan S.",
+    "Luna,  Ali Guarneros"
+   ],
+   "moreAuthors": 2,
+   "type": "Conference paper",
+   "center": "Ames Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20150020899"
+  },
+  "pointing": {
+   "id": "20210006798",
+   "title": "On-Orbit, Subarcsecond Pointing of the 6U ASTERIA CubeSat",
+   "year": 2018,
+   "authors": [
+    "Pong, Christopher M."
+   ],
+   "moreAuthors": 0,
+   "type": "Presentation",
+   "center": "Jet Propulsion Laboratory",
+   "url": "https://ntrs.nasa.gov/citations/20210006798"
+  },
+  "storage": {
+   "id": "20210007900",
+   "title": "Intermediate Fidelity Solid State Recorder Modeling for NISAR",
+   "year": 2017,
+   "authors": [
+    "Doubleday, Joshua R.",
+    "Trowbridge, Michael"
+   ],
+   "moreAuthors": 0,
+   "type": "Preprint",
+   "center": "Jet Propulsion Laboratory",
+   "url": "https://ntrs.nasa.gov/citations/20210007900"
+  },
+  "schedule": {
+   "id": "20160003386",
+   "title": "Schedule Matters: Understanding the Relationship between Schedule Delays and Costs on Overruns",
+   "year": 2016,
+   "authors": [
+    "Majerowicz, Walt",
+    "Shinn, Stephen A."
+   ],
+   "moreAuthors": 0,
+   "type": "Conference paper",
+   "center": "Goddard Space Flight Center",
+   "url": "https://ntrs.nasa.gov/citations/20160003386"
+  },
+  "radiation": {
+   "id": "20230011128",
+   "title": "Shielding Considerations for CubeSat Structures During Solar Maximum",
+   "year": 2023,
+   "authors": [
+    "D. Laurence Thomsen III",
+    "Thomas M. Jordan",
+    "Larisa Milic"
+   ],
+   "moreAuthors": 1,
+   "type": "Conference paper",
+   "center": "Langley Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20230011128"
+  },
+  "deployment": {
+   "id": "20180004164",
+   "title": "Design and Development of CubeSat Solar Array Deployment Mechanisms Using Shape Memory Alloys",
+   "year": 2018,
+   "authors": [
+    "Guzik, Allen T.",
+    "Benafan, Othmane"
+   ],
+   "moreAuthors": 0,
+   "type": "Technical memorandum",
+   "center": "Glenn Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20180004164"
+  },
+  "decay": {
+   "id": "20170011160",
+   "title": "Drag De-Orbit Device: A New Standard Re-Entry Actuator for CubeSats",
+   "year": 2017,
+   "authors": [
+    "Guglielmo, David",
+    "Omar, Sanny",
+    "Bevilacqua, Riccardo"
+   ],
+   "moreAuthors": 0,
+   "type": "Conference paper",
+   "center": "Kennedy Space Center",
+   "url": "https://ntrs.nasa.gov/citations/20170011160"
+  },
+  "wheel": {
+   "id": "20020060665",
+   "title": "Development of a Two-Wheel Contingency Mode for the MAP Spacecraft",
+   "year": 2002,
+   "authors": [
+    "Starin, Scott R.",
+    "ODonnell, James R., Jr.",
+    "Bauer, Frank H."
+   ],
+   "moreAuthors": 0,
+   "type": "Preprint",
+   "center": "Goddard Space Flight Center",
+   "url": "https://ntrs.nasa.gov/citations/20020060665"
+  },
+  "software": {
+   "id": "20170011566",
+   "title": "Porting the Core Flight System to the Dellingr Cubesat",
+   "year": 2019,
+   "authors": [
+    "Alan Cudmore"
+   ],
+   "moreAuthors": 0,
+   "type": "Presentation",
+   "center": "Goddard Space Flight Center",
+   "url": "https://ntrs.nasa.gov/citations/20170011566"
+  },
+  "ground": {
+   "id": "20190003857",
+   "title": "Enabling Affordable Communications for the Burgeoning Deep Space Cubesat Fleet",
+   "year": 2016,
+   "authors": [
+    "Abraham, Douglas S.",
+    "MacNeal, Bruce E.",
+    "Heckman, David P."
+   ],
+   "moreAuthors": 0,
+   "type": "Conference paper",
+   "center": "Jet Propulsion Laboratory",
+   "url": "https://ntrs.nasa.gov/citations/20190003857"
+  },
+  "aerobrake": {
+   "id": "20070010460",
+   "title": "Mars Reconnaissance Orbiter Operational Aerobraking Phase Assessment",
+   "year": 2007,
+   "authors": [
+    "Prince, Jill L.",
+    "Striepe, Scott A."
+   ],
+   "moreAuthors": 0,
+   "type": "Conference paper",
+   "center": "Glenn Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20070010460"
+  },
+  "insertion": {
+   "id": "20150000695",
+   "title": "Contingency Trajectory Design for a Lunar Orbit Insertion Maneuver Failure by the LADEE Spacecraft",
+   "year": 2014,
+   "authors": [
+    "Genova, A. L."
+   ],
+   "moreAuthors": 0,
+   "type": "Conference paper",
+   "center": "Ames Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20150000695"
+  },
+  "lost": {
+   "id": "20060043364",
+   "title": "Report on the loss of the Mars Climate Orbiter Mission : JPL special review board",
+   "year": 1999,
+   "authors": [
+    "Brace, Richard",
+    "Casani, John",
+    "Farquhar, Robert"
+   ],
+   "moreAuthors": 8,
+   "type": "Report",
+   "center": "Jet Propulsion Laboratory",
+   "url": "https://ntrs.nasa.gov/citations/20060043364"
+  },
+  "margins": {
+   "id": "20250000142",
+   "title": "State-of-the-Art Small Spacecraft Technology",
+   "year": 2025,
+   "authors": [
+    "Sasha V Weston",
+    "Craig D Burkhard",
+    "Jan M Stupl"
+   ],
+   "moreAuthors": 6,
+   "type": "Technical publication",
+   "center": "Ames Research Center",
+   "url": "https://ntrs.nasa.gov/citations/20250000142"
+  }
+ }
+}

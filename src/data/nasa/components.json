@@ -1,0 +1,2592 @@
+{
+ "meta": {
+  "documents": {
+   "soa2025": {
+    "title": "Small Spacecraft Technology State of the Art 2025 report",
+    "publisher": "NASA Ames Research Center, Small Spacecraft Systems Virtual Institute",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+    "landing": "https://www.nasa.gov/smallsat-institute/sst-soa/"
+   },
+   "cubesat101": {
+    "title": "CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers",
+    "publisher": "NASA CubeSat Launch Initiative (CSLI)",
+    "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+   }
+  },
+  "note": "Reference values from NASA documents for every game component. \"refs\" holds verbatim quotes with PDF page numbers (PDF page, not printed page). Each quote was checked against pdftotext output of the PDF; quotes from tables are the extracted row text. Values marked \"game balance\" in sources are tuned for play, not taken from NASA. All prices are game-scaled ($M budgets of the three missions are game balance).",
+  "sourceLabels": [
+   "NASA SOA 2025 §x",
+   "CubeSat 101 §x",
+   "GMAT",
+   "game balance"
+  ],
+  "verified": "2026-11-15"
+ },
+ "components": {
+  "earth": {
+   "instruments": {
+    "imager": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "thermal": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "atmos": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "spectro": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    }
+   },
+   "solar": {
+    "body": {
+     "nasaRef": {
+      "text": "Body-mounted 3U panels in the SOA tables give about 8 W per face (8–8.4 W) at 54–76 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.2.2",
+      "sunWatts": "NASA SOA 2025 §3.2.2",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r004",
+      "r005",
+      "r006"
+     ]
+    },
+    "deploy": {
+     "nasaRef": {
+      "text": "3U deployable arrays in the SOA tables give 7–21.6 W at 33–75 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.2.2",
+      "sunWatts": "NASA SOA 2025 §3.2.2",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r007",
+      "r008",
+      "r009"
+     ]
+    },
+    "track": {
+     "nasaRef": {
+      "text": "Articulated (sun-tracking) small-satellite wings in the SOA tables reach about 30–31 W/kg; a 3U body-mount plus deployed array gives 28–42 W.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.2.2",
+      "sunWatts": "NASA SOA 2025 §3.2.2",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r010",
+      "r011"
+     ]
+    }
+   },
+   "battery": {
+    "bat_s": {
+     "nasaRef": {
+      "text": "Li-ion battery packs for small spacecraft store 57.75–178.1 Wh/kg, most of them 110–178 Wh/kg (cells: 150–270 Wh/kg). The game uses 120 Wh/kg for CubeSat packs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.59, p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r016",
+      "r019",
+      "r020"
+     ]
+    },
+    "bat_m": {
+     "nasaRef": {
+      "text": "Li-ion battery packs for small spacecraft store 57.75–178.1 Wh/kg, most of them 110–178 Wh/kg (cells: 150–270 Wh/kg). The game uses 120 Wh/kg for CubeSat packs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.59, p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r016",
+      "r019",
+      "r020"
+     ]
+    },
+    "bat_l": {
+     "nasaRef": {
+      "text": "Li-ion battery packs for small spacecraft store 57.75–178.1 Wh/kg, most of them 110–178 Wh/kg (cells: 150–270 Wh/kg). The game uses 120 Wh/kg for CubeSat packs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.59, p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r016",
+      "r019",
+      "r020"
+     ]
+    }
+   },
+   "radio": {
+    "uhf": {
+     "nasaRef": {
+      "text": "CubeSat UHF transceivers send typically 9.6 kbps (0.1–38.4 kbps) and weigh 22–158 g. At 38.4 kbps, 30 minutes of contact a day returns about 0.26 GB a month.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §9.2.8, PDF p.294, p.295"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §9.2.8",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "NASA SOA 2025 §9.2.8 (38.4 kbps × 30 min/day)",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r046",
+      "r047"
+     ]
+    },
+    "sband": {
+     "nasaRef": {
+      "text": "CubeSat S-band transmitters send 1–20 Mbps and weigh 70–1360 g. The game scales S-band and X-band data volume down, together with the instruments' data volume.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §9.2.8, PDF p.285, p.296"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §9.2.8",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance (scaled below the SOA 1–20 Mbps)",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r049",
+      "r050"
+     ]
+    },
+    "xband": {
+     "nasaRef": {
+      "text": "CubeSat X-band transmitters send 25–50 Mbps at 130–300 g, and high-rate units 1 Gbps or more.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §9.2.8, PDF p.298, p.299"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §9.2.8",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance (scaled below the SOA 25–50 Mbps)",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r052",
+      "r053",
+      "r054"
+     ]
+    }
+   },
+   "computer": {
+    "obc_basic": {
+     "nasaRef": {
+      "text": "CubeSat onboard computers draw about 0.1–5 W. Typical commercial boards tolerate a total ionizing dose of 20–40 krad and rad-hard units 100 krad. Memory runs from hundreds of KB to several GB.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.254, p.260"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r062",
+      "r063",
+      "r064",
+      "r066"
+     ]
+    },
+    "obc_std": {
+     "nasaRef": {
+      "text": "CubeSat onboard computers draw about 0.1–5 W. Typical commercial boards tolerate a total ionizing dose of 20–40 krad and rad-hard units 100 krad. Memory runs from hundreds of KB to several GB.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.254, p.260"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r062",
+      "r063",
+      "r064",
+      "r066"
+     ]
+    },
+    "obc_rad": {
+     "nasaRef": {
+      "text": "CubeSat onboard computers draw about 0.1–5 W. Typical commercial boards tolerate a total ionizing dose of 20–40 krad and rad-hard units 100 krad. Memory runs from hundreds of KB to several GB.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.254, p.260"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r062",
+      "r063",
+      "r064",
+      "r066"
+     ]
+    }
+   },
+   "attitude": {
+    "mag": {
+     "nasaRef": {
+      "text": "Passive magnetic stabilization has flown on CubeSats (CubeSat 101). The SOA lists coarse 3U buses at <15° pointing.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.29"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §2.2.2.2 (coarse class <15°)",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r023"
+     ]
+    },
+    "torq": {
+     "nasaRef": {
+      "text": "A 3-axis magnetorquer board weighs about 0.2 kg and draws 0.4–1.2 W; sun sensors are 0.1–5° accurate. Magnetorquers alone cannot hold 3-axis attitude, so pointing stays coarse.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.3, PDF p.169, p.175"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §5.2.3",
+      "watts": "NASA SOA 2025 §5.2.3",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §5.2.3",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r038",
+      "r039",
+      "r044"
+     ]
+    },
+    "wheel": {
+     "nasaRef": {
+      "text": "Integrated CubeSat ADCS units (3 reaction wheels, magnetorquers and a star tracker) weigh 0.26–1.813 kg and point to between <1° and 0.003°. Star trackers are 2–40 arcsec accurate.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.1, PDF p.165, p.172"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §5.2.1",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §5.2.1",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r030",
+      "r031",
+      "r040"
+     ]
+    }
+   },
+   "propulsion": {}
+  },
+  "lunar": {
+   "instruments": {
+    "cam": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "altim": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "mapper": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "neutron": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    }
+   },
+   "solar": {
+    "fixed": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    },
+    "wings": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    },
+    "track": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    }
+   },
+   "battery": {
+    "bat_s": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    },
+    "bat_m": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    },
+    "bat_l": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    }
+   },
+   "radio": {
+    "sband": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    },
+    "xband": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    },
+    "kaband": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    }
+   },
+   "computer": {
+    "obc_std": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    },
+    "obc_rad": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    },
+    "obc_mem": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    }
+   },
+   "attitude": {
+    "thr": {
+     "nasaRef": {
+      "text": "Thruster-only attitude control is coarse; sun sensors are 0.1–5° accurate.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.7, PDF p.175"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "game balance",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r044"
+     ]
+    },
+    "wheel": {
+     "nasaRef": {
+      "text": "ESPA-class reaction wheels weigh 3.2–4.4 kg each (4–8 N·m·s); star trackers are 2–40 arcsec accurate and ESPA-class buses point to 0.003–0.006°.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.2, PDF p.36, p.167, p.172"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §2.2.2.3",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r036",
+      "r040",
+      "r092"
+     ]
+    },
+    "wheel_red": {
+     "nasaRef": {
+      "text": "ESPA-class reaction wheels weigh 3.2–4.4 kg each (4–8 N·m·s); star trackers are 2–40 arcsec accurate and ESPA-class buses point to 0.003–0.006°.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.2, PDF p.36, p.167, p.172"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §2.2.2.3",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r036",
+      "r040",
+      "r092"
+     ]
+    }
+   },
+   "propulsion": {
+    "mono_s": {
+     "nasaRef": {
+      "text": "Hydrazine monopropellant thrusters give 200–235 s (1 N and larger); the ASCENT green monopropellant gives 231–250 s. The game uses 250 s, 90% of the system mass as propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.87, p.127"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r069",
+      "r072"
+     ]
+    },
+    "mono_l": {
+     "nasaRef": {
+      "text": "Hydrazine monopropellant thrusters give 200–235 s (1 N and larger); the ASCENT green monopropellant gives 231–250 s. The game uses 250 s, 90% of the system mass as propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.87, p.127"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r069",
+      "r072"
+     ]
+    },
+    "biprop": {
+     "nasaRef": {
+      "text": "A hydrazine/NTO bipropellant small-spacecraft system gives 285 s; green bipropellants give 250–310 s. The game uses 300 s (within that range), 90% propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.125, p.126"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r077",
+      "r078",
+      "r079"
+     ]
+    }
+   }
+  },
+  "mars": {
+   "instruments": {
+    "cam": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "tracegas": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "radar": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    },
+    "fields": {
+     "nasaRef": {
+      "text": "The NASA SST State-of-the-Art report has no science-instrument chapter, so this payload's mass, power and data volume are game balance. It names multispectral imaging among the payloads that drive spacecraft power needs.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §2.2.2.2, PDF p.66"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerMonth": "game balance",
+      "value": "game balance",
+      "quality": "game balance"
+     },
+     "refIds": [
+      "r104"
+     ]
+    }
+   },
+   "solar": {
+    "wings": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    },
+    "large": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    },
+    "ultra": {
+     "nasaRef": {
+      "text": "Small-spacecraft solar arrays cluster around ~30 W/kg; ESPA-class deployable wings give 42–1268 W at 34–60 W/kg, and roll-out arrays (ROSA) 100 W/kg.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.2.2, PDF p.51, p.52, p.53"
+     },
+     "sources": {
+      "kg": "game balance (≈21–34 W/kg, near the SOA ~30 W/kg)",
+      "sunWatts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "deployRisk": "game balance"
+     },
+     "refIds": [
+      "r003",
+      "r013",
+      "r014"
+     ]
+    }
+   },
+   "battery": {
+    "bat_s": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    },
+    "bat_m": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    },
+    "bat_l": {
+     "nasaRef": {
+      "text": "Space-grade Li-ion packs store about 91 Wh/kg (Saft VES16), CubeSat packs up to 178 Wh/kg. The game uses 90 Wh/kg for larger spacecraft.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §3.4.1, PDF p.61"
+     },
+     "sources": {
+      "kg": "NASA SOA 2025 §3.4.1",
+      "wh": "game balance",
+      "costM": "game balance"
+     },
+     "refIds": [
+      "r019",
+      "r020",
+      "r021"
+     ]
+    }
+   },
+   "radio": {
+    "x1": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    },
+    "x2": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    },
+    "ka3": {
+     "nasaRef": {
+      "text": "Deep-space transponders: Iris V2.1 1.1 kg / 10.3 W, Iris V3 0.8 kg / 10 W, SDST 3.2 kg / 12.5 W (receive power); Iris V2.2 sends 0.1–10,000 kbps. Antenna mass, amplifier power and data volume are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.11, PDF p.182, p.298"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "gbPerUnit": "game balance",
+      "pointingFactor": "game balance"
+     },
+     "refIds": [
+      "r058",
+      "r059",
+      "r060"
+     ]
+    }
+   },
+   "computer": {
+    "obc_rad": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    },
+    "obc_mem": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    },
+    "obc_auto": {
+     "nasaRef": {
+      "text": "Rad-hard flight computers tolerate 100 krad (total dose) and draw 5–12 W (Argotec FERMI 5 W, Aitech SP0-S 12 W); recorders and fault protection are game balance.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §8.2.7, PDF p.260, p.261"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "NASA SOA 2025 §8.2.7",
+      "costM": "game balance",
+      "months": "game balance",
+      "storageGB": "game balance",
+      "flareDamage": "game balance"
+     },
+     "refIds": [
+      "r063",
+      "r065"
+     ]
+    }
+   },
+   "attitude": {
+    "thr": {
+     "nasaRef": {
+      "text": "Thruster-only attitude control is coarse; sun sensors are 0.1–5° accurate.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.7, PDF p.175"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "game balance",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r044"
+     ]
+    },
+    "wheel": {
+     "nasaRef": {
+      "text": "ESPA-class reaction wheels weigh 3.2–4.4 kg each (4–8 N·m·s); star trackers are 2–40 arcsec accurate and ESPA-class buses point to 0.003–0.006°.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.2, PDF p.36, p.167, p.172"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §2.2.2.3",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r036",
+      "r040",
+      "r092"
+     ]
+    },
+    "wheel_red": {
+     "nasaRef": {
+      "text": "ESPA-class reaction wheels weigh 3.2–4.4 kg each (4–8 N·m·s); star trackers are 2–40 arcsec accurate and ESPA-class buses point to 0.003–0.006°.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §5.2.2, PDF p.36, p.167, p.172"
+     },
+     "sources": {
+      "kg": "game balance",
+      "watts": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "pointing": "NASA SOA 2025 §2.2.2.3",
+      "wheelFaultChance": "game balance"
+     },
+     "refIds": [
+      "r036",
+      "r040",
+      "r092"
+     ]
+    }
+   },
+   "propulsion": {
+    "mono_l": {
+     "nasaRef": {
+      "text": "Hydrazine monopropellant thrusters give 200–235 s (1 N and larger); the ASCENT green monopropellant gives 231–250 s. The game uses 250 s, 90% of the system mass as propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.87, p.127"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r069",
+      "r072"
+     ]
+    },
+    "biprop": {
+     "nasaRef": {
+      "text": "A hydrazine/NTO bipropellant small-spacecraft system gives 285 s; green bipropellants give 250–310 s. The game uses 300 s (within that range), 90% propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.125, p.126"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r077",
+      "r078",
+      "r079"
+     ]
+    },
+    "biprop_xl": {
+     "nasaRef": {
+      "text": "A hydrazine/NTO bipropellant small-spacecraft system gives 285 s; green bipropellants give 250–310 s. The game uses 300 s (within that range), 90% propellant, and the rocket equation.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.1, PDF p.125, p.126"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r077",
+      "r078",
+      "r079"
+     ]
+    },
+    "sep": {
+     "nasaRef": {
+      "text": "Hall thrusters give 1,390–1,920 s and gridded ion engines 500–3,000 s (the BIT-3 iodine ion thruster that flew on Lunar IceCube and LunaH-Map gives 1,960 s). The game uses 1,900 s with 60% of the system mass as propellant.",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+      "source": "NASA SOA 2025 §4.6.2, PDF p.86, p.133, p.134, p.135"
+     },
+     "sources": {
+      "kg": "game balance",
+      "costM": "game balance",
+      "months": "game balance",
+      "dvAtRef": "NASA SOA 2025 §4.5/§4.6 (Isp) + rocket equation"
+     },
+     "refIds": [
+      "r081",
+      "r082",
+      "r083",
+      "r085",
+      "r086"
+     ]
+    }
+   }
+  }
+ },
+ "platforms": {
+  "earth": {
+   "nasaRef": {
+    "text": "A 3U CubeSat measures 10 × 10 × 34 cm (a 1U cube weighs about 1–1.33 kg). The bare 3U structure in the SOA weighs 0.352 kg on average; 3U buses give 7.5 W to tens of watts.",
+    "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf",
+    "source": "CubeSat 101 §1.1, PDF p.12; NASA SOA 2025, PDF p.29, p.195"
+   },
+   "sources": {
+    "kg": "NASA SOA 2025 §6.2.1 (0.35 kg structure) + game balance (harness, EPS board)",
+    "watts": "game balance",
+    "costM": "game balance"
+   },
+   "refIds": [
+    "r094",
+    "r095",
+    "r096",
+    "r022"
+   ]
+  },
+  "lunar": {
+   "nasaRef": {
+    "text": "ESPA-class platforms weigh typically under 500 kg; an ESPA ring port carries up to 257 kg (the original ESPA slot: 180 kg). ESPA-class buses offer 1,000–4,000 W peak.",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+    "source": "NASA SOA 2025 §2.2.2.3, PDF p.15, p.34, p.36, p.323"
+   },
+   "sources": {
+    "kg": "game balance",
+    "watts": "game balance",
+    "costM": "game balance",
+    "massLimit": "NASA SOA 2025 §10.4.1 (257 kg ESPA port)"
+   },
+   "refIds": [
+    "r089",
+    "r090",
+    "r091",
+    "r092"
+   ]
+  },
+  "mars": {
+   "nasaRef": {
+    "text": "A 200–600 kg spacecraft is a minisatellite; ESPA-class buses give 1,000–4,000 W peak.",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf",
+    "source": "NASA SOA 2025 §2.2.2.3, PDF p.36, p.320"
+   },
+   "sources": {
+    "kg": "game balance",
+    "watts": "game balance",
+    "costM": "game balance"
+   },
+   "refIds": [
+    "r092",
+    "r093"
+   ]
+  }
+ },
+ "launchers": {
+  "earth": {
+   "nasaRef": {
+    "text": "NASA's CubeSat Launch Initiative covers up to $300,000, \"typically enough to launch a 3U into low-Earth orbit\"; SpaceX Transporter rideshares start at $350k for about 50 kg.",
+    "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf",
+    "source": "CubeSat 101 ch.2, PDF p.19; NASA SOA 2025, PDF p.322"
+   },
+   "sources": {
+    "costM": "CubeSat 101 ch.2 / NASA SOA 2025 §10.3.2 (order of magnitude)",
+    "capacityKg": "game balance"
+   },
+   "refIds": [
+    "r098",
+    "r099"
+   ]
+  }
+ },
+ "schedule": {
+  "nasaRef": {
+   "text": "A CubeSat can be built and delivered in as little as 9 months, but it typically takes 18 to 24 months. There is no standard price tag.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf",
+   "source": "CubeSat 101 ch.2, PDF p.17, p.20"
+  },
+  "sources": {
+   "devMonths": "game balance",
+   "budgetM": "game balance"
+  },
+  "refIds": [
+   "r101",
+   "r102",
+   "r100"
+  ]
+ },
+ "refs": {
+  "r000": {
+   "topic": "solar_cell_efficiency",
+   "metric": "multi-junction (III-V) space cell nominal/high efficiency",
+   "value": 30,
+   "min": 30,
+   "max": 34,
+   "unit": "%",
+   "doc": "soa2025",
+   "page": 47,
+   "section": "3.2.1 Solar Cells",
+   "quote": "The current state-of-the-art for space solar cells includes 3- to 5- junction architectures based on Group III-V semiconductor elements (like GaAs, InGaP, and Ge) with a nominal efficiency of 30%",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r001": {
+   "topic": "solar_cell_efficiency",
+   "metric": "silicon single-junction cell efficiency",
+   "value": 20,
+   "unit": "%",
+   "doc": "soa2025",
+   "page": 47,
+   "section": "3.2.1 Solar Cells",
+   "quote": "These single-junction cells are inexpensive to manufacture but have relatively low efficiencies, around 20%.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r002": {
+   "topic": "solar_cell_efficiency",
+   "metric": "BOL efficiency range across listed triple/multi-junction cells (Table 3-1, e.g. ZTJ 29.5, XTE-SF 32.2)",
+   "min": 26.8,
+   "max": 32.2,
+   "unit": "%",
+   "doc": "soa2025",
+   "page": 48,
+   "section": "3.2.1 Solar Cells",
+   "quote": "ZTJ 29.5 2.726 2.41 17.4 16.5 397.7",
+   "note": "Table 3-1 range: Silicon S 32 = 16.8%; III-V cells 26.8% (ITJ) to 32.2% (XTE-SF).",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r003": {
+   "topic": "solar_specific_power",
+   "metric": "empirical array specific power cluster across 389 missions",
+   "value": 30,
+   "min": 1,
+   "max": 200,
+   "unit": "W/kg",
+   "doc": "soa2025",
+   "page": 53,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "Space missions using solar arrays, regardless of spacecraft mass, are strongly clustered around ~30 W/kg",
+   "note": "Bounds: no mission below 1 W/kg; dataset max 200 W/kg (same paragraph).",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r004": {
+   "topic": "solar_specific_power",
+   "metric": "3U body-mounted panel (one face): specific power and peak BOL power",
+   "value": 56,
+   "unit": "W/kg",
+   "doc": "soa2025",
+   "page": 51,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "DHV-3U Series (Body PCB Substrate 56 8",
+   "note": "DHV-3U body mounted: 56 W/kg, 8 W. Other 3U body-mounted faces in Table 3-2: XO-PANEL 3U 54 W/kg 8.1 W (p52); NPC SP3X 76 W/kg 8.4 W (p52); Emxys 3U 66.6 W/kg 8.2 W (p51).",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r005": {
+   "topic": "solar_specific_power",
+   "metric": "3U body-mounted panel (Exobotics XO-PANEL 3U)",
+   "value": 8.1,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "XO-PANEL 3U Body Mounted 54 8.1",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r006": {
+   "topic": "solar_specific_power",
+   "metric": "3U body-mounted panel (NPC SP3X)",
+   "value": 8.4,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "SP3X Body Mounted 3U 76 8.4",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r007": {
+   "topic": "solar_specific_power",
+   "metric": "3U double deployable array (NPC SP3X Deployable)",
+   "value": 21.6,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "SP3X Deployable Double, Deployable 3U 75 21.6",
+   "note": "75 W/kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r008": {
+   "topic": "solar_specific_power",
+   "metric": "3U deployable arrays (DHV simple/double/triple)",
+   "min": 7,
+   "max": 21,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 51,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "DSA-3U-3D-L (Triple PCB Substrate 46 21",
+   "note": "DSA-3U-1D-L 33 W/kg 7 W; DSA-3U-2D-L 35 W/kg 11 W; DSA-3U-3D-L 46 W/kg 21 W.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r009": {
+   "topic": "solar_specific_power",
+   "metric": "3U deployed rigid array (EnduroSat)",
+   "value": 14.4,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "3U Solar Panel/Array Deployed Rigid 66 14.4",
+   "note": "66 W/kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r010": {
+   "topic": "solar_specific_power",
+   "metric": "BCT body-mount + deployed array power for 3U",
+   "min": 28,
+   "max": 42,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 51,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "28 – 42 for",
+   "note": "Table cell reads \"28 – 42 for 3U / 48-118 for 6U-12U\".",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r011": {
+   "topic": "solar_specific_power",
+   "metric": "articulated (sun-tracking) deployable arrays (Pumpkin)",
+   "min": 30,
+   "max": 31,
+   "unit": "W/kg",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "Dual Articulated Deployable Deployed Rigid 31 135",
+   "note": "Dual Articulated 31 W/kg, 135 W; Dual-Quad Articulated 30 W/kg, 240 W.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r012": {
+   "topic": "solar_specific_power",
+   "metric": "high-performance deployed rigid PCB arrays (MMA HaWK family)",
+   "min": 95,
+   "max": 121,
+   "unit": "W/kg",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "Hawk Deployed Rigid (PCB) 121 36-112",
+   "note": "Hawk 121 W/kg 36-112 W; zHawk 95 W/kg 36 W; Next-Gen HaWK 100 W/kg 45-310 W.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r013": {
+   "topic": "solar_specific_power",
+   "metric": "ESPA/SmallSat-scale deployable wings (DHV DSA series)",
+   "min": 42,
+   "max": 1268,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 51,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "DSA-1268W Sextuple Deployable 46 1268",
+   "note": "DSA series 34-60 W/kg for 42 W to 1268 W arrays.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r014": {
+   "topic": "solar_specific_power",
+   "metric": "flexible roll-out array (Redwire ROSA)",
+   "value": 1000,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "ROSA Flexible PV blanket 100 1000",
+   "note": "100 W/kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r015": {
+   "topic": "solar_specific_power",
+   "metric": "flexible fold-out array (ExoTerra FOSA)",
+   "value": 150,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 52,
+   "section": "3.2.2 Solar Panels & Arrays",
+   "quote": "Deployed Flexible 140 150",
+   "note": "140 W/kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r016": {
+   "topic": "battery_specific_energy",
+   "metric": "commercial Li-ion cell specific energy",
+   "min": 150,
+   "max": 270,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 59,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "Current commercial Li-ion energy cells typically provide 150-270 Wh/kg and an average voltage of 3.6 V",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r017": {
+   "topic": "battery_specific_energy",
+   "metric": "Li-polymer cell specific energy",
+   "min": 150,
+   "max": 200,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 59,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "Lithium polymer (LiPo) cells deliver a lower energy density (150-200 Wh/kg)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r018": {
+   "topic": "battery_specific_energy",
+   "metric": "18650 cells flown on NASA small spacecraft (Table 3-4)",
+   "min": 112,
+   "max": 260,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 60,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "Panasonic NCR18650B MarCO, ADAPT, BioSentinel, 243",
+   "note": "Table 3-4 range: 112 (Canon BP-930s) to 260 (LG MJ1); NCR18650B 243 Wh/kg flew on MarCO, BioSentinel, Lunar Flashlight.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r019": {
+   "topic": "battery_specific_energy",
+   "metric": "battery pack specific energy (Table 3-5, pack level incl. BMS)",
+   "min": 57.75,
+   "max": 178.1,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 61,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "Nanopower BPX 3000mA 262.2 172 6.0 4 GomSpace NanoPower Li-ion",
+   "note": "Column order is Wh/L then Wh/kg. Pack Wh/kg range across table ~57.75 (BAT-110 LiFe) to 178.1 (EnduroSat EPS IV); most Li-ion packs 110-178 Wh/kg.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r020": {
+   "topic": "battery_specific_energy",
+   "metric": "battery pack specific energy, EnduroSat EPS IV",
+   "value": 178.1,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 61,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "EPS IV (BMS) 222.9 178.1 33.5 100 Li-Ion",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r021": {
+   "topic": "battery_specific_energy",
+   "metric": "space-grade pack (Saft VES16 4S1P)",
+   "value": 91,
+   "unit": "Wh/kg",
+   "doc": "soa2025",
+   "page": 61,
+   "section": "3.4.1 Secondary Li-ion Batteries",
+   "quote": "VES16 4S1P 109.2 91 4.5",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r022": {
+   "topic": "cubesat_bus_power",
+   "metric": "0.25U-3U bus peak power across providers (Table 2-3)",
+   "min": 7.5,
+   "max": 400,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 29,
+   "section": "2.2.2.2 CubeSats (Table 2-3: 0.25U-3U Market Solutions)",
+   "quote": "Innova Space Argentina 7.5 <15°/<15° UHF",
+   "note": "Examples: Innova 7.5 W/<15 deg; FOSSA 30 W 1 deg; GomSpace 35 W 0.139 deg; BCT 27 W 0.003 deg. Max listed 400 W (Orbital Astronautics). \"maximum capability\" fields.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r023": {
+   "topic": "adcs_unit_pointing",
+   "metric": "coarse 3U bus pointing (3-sigma control/knowledge), magnetic-only class",
+   "value": 15,
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 29,
+   "section": "2.2.2.2 CubeSats (Table 2-3: 0.25U-3U Market Solutions)",
+   "quote": "ISISPACE The Netherlands 50 <15°/<15° VHF, UHF, S",
+   "note": "<15 deg (Innova Space and ISISPACE 0.25U-3U)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r024": {
+   "topic": "adcs_unit_pointing",
+   "metric": "fine 3U bus pointing (BCT, 3-sigma)",
+   "value": 0.003,
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 29,
+   "section": "2.2.2.2 CubeSats (Table 2-3: 0.25U-3U Market Solutions)",
+   "quote": "27 0.003°/0.003° L, S, X",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r025": {
+   "topic": "adcs_unit_pointing",
+   "metric": "integrated GNC units pointing capability range",
+   "min": 0.002,
+   "max": 5,
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 164,
+   "section": "5.1/5.2 GNC (Table 5-1: State-of-the-Art GNC Subsystems)",
+   "quote": "Integrated Units 0.002-5° pointing capability 7-9",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r026": {
+   "topic": "star_tracker",
+   "metric": "star tracker SOA pointing knowledge",
+   "value": 8,
+   "unit": "arcsec",
+   "doc": "soa2025",
+   "page": 164,
+   "section": "5.1/5.2 GNC (Table 5-1: State-of-the-Art GNC Subsystems)",
+   "quote": "Star Trackers 8 arcsec pointing knowledge 7-9",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r027": {
+   "topic": "sun_sensor",
+   "metric": "sun sensor SOA accuracy",
+   "value": 0.1,
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 164,
+   "section": "5.1/5.2 GNC (Table 5-1: State-of-the-Art GNC Subsystems)",
+   "quote": "Sun Sensors 0.1° accuracy 7-9",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r028": {
+   "topic": "magnetorquer",
+   "metric": "magnetic torquer dipole range",
+   "min": 0.15,
+   "max": 15,
+   "unit": "A m2",
+   "doc": "soa2025",
+   "page": 164,
+   "section": "5.1/5.2 GNC (Table 5-1: State-of-the-Art GNC Subsystems)",
+   "quote": "Magnetic Torquers 0.15 A m2 – 15 A m2 7-9",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r029": {
+   "topic": "reaction_wheel",
+   "metric": "reaction wheel torque / momentum range",
+   "min": 0.0005,
+   "max": 8,
+   "unit": "N m s",
+   "doc": "soa2025",
+   "page": 164,
+   "section": "5.1/5.2 GNC (Table 5-1: State-of-the-Art GNC Subsystems)",
+   "quote": "Reaction Wheels 0.00023 – 0.3 Nm peak torque, 0.0005 – 8 N m s storage 7-9",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r030": {
+   "topic": "adcs_unit_pointing",
+   "metric": "integrated ADCS (3 RW + 3 MTQ + star tracker) BCT XACT-15 mass & accuracy",
+   "value": 0.885,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 165,
+   "section": "5.2.1 Integrated Units (Table 5-2)",
+   "quote": "XACT-15 0.885 Sensors, IMU, Magnetometer, Yes 0.003/0.007°",
+   "note": "pointing 0.003/0.007 deg; XACT-50 1.230 kg; XACT-100 1.813 kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r031": {
+   "topic": "adcs_unit_pointing",
+   "metric": "integrated ADCS mass range (Table 5-2)",
+   "min": 0.26,
+   "max": 1.813,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 165,
+   "section": "5.2.1 Integrated Units (Table 5-2)",
+   "quote": "iADCS-200 0.470 Optionally high precision Yes <1°",
+   "note": "CubeADCS 0.26 kg (~70 arcsec), IADCS-100 0.4 kg, iADCS-200 0.47 kg (<1 deg), Arcus 0.715 kg (0.1 deg), XACT 0.885-1.813 kg (0.003 deg).",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r032": {
+   "topic": "adcs_unit_pointing",
+   "metric": "CubeSpace CubeADCS pointing",
+   "value": 70,
+   "unit": "arcsec",
+   "doc": "soa2025",
+   "page": 165,
+   "section": "5.2.1 Integrated Units (Table 5-2)",
+   "quote": "~70 arcsec (3",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r033": {
+   "topic": "reaction_wheel",
+   "metric": "CubeSat-class wheel (BCT RWp050) mass/power/momentum",
+   "value": 0.24,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 167,
+   "section": "5.2.2 Reaction Wheels (Table 5-3)",
+   "quote": "RWp050 0.240 9 0.007 0.050 1 --",
+   "note": "mass 0.240 kg, peak power 9 W, 0.007 Nm, 0.050 Nms",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r034": {
+   "topic": "reaction_wheel",
+   "metric": "smallest wheels (BCT RWp015, Rocket Lab RW-0.01)",
+   "value": 0.13,
+   "min": 0.122,
+   "max": 0.13,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 167,
+   "section": "5.2.2 Reaction Wheels (Table 5-3)",
+   "quote": "RWp015 0.130 5.5 0.004 0.015 1 --",
+   "note": "RW-0.01: 0.122 kg, 1.05 W (p168)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r035": {
+   "topic": "reaction_wheel",
+   "metric": "Rocket Lab RW-0.01 mass and peak power",
+   "value": 0.122,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 168,
+   "section": "5.2.2 Reaction Wheels (Table 5-3)",
+   "quote": "RW-0.01 0.122 1.05 0.001 0.018 1 20",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r036": {
+   "topic": "reaction_wheel",
+   "metric": "ESPA-class wheel (BCT RW4 / RW8)",
+   "min": 3.2,
+   "max": 4.4,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 167,
+   "section": "5.2.2 Reaction Wheels (Table 5-3)",
+   "quote": "RW4 3.200 204 0.250 4.000 1 --",
+   "note": "RW4 3.2 kg 4 Nms; RW8 4.4 kg 8 Nms; peak power 204 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r037": {
+   "topic": "magnetorquer",
+   "metric": "single-axis CubeSat torquer rods (CubeTorquer) mass and power",
+   "min": 0.0165,
+   "max": 0.054,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 169,
+   "section": "5.2.3 Magnetic Torquers (Table 5-4)",
+   "quote": "CubeTorquer CR0002 0.0165 0.49 0.2 1 24",
+   "note": "CR0002-CR0020: 0.0165-0.054 kg, 0.38-0.77 W, 0.2-2 A m2 each",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r038": {
+   "topic": "magnetorquer",
+   "metric": "3-axis magnetorquer board (ISISPACE)",
+   "value": 0.196,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 169,
+   "section": "5.2.3 Magnetic Torquers (Table 5-4)",
+   "quote": "Magnetorquer Board 0.196 1.2 0.20 3 -",
+   "note": "1.2 W, 0.2 A m2, 3 axes; NanoAvionics MTQ3X 0.205 kg 0.4 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r039": {
+   "topic": "magnetorquer",
+   "metric": "magnetorquers alone cannot give 3-axis stabilization",
+   "doc": "soa2025",
+   "page": 169,
+   "section": "5.2.3 Magnetic Torquers (Table 5-4)",
+   "quote": "magnetic torquers alone cannot typically provide three-axis stabilization",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r040": {
+   "topic": "star_tracker",
+   "metric": "CubeSat star trackers mass/power/accuracy (Table 5-5)",
+   "min": 0.04,
+   "max": 0.475,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 172,
+   "section": "5.2.5 Star Trackers (Table 5-5)",
+   "quote": "Sagitta 0.275 1.4 25.4° 6 30 20",
+   "note": "Small trackers: 0.04-0.475 kg, 0.6-2.5 W, cross-axis ~2-40 arcsec (e.g. Sagitta 0.275 kg 1.4 W 6\"; ST-16RT2 0.185 kg 1 W 5\"; Twinkle 0.04 kg 0.6 W 30\"). Large: CT-2020 3 kg 8 W 1.5\".",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r041": {
+   "topic": "star_tracker",
+   "metric": "Rocket Lab ST-16RT2",
+   "value": 0.185,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 172,
+   "section": "5.2.5 Star Trackers (Table 5-5)",
+   "quote": "ST-16RT2 0.185 1 8° half-cone 5\" 55\" -",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r042": {
+   "topic": "star_tracker",
+   "metric": "star tracker boresight accuracy text",
+   "unit": "arcsec",
+   "doc": "soa2025",
+   "page": 171,
+   "section": "5.2.5 Star Trackers (Table 5-5)",
+   "quote": "Most modern star trackers can provide knowledge of the sensor’s boresight to within a few arcseconds",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r043": {
+   "topic": "sun_sensor",
+   "metric": "cosine (coarse) sun sensor accuracy",
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 174,
+   "section": "5.2.7 Sun Sensors (Table 5-7)",
+   "quote": "their accuracy is typically limited to a few degrees",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r044": {
+   "topic": "sun_sensor",
+   "metric": "commercial sun sensors accuracy range (Table 5-7)",
+   "min": 0.01,
+   "max": 5,
+   "unit": "deg",
+   "doc": "soa2025",
+   "page": 175,
+   "section": "5.2.7 Sun Sensors (Table 5-7)",
+   "quote": "SS200 - 0.003 0.04 Digital 110° <1° - >36",
+   "note": "Coarse/cosine 1-5 deg (CoSS 3 deg, 0.024 kg); fine/quadrant 0.1-0.5 deg (NFSS-411 0.1 deg 0.035 kg); Eagle Point <0.01 deg. Masses 0.002-0.375 kg.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r045": {
+   "topic": "uhf_radio",
+   "metric": "UHF band definition",
+   "min": 300,
+   "max": 1000,
+   "unit": "MHz",
+   "doc": "soa2025",
+   "page": 280,
+   "section": "9.2.1 Frequency Bands",
+   "quote": "UHF 300 to 1000 MHz",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r046": {
+   "topic": "uhf_radio",
+   "metric": "typical CubeSat UHF transceiver data rate (Table 9-3)",
+   "value": 9.6,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 295,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "ISISPACE TRXVU Transceiver VHF, UHF 9.6 27 dBm 75 9x9.5x1.5 Y",
+   "note": "TRXVU 9.6 kbps, 75 g; Lithium-1 9.6 kbps 48 g; PULSAR-VUTRX 9.6 kbps 100 g; AX100 0.1-38.4 kbps 24.5 g; TRX-U 19.2 kbps 140 g. Range across UHF radios ~1.2-38.4 kbps, 22-158 g.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r047": {
+   "topic": "uhf_radio",
+   "metric": "GomSpace NanoCom AX100 data rate & mass",
+   "value": 38.4,
+   "min": 0.1,
+   "max": 38.4,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 294,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "GomSpace NanoCom AX100 Transceiver VHF, UHF 0.1-38.4 30 dBm 24.5 6.5x4x7 Y",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r048": {
+   "topic": "uhf_radio",
+   "metric": "AstroDev Helium-100 data rate & mass",
+   "value": 38.4,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 294,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "AstroDev Helium-100 Transceiver VHF, UHF 38.4 3W 78 9.6x9x1.6 Y",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r049": {
+   "topic": "sband_radio",
+   "metric": "S-band CubeSat transmitters data rate (Table 9-3)",
+   "min": 1000,
+   "max": 20000,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 296,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "TX-2400 Transmitter 2000-2300 S 6,000 2.5 70 6.8x3.5x1.5 Y",
+   "note": "TX-2400 6 Mbps 70 g; HISPICO 1 Mbps 100 g; SWIFT-SLX 6 Mbps 300 g; NSR-SDR-S/S 4 Mbps 375 g 4 W; CXS-1000 20 Mbps 1360 g. Tx Power column is RF output, not DC draw.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r050": {
+   "topic": "sband_radio",
+   "metric": "S-band DVB-S2 demonstration rate",
+   "value": 15,
+   "unit": "Mbps",
+   "doc": "soa2025",
+   "page": 285,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "successfully demonstrate DVB-S2 over a S-band 5 MHz channel achieving 15 Mbps",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r051": {
+   "topic": "sband_radio",
+   "metric": "S-band TT&C usage",
+   "doc": "soa2025",
+   "page": 280,
+   "section": "9.2.1 Frequency Bands",
+   "quote": "Command (TT&C) is typically conducted over S-band.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r052": {
+   "topic": "xband_radio",
+   "metric": "CubeSat X-band transmitter (AAC Clyde XTX) rate/power/mass",
+   "value": 50000,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 299,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "XTX X-Band SDR -- X 50,000 2W 130 9.6x9x1.1 Y",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r053": {
+   "topic": "xband_radio",
+   "metric": "high-rate CubeSat X-band transmitters (Table 9-3)",
+   "min": 0.025,
+   "max": 6,
+   "unit": "Gbps",
+   "doc": "soa2025",
+   "page": 299,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "CUBECOM HDRTX Transmitter 8025-8400 X 1 Gbps -- 250 9.6x9.0x2.0 Y",
+   "note": "X-band from 25 Mbps (SWIFT-XTX 300 g, p298) to 1-1.5 Gbps (CUBECOM 250 g; Syrlinks EWC27 1.4 Gbps 235 g) and up to 6 Gbps (EnduroSat <2500 g).",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r054": {
+   "topic": "xband_radio",
+   "metric": "Tethers SWIFT-XTX X-band",
+   "value": 25000,
+   "unit": "kbps",
+   "doc": "soa2025",
+   "page": 298,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "SDR 7000-8500 X 25,000 33 dBm 300 9x9.8x6 N",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r055": {
+   "topic": "kaband_radio",
+   "metric": "ISARA 3U Ka-band demonstration downlink",
+   "value": 100,
+   "unit": "Mbps",
+   "doc": "soa2025",
+   "page": 280,
+   "section": "9.2.1 Frequency Bands",
+   "quote": "high bandwidth Ka-band CubeSat communications with over 100 Mbps downlink rate",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r056": {
+   "topic": "kaband_radio",
+   "metric": "Ka-band SDR (Innoflight SCR-108) downlink rate & mass",
+   "value": 1,
+   "unit": "Gbps",
+   "doc": "soa2025",
+   "page": 298,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "19200-21200 Ka 1 Gbps",
+   "note": "SCR-108: 404 g, 0.02-3 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r057": {
+   "topic": "kaband_radio",
+   "metric": "Ka-band transmitter (PICOSATS BEAMSAT)",
+   "value": 4,
+   "unit": "Gbps",
+   "doc": "soa2025",
+   "page": 301,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "PICOSATS BEAMSAT Transmitter 25500 - 27000 Ka 4 Gbps 5 900 N",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r058": {
+   "topic": "deep_space_transponder",
+   "metric": "JPL/SDL Iris V2.2 deep-space transponder data rate & mass",
+   "value": 875,
+   "min": 0.1,
+   "max": 10000,
+   "unit": "g",
+   "doc": "soa2025",
+   "page": 298,
+   "section": "9.2.8 Radios (Table 9-3: Radios)",
+   "quote": "IRIS V2.2 36 875 Y",
+   "note": "Row also lists data rate \"0.1 - 10000\" kbps, bands X, Ka, S, or UHF.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r059": {
+   "topic": "deep_space_transponder",
+   "metric": "deep space transponders mass & receive power (Table 5-11)",
+   "min": 0.8,
+   "max": 3.2,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 182,
+   "section": "5.2.11 Deep Space Navigation (Table 5-11)",
+   "quote": "IRIS V2.1 1.1 10.3 X, Ka, S, or UHF 25",
+   "note": "SDST 3.2 kg 12.5 W; IRIS V2.1 1.1 kg 10.3 W; Iris V3 0.8 kg 10 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r060": {
+   "topic": "deep_space_transponder",
+   "metric": "Iris flight heritage",
+   "doc": "soa2025",
+   "page": 182,
+   "section": "5.2.11 Deep Space Navigation (Table 5-11)",
+   "quote": "the MarCO CubeSats in 2018, LICIACube",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r061": {
+   "topic": "deep_space_transponder",
+   "metric": "MarCO X-band reflectarray relay",
+   "doc": "soa2025",
+   "page": 280,
+   "section": "9.2.1 Frequency Bands",
+   "quote": "Using a X-band reflectarray they were able to successfully complete their mission",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r062": {
+   "topic": "obc",
+   "metric": "CubeSat OBC power consumption (Table 8-4)",
+   "min": 0.1,
+   "max": 5,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 260,
+   "section": "8.2.7 Highly Integrated Onboard Computing Products (Table 8-4)",
+   "quote": "Kryten-M3 ARM Cortex-M3 processor delivering 9.59x9.02x0.55 0.4 LEO",
+   "note": "Kryten-M3 0.4 W; Sirius 1.3 W; DARA Max 0.280 W; Andes ~0.1 W; CDH-110 <2 W (p261); Argotec FERMI rad-hard 5 W (p261); Aitech SP0-S 100 krad 12 W.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r063": {
+   "topic": "obc",
+   "metric": "rad-hard OBC (Aitech SP0-S) TID and power",
+   "value": 100,
+   "unit": "krad",
+   "doc": "soa2025",
+   "page": 260,
+   "section": "8.2.7 Highly Integrated Onboard Computing Products (Table 8-4)",
+   "quote": "100 krad TID, SEL/LET",
+   "note": "SP0-S row power 12 W; flown LEO..Deep Space",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r064": {
+   "topic": "obc",
+   "metric": "typical CubeSat OBC TID tolerance",
+   "value": 20,
+   "min": 20,
+   "max": 40,
+   "unit": "krad",
+   "doc": "soa2025",
+   "page": 260,
+   "section": "8.2.7 Highly Integrated Onboard Computing Products (Table 8-4)",
+   "quote": "TID 20 krad (system",
+   "note": "20-40 krad typical COTS CubeSat OBCs (Table 8-4)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r065": {
+   "topic": "obc",
+   "metric": "Argotec FERMI rad-hard deep-space OBC power",
+   "value": 5,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 261,
+   "section": "8.2.7 Highly Integrated Onboard Computing Products (Table 8-4)",
+   "quote": "V8 Processor with fault-tolerant 5 (depending Space,",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r066": {
+   "topic": "obc",
+   "metric": "onboard memory range",
+   "doc": "soa2025",
+   "page": 254,
+   "section": "8.2.4 Memory, Electronic Function Blocks, and Components",
+   "quote": "typically from hundreds of KB to several GB",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r067": {
+   "topic": "obc",
+   "metric": "CubeSats use COTS / hybrid rad-tolerant parts",
+   "doc": "soa2025",
+   "page": 252,
+   "section": "8.2.1 Radiation Mitigation and Tolerance Schemes",
+   "quote": "CubeSats are often either composed of only COTS components or a hybrid combination of COTS, rad-hard, and radiation- tolerant components",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r068": {
+   "topic": "monoprop",
+   "metric": "hydrazine monoprop Isp (Table 4-1 range)",
+   "min": 180,
+   "max": 285,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 86,
+   "section": "4.5 Overview of In-Space Propulsion Technology Types (Table 4-1)",
+   "quote": "Hydrazine Monopropellant 0.25 – 28 N 180 – 285",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r069": {
+   "topic": "monoprop",
+   "metric": "hydrazine Isp for 1-N class and larger",
+   "min": 200,
+   "max": 235,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 87,
+   "section": "4.6.1 In-Space Chemical Propulsion - Hydrazine Monopropellant",
+   "quote": "Hydrazine thrusters typically achieve a specific impulse between 200–235 seconds for 1-N class or larger thrusters.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r070": {
+   "topic": "monoprop",
+   "metric": "hydrazine thruster MR-106 (22 N) Isp",
+   "min": 228,
+   "max": 235,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 125,
+   "section": "4.6.1 Table 4-2: Hydrazine Chemical Propulsion",
+   "quote": "MR-106 Hydrazine 22 228 - 235 561 0.59",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r071": {
+   "topic": "monoprop",
+   "metric": "alternative mono/biprop Isp (Table 4-1 range)",
+   "min": 150,
+   "max": 310,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 86,
+   "section": "4.5 Overview of In-Space Propulsion Technology Types (Table 4-1)",
+   "quote": "Alternative Mono- and Bipropellants 50 mN – 22 N 150 – 310",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r072": {
+   "topic": "monoprop",
+   "metric": "ASCENT (AF-M315E) GR-1 and GR-22 thruster Isp",
+   "min": 231,
+   "max": 250,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 127,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "GR-1 ASCENT 0.3 - 1.4 231",
+   "note": "GR-22: \"GR-22 ASCENT 8 - 25 250 74\" (same page)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r073": {
+   "topic": "monoprop",
+   "metric": "ASCENT GR-22 Isp",
+   "value": 250,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 127,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "GR-22 ASCENT 8 - 25 250 74",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r074": {
+   "topic": "monoprop",
+   "metric": "LMP-103S 1 N HPGP Isp",
+   "min": 204,
+   "max": 235,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 127,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "1 N HPGP LMP-103S 0.25 - 1 204 - 235",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r075": {
+   "topic": "monoprop",
+   "metric": "ASCENT CubeSat system (Lunar Flashlight LFPS) Isp",
+   "value": 200,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 126,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "LFPS ASCENT 0.1 (4) > 200s > 3.5 < 5.5†",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r076": {
+   "topic": "monoprop",
+   "metric": "ASCENT = AF-M315E (HAN based)",
+   "doc": "soa2025",
+   "page": 89,
+   "section": "4.6.1 Alternative Monopropellants and Bipropellants",
+   "quote": "ASCENT (Advanced Spacecraft Energetic Non-Toxic), formally referred to as AF-M315E, which is based on Hydroxylammonium Nitrate (HAN)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r077": {
+   "topic": "biprop",
+   "metric": "hydrazine/NTO bipropellant CubeSat system Isp",
+   "value": 285,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 125,
+   "section": "4.6.1 Table 4-2: Hydrazine Chemical Propulsion",
+   "quote": "Stellar Exploration USA - 285 - - - - Y D - (100)",
+   "note": "Row propellant \"Hydrazine/ NTO\", \"Bipropellant CubeSat system\"",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r078": {
+   "topic": "biprop",
+   "metric": "HTP + fuel bipropellant (Halcyon Avant) Isp",
+   "min": 290,
+   "max": 310,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 126,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "Halcyon Avant HTP + Fuel 10 290 - 310",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r079": {
+   "topic": "biprop",
+   "metric": "nitrous oxide/propylene (SatDrive) Isp",
+   "min": 250,
+   "max": 280,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 126,
+   "section": "4.6.1 Table 4-3: Alternative Monopropellant and Bipropellant Propulsion",
+   "quote": "SatDrive 0.5 – 16.7 250 - 280 5 – 500",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r080": {
+   "topic": "biprop",
+   "metric": "conventional storable biprop propellants",
+   "doc": "soa2025",
+   "page": 89,
+   "section": "4.6.1 Alternative Monopropellants and Bipropellants",
+   "quote": "nitrogen tetroxide with either monomethylhydrazine or hydrazine for bipropellants",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r081": {
+   "topic": "sep",
+   "metric": "Hall-effect Isp range (Table 4-1)",
+   "min": 200,
+   "max": 1920,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 86,
+   "section": "4.5 Overview of In-Space Propulsion Technology Types (Table 4-1)",
+   "quote": "Hall-Effect 0.25 – 55 mN 200 – 1,920",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r082": {
+   "topic": "sep",
+   "metric": "gridded ion Isp range (Table 4-1)",
+   "min": 500,
+   "max": 3000,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 86,
+   "section": "4.5 Overview of In-Space Propulsion Technology Types (Table 4-1)",
+   "quote": "Gridded Ion 0.1 – 20 mN 500 – 3,000",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r083": {
+   "topic": "sep",
+   "metric": "Hall thruster example BHT-200 (thrust, Isp, power)",
+   "value": 1390,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 134,
+   "section": "4.6.2 Table 4-10: Hall-Effect Electric Propulsion Thrusters",
+   "quote": "BHT-200 Xenon 13 1,390 84§ 1.2 675 wo cath. 250‡",
+   "note": "13 mN, 1.2 kg, 250 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r084": {
+   "topic": "sep",
+   "metric": "Hall thruster example BHT-600",
+   "value": 1500,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 134,
+   "section": "4.6.2 Table 4-10: Hall-Effect Electric Propulsion Thrusters",
+   "quote": "BHT-600 Xenon 39 1,500 1000§ 2.8 1,470 wo cath. 680‡",
+   "note": "39 mN, 2.8 kg, 680 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r085": {
+   "topic": "sep",
+   "metric": "JPL MaSMi Hall thruster",
+   "value": 1920,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 135,
+   "section": "4.6.2 Table 4-10: Hall-Effect Electric Propulsion Thrusters",
+   "quote": "MaSMi Xenon 55 1,920 > 1,550§ 3.4 1,700 1,000",
+   "note": "55 mN, 3.4 kg, 1000 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r086": {
+   "topic": "sep",
+   "metric": "Busek BIT-3 iodine RF ion (Lunar IceCube, LunaH-Map)",
+   "value": 1960,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 133,
+   "section": "4.6.2 Table 4-9: Gridded-Ion Electric Propulsion",
+   "quote": "BIT-3 RF Ion Iodine 1.0 1,960 31.7 2.9† 18 x 8.8 x 10.2 70",
+   "note": "1.0 mN, 2.9 kg wet, 70 W",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r087": {
+   "topic": "sep",
+   "metric": "HETs balance",
+   "doc": "soa2025",
+   "page": 110,
+   "section": "HET section (4.6.2 Hall-Effect)",
+   "quote": "HETs provide a good balance of specific impulse, thrust, cost, and reliability.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r088": {
+   "topic": "cold_gas",
+   "metric": "cold gas Isp range (Table 4-1)",
+   "min": 40,
+   "max": 110,
+   "unit": "s",
+   "doc": "soa2025",
+   "page": 86,
+   "section": "4.5 Overview of In-Space Propulsion Technology Types (Table 4-1)",
+   "quote": "Cold Gas 10 μN – 3.6 N 40 – 110",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r089": {
+   "topic": "espa",
+   "metric": "original ESPA slot mass allocation",
+   "value": 180,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 15,
+   "section": "1.0 Introduction",
+   "quote": "up to 180 kg mass allocation",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r090": {
+   "topic": "espa",
+   "metric": "ESPA ring port capacity",
+   "value": 257,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 323,
+   "section": "10.4.1 Primary Structural Interfaces",
+   "quote": "featuring six 38 cm (15″) ports that can each support up to 257 kg.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r091": {
+   "topic": "espa",
+   "metric": "ESPA-class platform mass definition",
+   "value": 500,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 34,
+   "section": "2.2.2.3 ESPA-Class",
+   "quote": "ESPA-class refers to platforms with mass typically under 500 kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r092": {
+   "topic": "espa",
+   "metric": "ESPA-class bus peak power (Table 2-7)",
+   "min": 1000,
+   "max": 4000,
+   "unit": "W",
+   "doc": "soa2025",
+   "page": 36,
+   "section": "2.2.2.3 ESPA-Class",
+   "quote": "Aerospacelab Belgium 1,000 <0.003°/<0.003°",
+   "note": "Aerospacelab 1,000 W; Airbus 2,200 W; Apex 4,000 W; pointing 0.003-0.006 deg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r093": {
+   "topic": "mass_class",
+   "metric": "minisatellite mass class",
+   "min": 200,
+   "max": 600,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 320,
+   "section": "10.x Launch (2025 launch statistics)",
+   "quote": "minisatellites (200 – 600 kg)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r094": {
+   "topic": "cubesat_mass",
+   "metric": "3U CubeSat structure dimensions & average structure weight (Table 6-1)",
+   "value": 0.352,
+   "unit": "kg",
+   "doc": "soa2025",
+   "page": 195,
+   "section": "6.2.1 CubeSat Standard (Table 6-1)",
+   "quote": "3U 100 x 100 x 340.5 0.352",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r095": {
+   "topic": "cubesat_mass",
+   "metric": "1U CubeSat mass (CubeSat 101)",
+   "min": 1,
+   "max": 1.33,
+   "unit": "kg",
+   "doc": "cubesat101",
+   "page": 12,
+   "section": "1.1 CubeSats",
+   "quote": "CubeSat is a 10 cm cube with a mass of approximately 1 to 1.33 kg.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r096": {
+   "topic": "cubesat_mass",
+   "metric": "3U standard dimensions (CubeSat 101)",
+   "unit": "cm",
+   "doc": "cubesat101",
+   "page": 12,
+   "section": "1.1 CubeSats",
+   "quote": "10 cm × 10 cm × 34 cm",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r097": {
+   "topic": "cubesat_mass",
+   "metric": "small satellite definition",
+   "value": 300,
+   "unit": "kg",
+   "doc": "cubesat101",
+   "page": 12,
+   "section": "1.1 CubeSats",
+   "quote": "generally considered to be any satellite that weighs less than 300 kg (1,100 lb)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r098": {
+   "topic": "launch_cost",
+   "metric": "CSLI-covered launch cost for a 3U to LEO",
+   "value": 300000,
+   "unit": "USD",
+   "doc": "cubesat101",
+   "page": 19,
+   "section": "2.2 Securing Funding (1-12 months)",
+   "quote": "$300,000, typically enough to launch a 3U into low-Earth orbit",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r099": {
+   "topic": "launch_cost",
+   "metric": "SpaceX Transporter rideshare price",
+   "value": 350000,
+   "unit": "USD",
+   "doc": "soa2025",
+   "page": 322,
+   "section": "10.3.2 Rideshare Launches",
+   "quote": "SpaceX’s Transporter rideshare program offers Falcon 9 rides starting at $350k for ~50 kg",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  },
+  "r100": {
+   "topic": "cubesat_cost",
+   "metric": "CubeSat cost - no standard price; drivers",
+   "doc": "cubesat101",
+   "page": 20,
+   "section": "Chapter 2 Development Process Overview",
+   "quote": "Unfortunately, there isn’t a standard price tag we can show you.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r101": {
+   "topic": "cubesat_dev_time",
+   "metric": "CubeSat development duration",
+   "min": 9,
+   "max": 24,
+   "unit": "months",
+   "doc": "cubesat101",
+   "page": 17,
+   "section": "Chapter 2 Development Process Overview",
+   "quote": "can be designed, built, tested, and delivered in as little as 9 months, but typically",
+   "note": "Continues on next line: \"takes 18 to 24 months to complete.\" (see next ref)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r102": {
+   "topic": "cubesat_dev_time",
+   "metric": "CubeSat typical development duration",
+   "min": 18,
+   "max": 24,
+   "unit": "months",
+   "doc": "cubesat101",
+   "page": 17,
+   "section": "Chapter 2 Development Process Overview",
+   "quote": "takes 18 to 24 months to complete.",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r103": {
+   "topic": "attitude_passive",
+   "metric": "passive magnetic stabilization flown on a CubeSat (BisonSat)",
+   "doc": "cubesat101",
+   "page": 94,
+   "section": "Appendix (mission photo captions)",
+   "quote": "resolution visible light imagery of Earth using passive magnetic",
+   "note": "Caption continues: \"stabilization from a CubeSat.\" (two-column layout splits it)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+  },
+  "r104": {
+   "topic": "instrument_payload",
+   "metric": "high-power payloads incl. multispectral imaging raise power needs (no instrument specs in SOA)",
+   "doc": "soa2025",
+   "page": 66,
+   "section": "3.x Power Management and Distribution",
+   "quote": "modern small spacecraft with high-power payloads (i.e., inter-satellite cross laser links, multispectral imaging,",
+   "url": "https://www.nasa.gov/wp-content/uploads/2026/05/soa-2026.pdf"
+  }
+ }
+}

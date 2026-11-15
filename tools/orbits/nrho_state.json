@@ -1,0 +1,25 @@
+{
+ "model": "Earth-Moon CR3BP, mu = 0.012150585, L = 384400 km, TU = 375190.3 s",
+ "family": "L2 southern halo (NRHO), 9:2 lunar synodic resonance",
+ "nondim": {
+  "x0": 1.022028211092564,
+  "z0": -0.18210139738902711,
+  "vy0": -0.10327094468159329,
+  "period": 1.5111994024340982
+ },
+ "periodDays": 6.562352952492458,
+ "perilunePerAltKm": [
+  3249.3443662753684,
+  1511.1443662753684
+ ],
+ "apoluneRadiusKm": 71222.07872624307,
+ "stateEMRotKm": [
+  13138.329275430071,
+  0.0,
+  -69999.77715634202,
+  0.0,
+  -0.10580592163754499,
+  0.0
+ ],
+ "note": "Moon-centred Earth-Moon rotating frame (x: Earth->Moon, z: orbit normal), km and km/s; starts at apolune."
+}
