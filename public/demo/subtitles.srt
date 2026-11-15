@@ -1,0 +1,39 @@
+1
+00:00:00,500 --> 00:00:01,520
+Mission Architect.
+
+2
+00:00:01,880 --> 00:00:04,680
+Design a real space mission,
+right in your browser.
+
+3
+00:00:05,070 --> 00:00:07,890
+Pick a goal: Earth, the Moon, or Mars.
+
+4
+00:00:08,200 --> 00:00:13,460
+Build your spacecraft in 3D, and watch
+every choice cost mass, power and budget.
+
+5
+00:00:13,820 --> 00:00:18,170
+Orbits come from NASA GMAT,
+launch windows from JPL Horizons.
+
+6
+00:00:18,470 --> 00:00:22,790
+Then fly it: your spacecraft sends back
+real NASA satellite images,
+
+7
+00:00:23,040 --> 00:00:24,360
+blurred if your pointing is weak.
+
+8
+00:00:24,670 --> 00:00:25,850
+Learn why it worked.
+
+9
+00:00:26,190 --> 00:00:27,810
+Redesign. Relaunch.

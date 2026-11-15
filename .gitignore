@@ -37,3 +37,6 @@ __pycache__/
 .env
 .env.*
 Mission_Architect_Glassmorphism_6_Screens/
+
+demo/build/
+assets_src/video/
