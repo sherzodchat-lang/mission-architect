@@ -27,6 +27,26 @@ const AMBIENT_DUCKED = 0.1
 const SFX_VOL: Partial<Record<SfxId, number>> = { ui_click: 0.7 }
 const SFX_MIN_GAP_MS: Partial<Record<SfxId, number>> = { ui_click: 60 }
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
+/** the same voice line asked for again while queued / playing / within this window after it started is ignored */
+const VOICE_DEDUP_MS = 3000
+
+export interface SayOptions {
+  /** skip the radio beep, so the line starts on cue (the launch countdown) */
+  noBeep?: boolean
+  /**
+   * Called exactly once when the line starts: `true` = the audio is playing right now, `false` = subtitle only
+   * (sound off / not unlocked / file missing / play error / dropped as a duplicate). Not called after a cancel.
+   */
+  onStart?: (audible: boolean) => void
+}
+
+interface VoiceItem {
+  id: VoiceId
+  text: string
+  opts: SayOptions
+  cancelled: boolean
+  started: boolean
+}
 
 interface HowlOpts {
   volume?: number
@@ -41,8 +61,12 @@ class AudioManager {
   private index: Promise<Set<string> | null> = loadPublicIndex('audio')
   /** path -> Howl, or null when known to be missing / failed */
   private howls = new Map<string, Promise<Howl | null>>()
-  private queue: { id: VoiceId; text: string }[] = []
+  private queue: VoiceItem[] = []
   private speaking = false
+  /** item being handled by the pump (loading, beep or voice) */
+  private current: VoiceItem | null = null
+  /** voice id -> performance.now() when it last started (de-dup window) */
+  private lastVoiceAt = new Map<VoiceId, number>()
   private currentVoice: Howl | null = null
   private ambient: Howl | null = null
   private lastSfxAt = new Map<SfxId, number>()
@@ -96,15 +120,28 @@ class AudioManager {
    * Mission Control line. The subtitle is ALWAYS pushed (even with sound off / file missing).
    * If sound is available the line is queued: radio beep, then the voice, ambient ducked meanwhile.
    */
-  say(id: VoiceId, subtitleText?: string) {
+  say(id: VoiceId, subtitleText?: string, opts: SayOptions = {}): () => void {
     const text = subtitleText ?? VOICE[id].text
-    if (!this.enabled || !this.unlocked) {
-      useSubtitleStore.getState().push(text)
-      return
+    const item: VoiceItem = { id, text, opts, cancelled: false, started: false }
+    const now = performance.now()
+    const dup =
+      (this.current && !this.current.cancelled && this.current.id === id) ||
+      this.queue.some((q) => q.id === id) ||
+      now - (this.lastVoiceAt.get(id) ?? -Infinity) < VOICE_DEDUP_MS
+    if (dup) {
+      opts.onStart?.(false)
+      return () => {}
     }
-    this.queue.push({ id, text })
-    if (this.queue.length > 4) this.queue.shift()
+    if (!this.enabled || !this.unlocked) {
+      this.lastVoiceAt.set(id, now)
+      useSubtitleStore.getState().push(text)
+      this.start(item, false)
+      return () => {}
+    }
+    this.queue.push(item)
+    if (this.queue.length > 4) this.start(this.queue.shift()!, false)
     void this.pump()
+    return () => this.cancel(item)
   }
 
   startAmbient() {
@@ -119,16 +156,37 @@ class AudioManager {
 
   /** Cut the current voice line and clear the queue (e.g. on screen change). */
   stopVoice() {
+    for (const q of this.queue) q.cancelled = true
     this.queue = []
-    this.currentVoice?.stop()
+    if (this.current) this.cancel(this.current)
   }
 
   /* ---------------- internals ---------------- */
+
+  /** fire the item's onStart once */
+  private start(item: VoiceItem, audible: boolean) {
+    if (item.started || item.cancelled) return
+    item.started = true
+    item.opts.onStart?.(audible)
+  }
+
+  private cancel(item: VoiceItem) {
+    if (item.cancelled) return
+    item.cancelled = true
+    this.queue = this.queue.filter((q) => q !== item)
+    if (this.current === item) {
+      this.currentVoice?.stop()
+      const sub = useSubtitleStore.getState()
+      if (sub.current?.text === item.text) sub.clear()
+    }
+  }
 
   private apply(on: boolean) {
     if (this.enabled === on) return
     this.enabled = on
     if (!on) {
+      // queued lines will not play: let their callers fall back to silent timing
+      for (const q of this.queue) this.start(q, false)
       this.queue = []
       Howler.stop()
     } else {
@@ -184,9 +242,11 @@ class AudioManager {
     if (a && a.playing()) a.fade(a.volume(), on ? AMBIENT_DUCKED : AMBIENT_VOL, 300)
   }
 
-  private playAndWait(h: Howl, capMs: number): Promise<void> {
+  /** Plays `h` once and resolves when it ends / is stopped / fails (or after `capMs`). `onPlay` fires when it really starts. */
+  private playAndWait(h: Howl, capMs: number, onPlay?: () => void): Promise<void> {
     return new Promise((resolve) => {
       let done = false
+      const played = () => onPlay?.()
       const fin = () => {
         if (done) return
         done = true
@@ -194,12 +254,14 @@ class AudioManager {
         h.off('end', fin)
         h.off('stop', fin)
         h.off('playerror', fin)
+        h.off('play', played)
         resolve()
       }
       const timer = setTimeout(fin, capMs)
       h.once('end', fin)
       h.once('stop', fin)
       h.once('playerror', fin)
+      if (onPlay) h.once('play', played)
       h.play()
     })
   }
@@ -208,36 +270,52 @@ class AudioManager {
     if (this.speaking) return
     this.speaking = true
     const subs = useSubtitleStore.getState()
+    /** subtitle only (sound off / missing file / failed play) */
+    const silent = (item: VoiceItem) => {
+      if (item.cancelled) return
+      this.lastVoiceAt.set(item.id, performance.now())
+      subs.push(item.text)
+      this.start(item, false)
+    }
     try {
       while (this.queue.length) {
         const item = this.queue.shift()!
+        this.current = item
         if (!this.enabled) {
-          subs.push(item.text)
+          silent(item)
           continue
         }
         const voice = await this.getHowl(voicePath(item.id))
+        if (item.cancelled) continue
         if (!voice) {
           // missing file: subtitle only, keep lines readable one after another
-          subs.push(item.text)
+          silent(item)
           if (this.queue.length) await sleep(2200)
           continue
         }
-        const beep = await this.getHowl(sfxPath('radio_beep'), { volume: 0.8 })
-        if (beep && this.enabled) await this.playAndWait(beep, 1400)
+        if (!item.opts.noBeep) {
+          const beep = await this.getHowl(sfxPath('radio_beep'), { volume: 0.8 })
+          if (beep && this.enabled && !item.cancelled) await this.playAndWait(beep, 1400)
+        }
+        if (item.cancelled) continue
         if (!this.enabled) {
-          subs.push(item.text)
+          silent(item)
           continue
         }
         const ms = (voice.duration() || 3) * 1000
         subs.push(item.text, ms + 1500)
         this.duck(true)
         this.currentVoice = voice
-        await this.playAndWait(voice, ms + 1500)
+        this.lastVoiceAt.set(item.id, performance.now())
+        await this.playAndWait(voice, ms + 1500, () => this.start(item, true))
+        // never started (play error / cap): let the caller fall back to its silent timing
+        this.start(item, false)
         this.currentVoice = null
         this.duck(false)
       }
     } finally {
       this.speaking = false
+      this.current = null
       this.currentVoice = null
       this.duck(false)
     }

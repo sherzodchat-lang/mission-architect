@@ -105,8 +105,12 @@ export function TeamBar() {
         iconRight="arrowRight"
         className="shrink-0"
         onClick={() => {
+          // one handover = one voice line: spoken from the click, not from the overlay's mount effect
+          // (StrictMode runs mount effects twice, and remounts would repeat it)
+          if (handoff) return
           passConsole()
           setHandoff(true)
+          audio.say('v19_pass_console')
         }}
       >
         Pass to {next.name || playerRoleLabel(next, true)}
@@ -116,7 +120,7 @@ export function TeamBar() {
   )
 }
 
-/** Full-screen glass interstitial "Pass the console to: <Role> (<name>)" with the v19 voice line. */
+/** Full-screen glass interstitial "Pass the console to: <Role> (<name>)". The caller says the v19 voice line. */
 export function PassConsoleOverlay({ onDone }: { onDone: () => void }) {
   const stageRoot = useContext(StageRootContext)
   const team = useTeam()
@@ -127,9 +131,12 @@ export function PassConsoleOverlay({ onDone }: { onDone: () => void }) {
   const done = useRef(onDone)
   done.current = onDone
   useEffect(() => {
-    audio.say('v19_pass_console')
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === 'Escape') done.current()
+      if (e.key !== 'Enter' && e.key !== 'Escape') return
+      // the "Pass to" button under the overlay still has focus: without this, Enter would also click it and
+      // hand the console on a second time (and say v19 again)
+      e.preventDefault()
+      done.current()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)

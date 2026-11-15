@@ -3,7 +3,7 @@ import { audio } from '../audio/audioManager'
 import { SFX, type SfxId } from '../audio/audioManifest'
 import { ActionBar, Button, Icon, Modal, PageHeader, Tabs, cx } from '../components'
 import { MISSIONS } from '../data'
-import { fmtGB, getTimeline, phaseOf, type SimState } from '../engine'
+import { fmtGB, getTimeline, phaseOf, type LogEntry, type SimState } from '../engine'
 import { demoStartsFast } from '../store/demo'
 import { useGameStore } from '../store/gameStore'
 import { DecisionPanel } from './sim/DecisionPanel'
@@ -19,6 +19,21 @@ type Speed = '1x' | '4x'
 const STEP_MS: Record<Speed, number> = { '1x': 6000, '4x': 1500 }
 const COUNTDOWN_FROM = 5
 const END_DELAY_MS = 4500
+/**
+ * Countdown cues (ms) for 5, 4, 3, 2, 1, Liftoff. VOICE = word onsets measured in public/audio/voice/v08_countdown.mp3
+ * (ffmpeg silencedetect, -35 dB; file 5.49 s), counted from the moment the voice starts playing (no radio beep).
+ * FIXED = sound off / file missing. *_END = when the overlay closes and the clock starts.
+ */
+const VOICE_CUES_MS = [30, 1080, 2040, 2970, 3900, 4800]
+const VOICE_END_MS = 5700
+const FIXED_CUES_MS = [0, 1000, 2000, 3000, 4000, 5000]
+const FIXED_END_MS = 5900
+/** if the voice has not started by then (slow load / long queue), drop it and count silently on the fixed cadence */
+const VOICE_WAIT_CAP_MS = 10000
+/** sims whose countdown has finished (a remount at step 0 then continues directly) */
+const countedDown = new WeakSet<SimState>()
+/** log entries whose voice / sfx already played: survives remounts of this screen (StrictMode, screen switches) */
+const voicedEntries = new WeakSet<LogEntry>()
 
 /** Screen 05 — Mission simulation (GAME_DESIGN 7). */
 export default function Simulation() {
@@ -51,22 +66,74 @@ function SimulationScreen({ sim }: { sim: SimState }) {
   const [confirmSkip, setConfirmSkip] = useState(false)
   // countdown only for a fresh launch (re-entering a running sim continues directly)
   const [countdown, setCountdown] = useState(() =>
-    sim.step === 0 && sim.status === 'running' ? COUNTDOWN_FROM : -1,
+    sim.step === 0 && sim.status === 'running' && !countedDown.has(sim) ? COUNTDOWN_FROM : -1,
   )
+  const launchSfxPlayed = useRef(false)
 
   const finished = sim.status === 'complete' || sim.status === 'lost'
   const deciding = sim.status === 'decision' && sim.pending != null
   const running = sim.status === 'running' && !paused && countdown < 0
 
-  /* ---------- countdown 5..1, Liftoff ---------- */
+  /* ---------- countdown 5..1, Liftoff: driven by the v08 voice timing ---------- */
+  const inCountdown = countdown >= 0
   useEffect(() => {
-    if (countdown < 0) return
-    const t = setTimeout(() => setCountdown((c) => c - 1), countdown === 0 ? 900 : 1000)
-    return () => clearTimeout(t)
-  }, [countdown])
+    if (!inCountdown) return
+    let alive = true
+    let begun = false
+    let finished = false
+    const timers: ReturnType<typeof setTimeout>[] = []
+    const run = (cues: number[], endMs: number) => {
+      if (!alive || begun) return
+      begun = true
+      clearTimeout(cap)
+      cues.forEach((ms, i) =>
+        timers.push(
+          setTimeout(() => {
+            setCountdown(COUNTDOWN_FROM - i)
+            if (i === COUNTDOWN_FROM && !launchSfxPlayed.current) {
+              launchSfxPlayed.current = true
+              audio.playSfx('launch')
+            }
+          }, ms),
+        ),
+      )
+      timers.push(
+        setTimeout(() => {
+          finished = true
+          countedDown.add(sim)
+          setCountdown(-1)
+        }, endMs),
+      )
+    }
+    const cap = setTimeout(() => {
+      cancelVoice() // a late voice would no longer match the numbers
+      run(FIXED_CUES_MS, FIXED_END_MS)
+    }, VOICE_WAIT_CAP_MS)
+    // the voice queue may still be finishing "Go for launch": the overlay holds at 5 until the countdown voice starts
+    const cancelVoice = audio.say('v08_countdown', undefined, {
+      noBeep: true,
+      onStart: (audible) => (audible ? run(VOICE_CUES_MS, VOICE_END_MS) : run(FIXED_CUES_MS, FIXED_END_MS)),
+    })
+    return () => {
+      alive = false
+      clearTimeout(cap)
+      timers.forEach(clearTimeout)
+      // skip (Space / button / skip to end) or leaving the screen cuts the voice; a natural finish lets it end
+      if (!finished) cancelVoice()
+    }
+    // `sim` is read only to mark it; the countdown runs once per mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inCountdown])
 
-  /* Space / Enter skips the countdown. The step clock starts by itself: `running` turns true as soon as countdown < 0. */
-  const skipCountdown = useCallback(() => setCountdown(-1), [])
+  /* Space / Enter skips the countdown (and cuts its voice via the effect cleanup). The step clock starts by itself. */
+  const skipCountdown = useCallback(() => {
+    countedDown.add(sim)
+    if (!launchSfxPlayed.current) {
+      launchSfxPlayed.current = true
+      audio.playSfx('launch')
+    }
+    setCountdown(-1)
+  }, [sim])
   useEffect(() => {
     if (countdown < 0) return
     const onKey = (e: KeyboardEvent) => {
@@ -100,7 +167,8 @@ function SimulationScreen({ sim }: { sim: SimState }) {
   }, [])
 
   useEffect(() => {
-    const fresh = sim.log.filter((e) => e.id > seenLogId.current)
+    const fresh = sim.log.filter((e) => e.id > seenLogId.current && !voicedEntries.has(e))
+    for (const e of fresh) voicedEntries.add(e)
     const tel = sim.telemetry[sim.telemetry.length - 1]
     const newStep = tel && tel.step > seenTelemetryStep.current
     if (fresh.length) seenLogId.current = fresh[fresh.length - 1].id
@@ -112,6 +180,8 @@ function SimulationScreen({ sim }: { sim: SimState }) {
     }
     let sfxPlayed = false
     for (const e of fresh) {
+      // the countdown line and its launch rumble are cued by the countdown overlay above
+      if (e.voice === 'v08_countdown') continue
       if (e.sfx && e.sfx in SFX && !sfxPlayed) {
         audio.playSfx(e.sfx as SfxId)
         sfxPlayed = true
@@ -131,10 +201,12 @@ function SimulationScreen({ sim }: { sim: SimState }) {
 
   const skipToEnd = useCallback(() => {
     setConfirmSkip(false)
+    countedDown.add(sim)
+    launchSfxPlayed.current = true
     setCountdown(-1)
     muteNext.current = true
     simSkipToEnd('protective')
-  }, [simSkipToEnd])
+  }, [simSkipToEnd, sim])
 
   /* ---------- derived ---------- */
   const timeline = useMemo(() => getTimeline(sim, mission), [sim, mission])
