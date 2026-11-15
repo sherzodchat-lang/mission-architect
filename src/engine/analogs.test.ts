@@ -37,9 +37,29 @@ describe('analog matching', () => {
   it('other signatures: neutron → Lunar Prospector, NRHO → CAPSTONE, fine pointing + imager → ASTERIA, trace gas → TGO, radar + aerobraking → MRO', () => {
     expect(top('lunar', { instruments: ['neutron'], attitude: 'thr', radio: 'sband', solar: 'fixed' }).top.analog.id).toBe('lunar_prospector');
     expect(top('lunar', { instruments: ['cam'], orbit: 'nrho', radio: 'xband', propulsion: 'mono_s' }).top.analog.id).toBe('capstone');
-    expect(top('earth', { instruments: ['imager'], attitude: 'wheel', orbit: 'leo' }).top.analog.id).toBe('asteria');
+    // a 3U imager in LEO: HARP (same 3U size) and ASTERIA (6U, same fine pointing) tie at the top
+    const im = top('earth', { instruments: ['imager'], attitude: 'wheel', orbit: 'leo' });
+    expect(['harp', 'asteria']).toContain(im.top.analog.id);
+    expect([im.top, ...im.runnersUp].map((m) => m.analog.id)).toContain('asteria');
     expect(top('mars', { instruments: ['tracegas'], orbit: 'direct' }).top.analog.id).toBe('tgo');
     expect(top('mars', { instruments: ['cam', 'radar'], orbit: 'aerobrake', attitude: 'wheel', propulsion: 'mono_l' }).top.analog.id).toBe('mro');
+  });
+
+  it('instrument type outweighs outcome: a trace-gas orbiter matches TGO whatever the flight outcome', () => {
+    for (const o of ['success', 'partial', 'failure', 'lost'] as const) {
+      expect(top('mars', { instruments: ['tracegas'], orbit: 'direct' }, o).top.analog.id).toBe('tgo');
+    }
+  });
+
+  it('"Similar size" only within ±35 % mass', () => {
+    const sizeSim = (kg: number) => {
+      const r = matchAnalogs(designProfile(base.lunar, MISSIONS.lunar, null, kg), MISSIONS.lunar)
+      const lro = [r.top, ...r.runnersUp].find((m) => m.analog.id === 'lunar_trailblazer') ?? r.top
+      return { sim: lro.features.find((f) => f.feature === 'size')?.sim ?? 0, kg: lro.analog.facts.massKg ?? 0 }
+    }
+    const t = ANALOGS.lunar_trailblazer.facts.massKg!
+    expect(sizeSim(t * 1.3).sim).toBeGreaterThanOrEqual(0.7)
+    expect(sizeSim(t * 1.5).sim).toBeLessThan(0.7)
   });
 
   it('is deterministic, returns two distinct runners-up and sensible percentages', () => {

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { audio } from '../audio/audioManager'
 import { Button, PageHeader, StatTile } from '../components'
 import { MISSIONS, MISSION_ORDER } from '../data'
+import { DISCLAIMER } from '../data/disclaimer'
 import { evaluateDesign } from '../engine'
 import { experimentsRun, loadDraft } from '../store/persistence'
 import { useGameStore } from '../store/gameStore'
@@ -128,6 +129,8 @@ export default function MainMenu() {
           onViewAll={() => setShowAll(true)}
         />
       </div>
+
+      <p className="pointer-events-none absolute bottom-[18px] left-10 z-[1] text-sm text-text-faint">{DISCLAIMER}</p>
 
       <div className="pointer-events-none absolute right-7 bottom-3.5 z-[1] flex items-center gap-3 text-base text-text-dim">
         <kbd className="num glass-inset flex h-8 w-8 items-center justify-center !rounded-[9px] text-sm text-text-dim">N</kbd>

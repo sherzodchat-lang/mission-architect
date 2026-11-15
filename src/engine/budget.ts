@@ -7,7 +7,7 @@ import type {
 } from '../data/types';
 import { POINTING_LABEL } from '../data/types';
 import type { VoiceId } from '../data/voiceLines';
-import { fmtDate, marsScheduleCheck, windowAfter } from '../data/nasa/horizons';
+import { fmtDate, marsScheduleCheck, monthsBetween, windowAfter } from '../data/nasa/horizons';
 import { fmtDv, fmtGB, fmtGBmo, fmtKg, fmtMoney, fmtMonths, fmtPct, fmtW } from './format';
 
 const EPS = 1e-9;
@@ -18,7 +18,7 @@ function marsWindowWhy(devMonths: number, devLimitMonths: number): string | null
   if (!c.targetWindow || c.missedByMonths <= 0) return null;
   const after = windowAfter(c.targetWindow);
   return `Next Mars launch window: ${fmtDate(c.targetWindow.optimal)} — you would miss it by ${fmtMonths(c.missedByMonths)}. `
-    + `Development takes ${fmtMonths(devMonths)} (limit ${fmtMonths(devLimitMonths)})${after ? `; the window after it is ${fmtDate(after.optimal)}, 26 months later` : ''}.`;
+    + `Development takes ${fmtMonths(devMonths)} (limit ${fmtMonths(devLimitMonths)})${after ? `; the window after it is ${fmtDate(after.optimal)}, ${Math.round(monthsBetween(c.targetWindow.optimal, after.optimal))} months later` : ''}.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -432,7 +432,7 @@ export function evaluateDesign(design: Design, mission: Mission, opts: CoreOptio
       issues.push({ code: 'schedule_window', severity: 'critical', scope: 'design', gauge: 'time',
         what: 'Launch window missed',
         why: marsWindowWhy(core.timeMonths, mission.limits.devMonths)
-          ?? `Development takes ${fmtMonths(core.timeMonths)}, the window closes at ${fmtMonths(mission.limits.devMonths)} — the next one is 26 months later`,
+          ?? `Development takes ${fmtMonths(core.timeMonths)}, the window closes at ${fmtMonths(mission.limits.devMonths)} — the next one is about 2 years later`,
         fix: 'Use fewer new developments or less testing' });
     }
   }

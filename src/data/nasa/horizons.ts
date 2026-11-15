@@ -143,7 +143,7 @@ export function nextMarsWindow(afterDate: DateLike): MarsWindow | null {
   const t = Math.round(dayNumber(afterDate));
   return DATA.windows.find((w) => dayNumber(w.optimal) >= t) ?? null;
 }
-/** The window after `w` (about 26 months later), or null. */
+/** The window after `w` (25–27 months later), or null. */
 export function windowAfter(w: MarsWindow): MarsWindow | null {
   const i = DATA.windows.findIndex((x) => x.id === w.id);
   return i >= 0 ? DATA.windows[i + 1] ?? null : null;

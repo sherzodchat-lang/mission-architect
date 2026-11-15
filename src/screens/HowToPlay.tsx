@@ -230,7 +230,7 @@ export default function HowToPlay() {
           backLabel="Back to menu"
           center={
             <span className="text-sm text-text-dim select-none" onDoubleClick={() => setUnlockAll(true)}>
-              Illustrative game values • not an engineering tool
+              Orbits &amp; components calibrated to NASA data (GMAT, SST SOA) · prices &amp; science game-scaled · not an engineering tool
             </span>
           }
           action={

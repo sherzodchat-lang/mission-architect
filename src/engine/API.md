@@ -251,7 +251,7 @@ Window method: Lambert-transfer search over Horizons daily Earth/Mars states (la
 - `TelemetryPoint`: `date`, `earthTargetKm` (real Earth–Moon / Earth–Mars distance, `null` on Earth), `lightTimeSec` (real one-way light time, Moon ≈ 1.3 s; `null` on Earth). `distanceToTargetKm` in cruise is now real geometry: Mars = spacecraft–Mars distance along the transfer (reaches 0 at the arrival step); Moon = real Earth–Moon distance × remaining share.
 - `PendingDecision`: `date`; Mars `signalDelayMin` is the real light time at that step's date (one decimal, e.g. `Signal delay: 12.6 min — …`). Voice `v22_signal_delay` ("Mind the signal delay. The spacecraft is on its own until our command arrives.") is generic (no number) and plays at the first Mars decision; the log/decision line carries the real delay.
 - `stepDate(state, mission, step)`, `targetGeometry(mission, date)` exported from `simulate.ts`.
-- Mars `schedule_window` critical now reads `Next Mars launch window: 23 Nov 2028 — you would miss it by 2 months. Development takes 38 months (limit 36 months); the window after it is 28 Dec 2030, 26 months later.` The 36-month limit/blocking is unchanged.
+- Mars `schedule_window` critical now reads `Next Mars launch window: 23 Nov 2028 — you would miss it by 2 months. Development takes 38 months (limit 36 months); the window after it is 28 Dec 2030, 25 months later.` (gap computed from the window dates). The 36-month limit/blocking is unchanged.
 
 ---
 
@@ -264,7 +264,7 @@ designProfile(design, mission, outcome?: 'success'|'partial'|'failure'|'lost'|nu
 matchAnalogs(profile, mission): { top: AnalogMatch, runnersUp: [AnalogMatch, AnalogMatch] }
 // AnalogMatch = { analog, percent (0–100), features: {feature, sim, weight}[], shared: string[] (≤4), differences: string[] (≤2) }
 pickAnalog(design, mission): Analog          // = matchAnalogs(designProfile(design, mission)).top.analog
-MATCH_WEIGHTS                                // instruments .38, orbit .16, pointing .09, size .09, comms .08, propulsion .06, aerobraking .05, solar .04, outcome .05
+MATCH_WEIGHTS                                // instruments .41, orbit .16, pointing .09, size .09, comms .08, propulsion .06, aerobraking .05, solar .04, outcome .02 (size sim >= 0.7 only within ±35 % mass)
 ```
 Weighted feature similarity against missions to the same body; unknown facts are skipped and a coverage factor (0.75 + 0.25 × known weight) keeps sparse records from winning on one feature. Deterministic, ties by catalog order. `MissionReport.analogMatch` holds the result (built with the flight outcome and final mass); `MissionReport.analog` = `analogMatch.top.analog` (its id goes into `progress.analogs`).
 

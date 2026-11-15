@@ -22,8 +22,8 @@ The game runs on real NASA data and tools — live in the browser, as build-time
 |---|---|---|
 | Science your spacecraft returns (Earth) | **NASA GIBS** WMTS — MODIS Terra true colour, land surface temperature, aerosol optical depth, NDVI | Live tiles; quality depends on your pointing, downlink, storage, flares and orbit |
 | Science returns (Moon / Mars) | **NASA Moon Trek** (LRO WAC, LOLA, Lunar Prospector NS, Clementine) and **Mars Trek** (Viking MDIM, MGS MOLA, TES, THEMIS) | Live tiles; stand-in layers are labelled as such |
-| Launch windows, distances, signal delay | **JPL Horizons API** | Snapshot (`tools/fetch_horizons.mjs`): real Mars windows (e.g. 23 Nov 2028), real Earth–Mars light time for decision delays, real Earth–Moon distance |
-| Orbit numbers | **NASA GMAT R2026a** (14 propagated cases) with MSFC solar-flux predictions and the GRAIL gravity model | Sun fraction, eclipse length, ground-station contact minutes, LEO lifetime (11 months for a 3U CubeSat), lunar station keeping (`tools/gmat/`) |
+| Launch windows, distances, signal delay | **JPL Horizons API** | Snapshot (`tools/fetch_horizons.mjs`): real Earth–Mars light time for decision delays and real Earth–Moon distance; Mars launch windows (e.g. 23 Nov 2028) computed by our Lambert search over Horizons planet positions, checked against the Mars 2020 and InSight windows |
+| Orbit numbers | **NASA GMAT R2026a** (14 propagated cases) with MSFC solar-flux predictions and the GRAIL gravity model | Sun fraction, eclipse length, ground-station contact minutes, LEO lifetime (11 months for a 4 kg 3U CubeSat with 0.03 m² drag area, nominal solar activity), lunar station keeping (`tools/gmat/`) |
 | Component values | **NASA Small Spacecraft Technology State of the Art 2025** report and **CubeSat 101** | Battery energy density, radio data rates, propulsion Isp, etc. (105 page-cited quotes in `src/data/nasa/components.json`; calibration log in `src/data/nasa/calibration.md`) |
 | Real-mission analogues | **NSSDCA Master Catalog**, **science.nasa.gov**, **NASA Image and Video Library API**, **NTRS API** | Feature-similarity match to ~20 real missions, live NASA photos, linked NASA technical papers |
 | 3D planets | **Blue Marble Next Generation**, **Black Marble 2016**, Blue Marble clouds, GEBCO topography, **LROC/LOLA (CGI Moon Kit)**, **Viking MDIM 2.1 / MGS MOLA** | Photoreal Earth, Moon and Mars (credits in `public/textures/planets/CREDITS.md`) |
@@ -31,7 +31,9 @@ The game runs on real NASA data and tools — live in the browser, as build-time
 Prices and budgets are game-scaled; science instruments use game-balanced values (the SOA report has no instrument chapter). The game is an educational simulation, not an engineering tool.
 
 ### Challenge resources used
-Design and Develop Science Missions (mission segments and life cycle) · CubeSat 101 (components, terms, events) · Concept Maturity Levels (redesign-and-relaunch loop) · Mission Design Lab (disciplines and report structure) · NASA GMAT (orbit analysis) · *A Learning Game About Telescopes / Build It Yourself* (real-mission analogue idea).
+Used directly in the app: **CubeSat 101** (component values, terms, events) and **NASA GMAT** (orbit analysis). Informed the design: Design and Develop Science Missions (mission segments and life cycle), Concept Maturity Levels (redesign-and-relaunch loop), Mission Design Lab (disciplines and report structure), *A Learning Game About Telescopes / Build It Yourself* (real-mission analogue idea).
+
+Note on dates: Earth imagery replays the most recent 12 months of real MODIS data; the mission calendar (launch windows, light time) uses programme dates from November 2025.
 
 ## Use of AI (synthetic intelligence, SI)
 

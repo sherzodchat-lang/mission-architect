@@ -106,7 +106,7 @@ export function OrbitHero({ mission, orbitId, stations, activeStation, gauges, c
         </div>
 
         <span className="pointer-events-none absolute right-6 bottom-4 text-sm text-text-faint">
-          Schematic paths · illustrative game values
+          Paths schematic · orbits calibrated to NASA GMAT
         </span>
       </div>
 

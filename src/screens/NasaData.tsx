@@ -3,6 +3,7 @@ import { ActionBar, Button, Icon, PageHeader, cx, type IconName } from '../compo
 import { NASA_SOURCES, type NasaSource } from '../data/nasa'
 import { PLANET_TEXTURE_SOURCES } from '../scene/sources'
 import { useGameStore } from '../store/gameStore'
+import { DISCLAIMER } from '../data/disclaimer'
 
 /**
  * "Built on NASA data": every NASA (or partner) source the game uses, aggregated from `NASA_SOURCES`
@@ -161,6 +162,7 @@ export default function NasaData() {
         breadcrumb={['Workspace', 'NASA data']}
         title="Built on NASA data"
         subtitle="Every real number, image and orbit in the game, and where it comes from."
+        actions={<span className="max-w-[520px] text-right text-sm leading-snug text-text-faint">{DISCLAIMER}</span>}
       />
 
       <div className="grid min-h-0 flex-1 gap-[13px] px-4" style={{ gridTemplateColumns: '410px minmax(0,1fr)' }}>

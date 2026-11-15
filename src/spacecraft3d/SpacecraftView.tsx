@@ -112,9 +112,9 @@ function screenUp(dir: THREE.Vector3) {
  * Camera distance so every corner of `box` fits the frustum minus the label reserve (box fit, tighter than a
  * bounding sphere for long thin craft).
  */
-function fitDistanceBox(box: THREE.Box3, center: THREE.Vector3, dir: THREE.Vector3, w: number, h: number) {
-  const tanV = Math.tan(((FOV / 2) * Math.PI) / 180) * Math.max(0.35, (h - LABEL_RESERVE.v) / Math.max(1, h))
-  const tanH = Math.tan(((FOV / 2) * Math.PI) / 180) * (w / Math.max(1, h)) * Math.max(0.35, (w - LABEL_RESERVE.h) / Math.max(1, w))
+function fitDistanceBox(box: THREE.Box3, center: THREE.Vector3, dir: THREE.Vector3, w: number, h: number, reserve: { v: number; h: number } = LABEL_RESERVE) {
+  const tanV = Math.tan(((FOV / 2) * Math.PI) / 180) * Math.max(0.35, (h - reserve.v) / Math.max(1, h))
+  const tanH = Math.tan(((FOV / 2) * Math.PI) / 180) * (w / Math.max(1, h)) * Math.max(0.35, (w - reserve.h) / Math.max(1, w))
   const f = dir.clone().negate()
   const right = new THREE.Vector3().crossVectors(f, new THREE.Vector3(0, 1, 0)).normalize()
   const up = new THREE.Vector3().crossVectors(right, f).normalize()
@@ -127,6 +127,25 @@ function fitDistanceBox(box: THREE.Box3, center: THREE.Vector3, dir: THREE.Vecto
   }
   return d * 1.04
 }
+
+/** Projected height / width of `box` seen along `dir` (> 1 = a tall layout, e.g. sun-tracking wings). */
+function projectedAspect(box: THREE.Box3, dir: THREE.Vector3) {
+  const up = screenUp(dir)
+  const right = new THREE.Vector3().crossVectors(dir.clone().negate(), up).normalize()
+  const q = new THREE.Vector3()
+  let mx = 0
+  let my = 0
+  const c = box.getCenter(new THREE.Vector3())
+  for (let i = 0; i < 8; i++) {
+    q.set(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z).sub(c)
+    mx = Math.max(mx, Math.abs(q.dot(right)))
+    my = Math.max(my, Math.abs(q.dot(up)))
+  }
+  return my / Math.max(1e-6, mx)
+}
+
+/** Tall Earth layouts put the labels in side columns, so the craft can use the full height. */
+const SIDE_RESERVE = { v: 40, h: 330 }
 
 function focusSphere(b: BuiltSpacecraft, exploded: boolean) {
   const full = b.bounds.getBoundingSphere(new THREE.Sphere())
@@ -239,6 +258,7 @@ function Scene(p: SceneProps) {
   // ---- camera fit
   const camAnim = useRef<{ fp: THREE.Vector3; tp: THREE.Vector3; ft: THREE.Vector3; tt: THREE.Vector3; t: number } | null>(null)
   const fitted = useRef(0)
+  const sideLabels = useRef(false)
   const fitTo = useCallback(
     (resetDir: boolean, animate: boolean, factor = 1) => {
       const ctl = controls.current
@@ -248,10 +268,14 @@ function Scene(p: SceneProps) {
       if (built.missionId === 'earth') {
         const box = targetBox(built, p.exploded, shownEx.current)
         s = box.getBoundingSphere(new THREE.Sphere())
-        dist = fitDistanceBox(box, s.center, dir, size.width, size.height) * factor
+        const rowDist = fitDistanceBox(box, s.center, dir, size.width, size.height)
+        const sideDist = fitDistanceBox(box, s.center, dir, size.width, size.height, SIDE_RESERVE)
+        // side label columns when the craft is tall and that framing is clearly larger
+        sideLabels.current = projectedAspect(box, dir) > 1.15 && sideDist < rowDist * 0.9
+        dist = (sideLabels.current ? sideDist : rowDist) * factor
         fitted.current = s.radius
         // look slightly below the centre so the craft sits between the top label row and the bottom row + toolbar
-        const px = (LABEL_RESERVE.bottom - LABEL_RESERVE.top) / 2
+        const px = sideLabels.current ? 12 : (LABEL_RESERVE.bottom - LABEL_RESERVE.top) / 2
         const worldPerPx = (2 * dist * Math.tan(((FOV / 2) * Math.PI) / 180)) / Math.max(1, size.height)
         s = new THREE.Sphere(s.center.clone().addScaledVector(screenUp(dir), -px * worldPerPx), s.radius)
       } else {
@@ -457,7 +481,7 @@ function Scene(p: SceneProps) {
         }
       }
       const width = (c: CategoryId) => o.labels.get(c)?.offsetWidth || 90
-      if (built.missionId === 'earth') {
+      if (built.missionId === 'earth' && !sideLabels.current) {
         items.sort((a, b2) => a.x - b2.x)
         const nTop = Math.ceil(items.length / 2)
         ;[items.slice(0, nTop), items.slice(nTop)].forEach((row, ri) => {

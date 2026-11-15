@@ -43,7 +43,7 @@ The view fills its parent (`h-full w-full`, canvas is transparent so the glass p
 | `apiRef` | `Ref<SpacecraftViewApi>` | — | `{ zoomIn, zoomOut, fit, resetView, setAutoRotate, toggleAutoRotate }` for an external toolbar (then pass `toolbar={false}`) |
 | `className` | `string` | — | |
 
-Behaviour: damped OrbitControls (no pan, zoom clamped to 0.4–2.2× the fitted distance). Earth framing is a box fit of the craft at its *target* explode state with screen space reserved for the label rows and toolbar (`LABEL_RESERVE`), and it re-frames when an installed part changes the craft's size by more than 6 % (e.g. sun-tracking wings). The highlighted category (open tab / hover) gets a faint additive fresnel rim and a mint-outlined label, not a mint fill. `frameloop="demand"` (renders only while
+Behaviour: damped OrbitControls (no pan, zoom clamped to 0.4–2.2× the fitted distance). Earth framing is a box fit of the craft at its *target* explode state with screen space reserved for the label rows and toolbar (`LABEL_RESERVE`), and it re-frames when an installed part changes the craft's size by more than 6 % (e.g. sun-tracking wings). Tall layouts (projected height > 1.15 × width) switch the Earth labels from top/bottom rows to side columns (`SIDE_RESERVE`) so the craft keeps the full panel height. The highlighted category (open tab / hover) gets a faint additive fresnel rim and a mint-outlined label, not a mint fill. `frameloop="demand"` (renders only while
 something moves; paused when off-screen or the tab is hidden), newly installed parts fly into their
 slot, panels facing the camera fade (x-ray) while exploded, reduced-motion respected.
 

@@ -350,7 +350,7 @@ function buildCards(s: SimState, mission: Mission, r: ResolvedDesign, core: Core
   });
   if (s.endReason === 'decayed') {
     cards.push({ id: 'decay', color: 'lesson', title: 'Orbit decayed',
-      text: `Air drag ended the mission after month ${s.lastStep}: ${s.totalSteps - s.lastStep} months of science lost.`, nextTime: 'Choose a higher orbit.', impact: 5 });
+      text: `Air drag ended the mission after month ${s.lastStep}: ${s.totalSteps - s.lastStep} ${s.totalSteps - s.lastStep === 1 ? 'month' : 'months'} of science lost.`, nextTime: 'Choose a higher orbit.', impact: 5 });
   }
   if (s.endReason === 'lost') {
     cards.push({ id: 'lost', color: 'loss', title: 'Spacecraft lost',
@@ -434,7 +434,7 @@ export type MatchFeature = 'instruments' | 'orbit' | 'aerobraking' | 'pointing' 
 
 /** Feature weights (sum 1). Instruments dominate: what you measure is what a mission is about. */
 export const MATCH_WEIGHTS: Record<MatchFeature, number> = {
-  instruments: 0.38, orbit: 0.16, pointing: 0.09, comms: 0.08, size: 0.09, propulsion: 0.06, aerobraking: 0.05, solar: 0.04, outcome: 0.05,
+  instruments: 0.41, orbit: 0.16, pointing: 0.09, comms: 0.08, size: 0.09, propulsion: 0.06, aerobraking: 0.05, solar: 0.04, outcome: 0.02,
 };
 
 export interface FeatureScore {
@@ -579,7 +579,8 @@ function scoreAnalog(p: DesignProfile, a: Analog, relevant: Set<ScienceType>): {
   if (theirKg) {
     // Earth: the game's spacecraft is always a 3U CubeSat; compare form factors there.
     const mine = p.missionId === 'earth' ? SIZE_KG['3U'] : Math.max(1, p.massKg);
-    add('size', Math.max(0, 1 - Math.abs(Math.log10(mine / theirKg)) / 1.3));
+    // within ±35 % mass the sim stays >= 0.7 ("Similar size"); a 2.7x difference scores 0
+    add('size', Math.max(0, 1 - (Math.abs(Math.log(mine / theirKg)) / Math.log(1.35)) * 0.3));
   }
   add('solar', p.solar && f.solar ? (p.solar === f.solar.cls ? 1 : 0.3) : null);
   add('outcome', p.outcome && f.outcome ? outcomeSim(p.outcome, f.outcome.cls) : null);

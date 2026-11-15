@@ -21,7 +21,7 @@ export function ScorePanel({ report }: { report: MissionReport }) {
   const r = rating(report.totalRounded)
   return (
     <Panel title="Performance breakdown" divided className="h-full" bodyClassName="flex min-h-0 flex-col !px-[22px] !pt-3 !pb-[16px]">
-      <ul className="flex shrink-0 flex-col gap-3">
+      <ul className={`flex shrink-0 flex-col ${penalty > 0 ? 'gap-2' : 'gap-3'}`}>
         {categories.map((c) => {
           const pct = Math.max(0, Math.min(100, (c.points / c.max) * 100))
           return (
@@ -62,19 +62,28 @@ export function ScorePanel({ report }: { report: MissionReport }) {
           <Icon name="calendar" size={22} className="text-red" />
           <span className="text-base text-text">
             Schedule overrun
-            <span className="block text-sm text-text-dim">{report.stats.overMonths} extra months of development</span>
+            <span className="block text-sm text-text-dim">
+              {report.stats.overMonths} extra {report.stats.overMonths === 1 ? 'month' : 'months'} of development
+            </span>
           </span>
           <span className="num ml-auto text-xl text-red">−{Math.round(penalty)}</span>
         </div>
       )}
 
-      <div className="mt-auto border-t border-hairline pt-2.5">
-        <div className="text-sm text-text-dim">Assessment</div>
-        <div className="text-2xl leading-tight font-normal text-text">{r.title}</div>
-        <p className="mt-0.5 text-sm text-text-dim">
-          {r.hint}
-        </p>
-      </div>
+      {penalty > 0 ? (
+        // compact one-row assessment so the overrun card never pushes it out of the panel at 1672x941
+        <div className="mt-auto flex items-baseline gap-2 border-t border-hairline pt-2.5">
+          <span className="text-sm text-text-dim">Assessment</span>
+          <span className="text-xl leading-tight text-text">{r.title}</span>
+          <span className="ml-auto text-sm text-text-dim">{r.hint}</span>
+        </div>
+      ) : (
+        <div className="mt-auto border-t border-hairline pt-2.5">
+          <div className="text-sm text-text-dim">Assessment</div>
+          <div className="text-2xl leading-tight font-normal text-text">{r.title}</div>
+          <p className="mt-0.5 text-sm text-text-dim">{r.hint}</p>
+        </div>
+      )}
     </Panel>
   )
 }

@@ -5,6 +5,15 @@ import type { CategoryId, Design, Mission, SlotKey } from '../../data'
 import type { CoreNumbers, DesignEvaluation, Gauge as EngineGauge, GaugeId, Issue, IssueCode } from '../../engine'
 import { fmtDv, fmtGB, fmtGBmo, fmtKg, fmtMoney, fmtPct, fmtW } from '../../engine'
 import { categoryOfSlot, issueTab, selectedIds } from './util'
+import { devEndDate, fmtDate, monthsBetween, nextMarsWindow, windowAfter } from '../../data/nasa/horizons'
+
+/** "The next launch window is 28 Dec 2030, 25 months later." from the real JPL Horizons windows. */
+function nextWindowGap(mission: Mission): string {
+  const w = nextMarsWindow(devEndDate(mission.limits.devMonths))
+  const after = w && windowAfter(w)
+  if (!w || !after) return 'The next launch window opens about two years later.'
+  return `The next launch window is ${fmtDate(after.optimal)}, ${Math.round(monthsBetween(w.optimal, after.optimal))} months later.`
+}
 
 interface ConstraintsProps {
   mission: Mission
@@ -96,7 +105,7 @@ export function Constraints({ mission, design, evaluation, onOpenTab }: Constrai
         )}
       </div>
 
-      <p className="shrink-0 px-[22px] pt-1.5 pb-4 text-xs text-text-faint">Recalculated after each change · illustrative values</p>
+      <p className="shrink-0 px-[22px] pt-1.5 pb-4 text-xs text-text-faint">Calibrated to NASA data (GMAT, SST SOA) · prices game-scaled</p>
       <style>{`.constraints-scroll{scrollbar-width:thin;scrollbar-color:rgb(255 255 255/.16) transparent}`}</style>
     </section>
   )
@@ -258,7 +267,7 @@ function cardText(issue: Issue, mission: Mission, design: Design, core: CoreNumb
     case 'schedule_window':
       return {
         value: `+${mo(core.timeMonths - mission.limits.devMonths)}`,
-        why: 'The next launch window opens 26 months later.',
+        why: nextWindowGap(mission),
         detail: `Build ${mo(core.timeMonths)} / Window ${mo(mission.limits.devMonths)}`,
       }
     case 'mass_limit':

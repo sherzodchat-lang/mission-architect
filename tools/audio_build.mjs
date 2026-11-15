@@ -1,9 +1,10 @@
 // Rebuilds public/audio/** from assets_src/audio/raw/*.mp3 using the choices in assets_src/audio/manifest.json.
 //   node tools/audio_build.mjs            rebuild everything
 //   node tools/audio_build.mjs v01_welcome ui_click   rebuild only these ids
+// Items with `selected_candidate` (user-chosen finished file in assets_src/audio/candidates/) are copied verbatim.
 // Needs ffmpeg + ffprobe in PATH. Raw originals are never modified. Run `node tools/public_index.mjs` afterwards
 // (npm predev/prebuild does it automatically).
-import { readFileSync, mkdirSync, mkdtempSync, rmSync, statSync } from 'node:fs'
+import { readFileSync, mkdirSync, mkdtempSync, rmSync, statSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
@@ -15,6 +16,9 @@ const outDir = join(root, 'public', 'audio')
 const manifest = JSON.parse(readFileSync(join(srcDir, 'manifest.json'), 'utf8'))
 const only = process.argv.slice(2)
 const tmp = mkdtempSync(join(tmpdir(), 'audio_build-'))
+
+/** Disclosure tags written into every output mp3 (Space Apps rules: AI-generated media must be marked). */
+const META = ['-metadata', 'comment=SI-generated with ElevenLabs (Mission Architect, NASA Space Apps 2026)', '-metadata', 'artist=ElevenLabs (SI)']
 
 function ff(args) {
   const r = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-y', ...args], { encoding: 'utf8', maxBuffer: 1 << 26 })
@@ -45,7 +49,7 @@ function normalizeEncode(inWav, outMp3, p) {
   let res
   for (let i = 0; i < 6; i++) {
     const af = `volume=${gain.toFixed(2)}dB,alimiter=limit=${ceil.toFixed(4)}:attack=2:release=40:level=disabled`
-    ff(['-i', inWav, '-af', af, '-ac', String(ch), '-ar', '44100', '-c:a', 'libmp3lame', '-b:a', p.bitrate, outMp3])
+    ff(['-i', inWav, '-af', af, '-ac', String(ch), '-ar', '44100', '-c:a', 'libmp3lame', '-b:a', p.bitrate, ...META, outMp3])
     res = measure(outMp3)
     const over = res.tp - p.tp
     const err = p.lufs - res.lufs
@@ -179,9 +183,20 @@ const report = []
 try {
   for (const [id, it] of Object.entries(manifest.items)) {
     if (only.length && !only.includes(id)) continue
-    const take = join(srcDir, it.takes[it.choice].file)
     mkdirSync(dirname(join(outDir, it.out)), { recursive: true })
-    const r = it.kind === 'voice' ? buildVoice(id, it, take) : it.kind === 'sfx' ? buildSfx(id, it, take) : buildAmbient(id, it, take)
+    let r
+    if (it.selected_candidate) {
+      // the user picked a finished candidate (e.g. ui_click_B1): ship it as is, never regenerate from the old takes
+      const cand = join(srcDir, 'candidates', it.selected_candidate + '.mp3')
+      if (!existsSync(cand)) throw new Error(`${id}: selected candidate ${cand} not found`)
+      // stream copy (no re-encode) with the disclosure tags
+      ff(['-i', cand, '-map_metadata', '-1', '-c', 'copy', ...META, join(outDir, it.out)])
+      r = measure(join(outDir, it.out))
+      it.choice = it.selected_candidate
+    } else {
+      const take = join(srcDir, it.takes[it.choice].file)
+      r = it.kind === 'voice' ? buildVoice(id, it, take) : it.kind === 'sfx' ? buildSfx(id, it, take) : buildAmbient(id, it, take)
+    }
     const dur = duration(join(outDir, it.out))
     const kb = (statSync(join(outDir, it.out)).size / 1024).toFixed(1)
     report.push({ id, take: it.choice, dur: +dur.toFixed(2), kb: +kb, lufs: +r.lufs.toFixed(1), tp: +r.tp.toFixed(1) })
